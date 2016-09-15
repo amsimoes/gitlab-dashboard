@@ -4,19 +4,23 @@ import json
 
 app = Flask(__name__)
 
-private_token = '8fH8Vs4WNpYhVUBPzq5g' 
 
 #TODO: method to get project ID?
 
 def make_get_request(path):
-
+    private_token = '8fH8Vs4WNpYhVUBPzq5g' 
     request_url = 'https://git.dei.uc.pt/api/v3'
     response = requests.get(request_url + path + '?private_token={private_token}'.format(private_token=private_token))
     
     return response
 
+def get_project_id():
+
+    path = '/projects'
+    return (make_get_request(path)).json()[0]['id']
+
 @app.route('/')
-def hello_world():
+def list_projects():
     path = '/projects' 
     response = make_get_request(path)
 
@@ -28,7 +32,8 @@ def hello_world():
 @app.route('/projects')
 def list_project_files():
 
-    path = '/projects/737/repository/tree'
+    project_id = get_project_id()
+    path = '/projects/{project_id}/repository/tree'.format(project_id=project_id)
     response = make_get_request(path)
 
     for file in response.json():
