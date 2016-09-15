@@ -15,6 +15,7 @@ def get_project_id():
 
     path = '/projects'
     return (make_get_request(path)).json()[0]['id']
+
 @app.route('/commits')
 def list_commits():
     project_id = get_project_id()
