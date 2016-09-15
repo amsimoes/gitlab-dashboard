@@ -15,7 +15,6 @@ def get_project_id():
 
     path = '/projects'
     return (make_get_request(path)).json()[0]['id']
-
 @app.route('/commits')
 def list_commits():
     project_id = get_project_id()
@@ -26,7 +25,8 @@ def list_commits():
         print(commits['title'])
     
     return ('success!')
-    
+ 
+
 @app.route('/')
 def list_projects():
     path = '/projects' 
@@ -35,6 +35,7 @@ def list_projects():
     print(response.json()[0]['default_branch'])
 
     return response.content 
+
 
 @app.route('/projects')
 def list_project_files():
