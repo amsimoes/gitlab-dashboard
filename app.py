@@ -4,9 +4,6 @@ import json
 
 app = Flask(__name__)
 
-
-#TODO: method to get project ID?
-
 def make_get_request(path):
     private_token = '8fH8Vs4WNpYhVUBPzq5g' 
     request_url = 'https://git.dei.uc.pt/api/v3'
