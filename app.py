@@ -5,14 +5,13 @@ import json
 app = Flask(__name__)
 
 def make_get_request(path):
-    private_token = '8fH8Vs4WNpYhVUBPzq5g' 
+    private_token = '8fH8Vs4WNpYhVUBPzq5g'
     request_url = 'https://git.dei.uc.pt/api/v3'
     response = requests.get(request_url + path + '?private_token={private_token}'.format(private_token=private_token))
-    
+
     return response
 
 def get_project_id():
-
     path = '/projects'
     return (make_get_request(path)).json()[0]['id']
 
@@ -24,23 +23,22 @@ def list_commits():
 
     for commits in response.json():
         print(commits['title'])
-    
+
     return ('success!')
- 
+
 
 @app.route('/')
 def list_projects():
-    path = '/projects' 
+    path = '/projects'
     response = make_get_request(path)
 
     print(response.json()[0]['default_branch'])
 
-    return response.content 
+    return response.content
 
 
 @app.route('/projects')
 def list_project_files():
-
     project_id = get_project_id()
     path = '/projects/{project_id}/repository/tree'.format(project_id=project_id)
     response = make_get_request(path)
