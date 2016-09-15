@@ -10,13 +10,17 @@ app = Flask(__name__)
 def hello_world():
     gl = gitlab.Gitlab('https://git.dei.uc.pt/', '8fH8Vs4WNpYhVUBPzq5g')
     gl.auth()
-    projects = gl.projects.list()
-    for project in projects:
-        print(project.branches.list())
+    #projects = gl.projects.list()
+    #for project in projects:
+    #    print(project.branches.list())
 
-    # response = requests.get('https://git.dei.uc.pt/pcaseiro/ES-team-zig', headers={'PRIVATE-TOKEN': '8fH8Vs4WNpYhVUBPzq5g'})
-    # print(response).content
-    return "hello"
+    response = requests.get('https://git.dei.uc.pt/api/v3/projects?private_token=8fH8Vs4WNpYhVUBPzq5g')
+
+    #print(json.load(response))
+    #return "hello"
+    return (response).content
+            
+    
 
 
 if __name__ == '__main__':
