@@ -11,9 +11,41 @@ def make_get_request(path):
 
     return response
 
+
 def get_project_id():
     path = '/projects'
     return (make_get_request(path)).json()[0]['id']
+
+
+def get_project_name():
+    path = '/projects'
+    return (make_get_request(path)).json()[0]['name']
+
+
+def get_build_id(project_id):
+    path = '/builds'
+    return (make_get_request(path)).json()[project_id]['id']
+
+
+@app.route('/builds')
+def list_builds():
+    project_id = get_project_id()
+    path = '/projects/{project_id}/builds'.format(project_id=project_id)
+    response = make_get_request(path)
+
+    if not response:
+        return 'Project {project_name} has no builds.'.format(project_name=get_project_name())
+    return response.content
+
+
+@app.route('/branches')
+def list_branches():
+    project_id = get_project_id()
+    path = '/projects/{project_id}/repository/branches'.format(project_id=project_id)
+    response = make_get_request(path)
+
+    return response.json()[0]['name']
+
 
 @app.route('/commits')
 def list_commits():
@@ -47,6 +79,7 @@ def list_project_files():
         print(file['name'])
 
     return response.content
+
 
 if __name__ == '__main__':
     app.run()
