@@ -27,26 +27,6 @@ def get_build_id(project_id):
     return (make_get_request(path)).json()[project_id]['id']
 
 
-@app.route('/builds')
-def list_builds():
-    project_id = get_project_id()
-    path = '/projects/{project_id}/builds'.format(project_id=project_id)
-    response = make_get_request(path)
-
-    if not response:
-        return 'Project {project_name} has no builds.'.format(project_name=get_project_name())
-    return response.content
-
-
-@app.route('/branches')
-def list_branches():
-    project_id = get_project_id()
-    path = '/projects/{project_id}/repository/branches'.format(project_id=project_id)
-    response = make_get_request(path)
-
-    return response.json()[0]['name']
-
-
 @app.route('/commits')
 def list_commits():
     project_id = get_project_id()
@@ -54,11 +34,33 @@ def list_commits():
     response = make_get_request(path)
 
     for commits in response.json():
-        print(commits['title'])
+        print(commits['author_email'])
 
-    return ('success!')
+    return response.content
 
 
+@app.route('/commits/user')
+def list_commits_by_user():
+    project_id = get_project_id()
+    path = '/projects/{project_id}/repository/commits'.format(project_id = project_id)
+    response = make_get_request(path)
+
+    for commits in response.json():
+        if commits['author_email'] == "asimoes@student.dei.uc.pt":
+            print(commits['title'])
+
+    return "todo"
+
+
+@app.route('/commits/user/diff')
+def list_diffs_user():
+    project_id = get_project_id()
+    path = '/projects/{project_id}/repository/commits/{commit_id}/diff'.format(project_id=project_id, commit_id='master')
+    response = make_get_request(path)
+
+    return response.content
+
+    
 @app.route('/')
 def list_projects():
     path = '/projects'
@@ -77,6 +79,35 @@ def list_project_files():
 
     for file in response.json():
         print(file['name'])
+
+    return response.content
+
+
+@app.route('/projects/builds')
+def list_project_builds():
+    project_id = get_project_id()
+    path = '/projects/{project_id}/builds'.format(project_id=project_id)
+    response = make_get_request(path)
+
+    if not response:
+        return 'Project {project_name} has no builds.'.format(project_name=get_project_name())
+    return response.content
+
+
+@app.route('/projects/branches')
+def list_project_branches():
+    project_id = get_project_id()
+    path = '/projects/{project_id}/repository/branches'.format(project_id=project_id)
+    response = make_get_request(path)
+
+    return response.json()[0]['name']
+
+
+@app.route('/projects/members')
+def list_project_members():
+    project_id = get_project_id()
+    path = '/projects/{project_id}/members'.format(project_id=project_id)
+    response = make_get_request(path)
 
     return response.content
 
