@@ -52,7 +52,7 @@ def get_commit_stats(commit_id):
 def get_file_diff(commit_id):
     project_id = get_project_id()
     path = '/projects/{project_id}/repository/commits/{sha}/diff'.format(project_id=project_id, \
-            sha=str(commit_id))
+            sha=commit_id)
     response = make_get_request(path)
     f_name = ''
 
@@ -61,7 +61,7 @@ def get_file_diff(commit_id):
     else:
         f_name = response.json()[0]["new_path"]
         print(f_name)
-        if "/" in f_name:
+        if "/" in f_name:   # Em caso do ficheiro estar dentro de alguma pasta (por testar)
             f_name = f_name.split("/")
             return f_name[:-1]
         else:
@@ -75,7 +75,7 @@ def get_commits_per_file(file_name):
     count = 0
 
     for commits in response.json():
-        if get_file_diff(commits['id']) == file_name:
+        if get_file_diff(str(commits['id'])) == file_name:
             count += 1
     return count
 
@@ -107,6 +107,7 @@ def list_project_files():
     return response.content
 
 
+# Lista o numero de commits por ficheiro (Tá a bombar, mas tá lento pa crl)
 @app.route('/projects/files/commits')
 def list_file_commits():
     file_name = "app.py"
@@ -144,19 +145,5 @@ def list_commits_by_user():
     return "{user} | Commits: {c} | Additions: {a} | Deletions: {d}".format(user=user_email,c=count,a=additions,d=deletions)
 
 
-# sha - short id de cada commit
-@app.route('/projects/commits/stats')
-def list_single_commit():
-    project_id = get_project_id()
-    path = '/projects/{project_id}/repository/commits/{sha}'.format(project_id=project_id, \
-            sha='a2123fc9')
-    response = make_get_request(path)
-    adds = response.json()['stats']['additions']
-    dels = response.json()['stats']['deletions']
-
-    return "{a},{d}".format(a=adds,d=dels)
-
-
 if __name__ == '__main__':
     app.run()
-
