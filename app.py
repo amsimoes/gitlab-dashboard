@@ -12,56 +12,80 @@ def make_get_request(path):
     return response
 
 
+# id = 737
 def get_project_id():
     path = '/projects'
     return (make_get_request(path)).json()[0]['id']
 
 
-def get_project_name():
-    path = '/projects'
-    return (make_get_request(path)).json()[0]['name']
+def get_commits_per_user(user_email):
+    if not user_email:
+        return 'Error 502: user_email invalid'
+
+    project_id = get_project_id()
+    path = '/projects/{project_id}/repository/commits'.format(project_id=project_id)
+    response = make_get_request(path)
+    count = adds = dels = 0
+
+    for commits in response.json():
+        if commits['author_email'] == user_email:
+            count += 1
+            print(commits['id'])
+            additions, deletions = get_commit_stats(str(commits['id']))
+            adds += additions
+            dels += deletions
+
+    return count, adds, dels
 
 
-def get_build_id(project_id):
-    path = '/builds'
-    return (make_get_request(path)).json()[project_id]['id']
+def get_commit_stats(commit_id):
+    project_id = get_project_id()
+    path = '/projects/{project_id}/repository/commits/{sha}'.format(project_id=project_id, \
+            sha=commit_id)
+    response = make_get_request(path)
+    additions = response.json()['stats']['additions']
+    deletions = response.json()['stats']['deletions']
+
+    return additions, deletions
 
 
-@app.route('/commits')
-def list_commits():
+def get_file_diff(commit_id):
+    project_id = get_project_id()
+    path = '/projects/{project_id}/repository/commits/{sha}/diff'.format(project_id=project_id, \
+            sha=str(commit_id))
+    response = make_get_request(path)
+    f_name = ''
+
+    if len(str(response.content)) < 10: # Pode aparecer um commit vazio (sem modificacao nenhuma)
+        return 'nothing'
+    else:
+        f_name = response.json()[0]["new_path"]
+        print(f_name)
+        if "/" in f_name:
+            f_name = f_name.split("/")
+            return f_name[:-1]
+        else:
+            return f_name
+
+
+def get_commits_per_file(file_name):
     project_id = get_project_id()
     path = '/projects/{project_id}/repository/commits'.format(project_id = project_id)
     response = make_get_request(path)
+    count = 0
 
     for commits in response.json():
-        print(commits['author_email'])
-
-    return response.content
-
-
-@app.route('/commits/user')
-def list_commits_by_user():
-    project_id = get_project_id()
-    path = '/projects/{project_id}/repository/commits'.format(project_id = project_id)
-    response = make_get_request(path)
-
-    for commits in response.json():
-        if commits['author_email'] == "asimoes@student.dei.uc.pt":
-            print(commits['title'])
-
-    return "todo"
+        if get_file_diff(commits['id']) == file_name:
+            count += 1
+    return count
 
 
-@app.route('/commits/user/diff')
-def list_diffs_user():
-    project_id = get_project_id()
-    path = '/projects/{project_id}/repository/commits/{commit_id}/diff'.format(project_id=project_id, commit_id='master')
-    response = make_get_request(path)
-
-    return response.content
-
-    
 @app.route('/')
+def welcome():
+    return 'Se tens zig entras. Se não, boa noite.'
+
+
+@app.route('/projects')
 def list_projects():
     path = '/projects'
     response = make_get_request(path)
@@ -71,7 +95,7 @@ def list_projects():
     return response.content
 
 
-@app.route('/projects')
+@app.route('/projects/files')
 def list_project_files():
     project_id = get_project_id()
     path = '/projects/{project_id}/repository/tree'.format(project_id=project_id)
@@ -83,24 +107,12 @@ def list_project_files():
     return response.content
 
 
-@app.route('/projects/builds')
-def list_project_builds():
-    project_id = get_project_id()
-    path = '/projects/{project_id}/builds'.format(project_id=project_id)
-    response = make_get_request(path)
+@app.route('/projects/files/commits')
+def list_file_commits():
+    file_name = "app.py"
+    commits = get_commits_per_file(file_name)
 
-    if not response:
-        return 'Project {project_name} has no builds.'.format(project_name=get_project_name())
-    return response.content
-
-
-@app.route('/projects/branches')
-def list_project_branches():
-    project_id = get_project_id()
-    path = '/projects/{project_id}/repository/branches'.format(project_id=project_id)
-    response = make_get_request(path)
-
-    return response.json()[0]['name']
+    return file_name+" | Number of commits: "+str(commits)
 
 
 @app.route('/projects/members')
@@ -110,6 +122,39 @@ def list_project_members():
     response = make_get_request(path)
 
     return response.content
+
+
+@app.route('/projects/commits')
+def list_commits():
+    project_id = get_project_id()
+    path = '/projects/{project_id}/repository/commits'.format(project_id = project_id)
+    response = make_get_request(path)
+
+    for commits in response.json():
+        print(commits['id'])
+
+    return response.content
+
+
+@app.route('/projects/commits/user')
+def list_commits_by_user():
+    user_email = "asimoes@student.dei.uc.pt"
+    count, additions, deletions = get_commits_per_user(user_email)
+
+    return "{user} | Commits: {c} | Additions: {a} | Deletions: {d}".format(user=user_email,c=count,a=additions,d=deletions)
+
+
+# sha - short id de cada commit
+@app.route('/projects/commits/stats')
+def list_single_commit():
+    project_id = get_project_id()
+    path = '/projects/{project_id}/repository/commits/{sha}'.format(project_id=project_id, \
+            sha='a2123fc9')
+    response = make_get_request(path)
+    adds = response.json()['stats']['additions']
+    dels = response.json()['stats']['deletions']
+
+    return "{a},{d}".format(a=adds,d=dels)
 
 
 if __name__ == '__main__':
