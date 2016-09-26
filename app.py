@@ -94,15 +94,18 @@ def get_stats_per_file(file_name):
     path = '/projects/{project_id}/repository/commits'.format(project_id = project_id)
     response = make_get_request(path)
     commit_count = additions = deletions = 0
+    contributors = []
 
     for commits in response.json():
         if get_file_diff(project_id, str(commits['id'])) == file_name:
-            commit_count += 1
+            if commits["author_name"] not in contributors:
+                contributors.append(commits["author_name"])
             adds, dels = get_commit_stats(project_id, str(commits['id']))
+            commit_count += 1
             additions += adds
             deletions += dels
             creation_date = commits['created_at']
-    return commit_count, additions, deletions, parse_date(creation_date)
+    return commit_count, additions, deletions, parse_date(creation_date), contributors
 
 
 @app.route('/')
@@ -143,12 +146,14 @@ def list_project_files():
 
 # Lista o numero de commits por ficheiro
 @app.route('/projects/files/commits')
-def list_file_commits():
+def list_file_stats():
     file_name = "app.py"
-    commits, additions, deletions, creation_date = get_stats_per_file(file_name)
+    commits, additions, deletions, creation_date, contributors = get_stats_per_file(file_name)
+    lista = ', '.join(contributors)
 
     return "{f} | Creation date: {date} | \
-        {c} Commits {a} Additions {d} Deletions".format(f=file_name,date=creation_date,c=commits,a=additions,d=deletions)
+        {c} Commits {a} Additions {d} Deletions \
+        | Contributors: {l}".format(f=file_name,date=creation_date,c=commits,a=additions,d=deletions,l=lista)
 
 
 @app.route('/projects/members')
