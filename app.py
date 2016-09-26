@@ -7,7 +7,10 @@ app = Flask(__name__)
 def make_get_request(path):
     private_token = '8fH8Vs4WNpYhVUBPzq5g'
     request_url = 'https://git.dei.uc.pt/api/v3'
-    response = requests.get(request_url + path + '?private_token={private_token}'.format(private_token=private_token))
+    if "?" not in path:
+        response = requests.get(request_url + path + '?private_token={private_token}'.format(private_token=private_token))
+    else:
+        response = requests.get(request_url + path + '&private_token={private_token}'.format(private_token=private_token))
 
     return response
 
@@ -31,7 +34,7 @@ def get_commits_per_user(user_email):
         if commits['author_email'] == user_email:
             count += 1
             print(commits['id'])
-            additions, deletions = get_commit_stats(str(commits['id']))
+            additions, deletions = get_commit_stats(project_id, str(commits['id']))
             adds += additions
             dels += deletions
 
@@ -40,7 +43,7 @@ def get_commits_per_user(user_email):
 
 def get_commit_stats(project_id, commit_id):
     path = '/projects/{project_id}/repository/commits/{sha}'.format(project_id=project_id, \
-            sha=commit_id)
+            sha=str(commit_id))
     response = make_get_request(path)
     additions = response.json()['stats']['additions']
     deletions = response.json()['stats']['deletions']
@@ -48,11 +51,31 @@ def get_commit_stats(project_id, commit_id):
     return additions, deletions
 
 
+def parse_date(date):
+    data = date[:10] # Formato YYYY-MM-DD
+    data = data.split("-")
+    data = str(data[2])+"/"+str(data[1])+"/"+str(data[0])
+    return data
+
+
+def get_file_id(project_id, file_path):
+    path = '/projects/{project_id}/repository/files?file_path={f}&ref={branch}'.format(project_id=project_id,f=file_path,\
+        branch='master')
+    response = make_get_request(path)
+    print(response.content)
+    file_commit_id = response.json()["commit_id"]
+    print("Commit_id ="+str(file_commit_id))
+    # print("Last_commit_id ="+str(response.json()["last_commit_id"]))
+
+    return file_commit_id
+
+
 def get_file_diff(project_id, commit_id):
     path = '/projects/{project_id}/repository/commits/{sha}/diff'.format(project_id=project_id, \
             sha=commit_id)
     response = make_get_request(path)
     f_name = ''
+    #print(response.content)
 
     if len(str(response.content)) < 10: # Pode aparecer um commit vazio (sem modificacao nenhuma)
         return 'nothing'
@@ -71,19 +94,35 @@ def get_stats_per_file(file_name):
     path = '/projects/{project_id}/repository/commits'.format(project_id = project_id)
     response = make_get_request(path)
     commit_count = additions = deletions = 0
+    contributors = []
 
     for commits in response.json():
         if get_file_diff(project_id, str(commits['id'])) == file_name:
-            commit_count += 1
+            if commits["author_name"] not in contributors:
+                contributors.append(commits["author_name"])
             adds, dels = get_commit_stats(project_id, str(commits['id']))
+            commit_count += 1
             additions += adds
             deletions += dels
-    return commit_count, additions, deletions
+            creation_date = commits['created_at']
+    return commit_count, additions, deletions, parse_date(creation_date), contributors
 
 
 @app.route('/')
 def welcome():
     return render_template('hello.html')
+
+
+@app.route('/repo')
+def teste():
+    project_id = get_project_id()
+    file_path = 'app.py'
+    file_commit_id = get_file_id(project_id, file_path)
+
+    path2 = '/projects/{project_id}/repository/commits/{sha}'.format(project_id=project_id,sha=file_commit_id)
+    response2 = make_get_request(path2)
+
+    return response2.json()["created_at"]
 
 
 @app.route('/projects')
@@ -106,18 +145,19 @@ def list_project_files():
     path = '/projects/{project_id}/repository/tree'.format(project_id=project_id)
     response = make_get_request(path)
 
-    for file in response.json():
-        print(file['name'])
-
     return response.content
 
 
+# Lista o numero de commits por ficheiro
 @app.route('/projects/files/commits')
-def list_file_commits():
+def list_file_stats():
     file_name = "app.py"
-    commits, additions, deletions = get_stats_per_file(file_name)
+    commits, additions, deletions, creation_date, contributors = get_stats_per_file(file_name)
+    lista = ', '.join(contributors)
 
-    return "{f} | {c} Commits {a} Additions {d} Deletions".format(f=file_name,c=commits,a=additions,d=deletions)
+    return "{f} | Creation date: {date} | \
+        {c} Commits {a} Additions {d} Deletions \
+        | Contributors: {l}".format(f=file_name,date=creation_date,c=commits,a=additions,d=deletions,l=lista)
 
 
 @app.route('/projects/members')
