@@ -68,16 +68,19 @@ def get_file_diff(commit_id):
             return f_name
 
 
-def get_commits_per_file(file_name):
+def get_stats_per_file(file_name):
     project_id = get_project_id()
     path = '/projects/{project_id}/repository/commits'.format(project_id = project_id)
     response = make_get_request(path)
-    count = 0
+    commit_count = additions = deletions = 0
 
     for commits in response.json():
         if get_file_diff(str(commits['id'])) == file_name:
-            count += 1
-    return count
+            commit_count += 1
+            adds, dels = get_commit_stats(str(commits['id']))
+            additions += adds
+            deletions += dels
+    return commit_count, additions, deletions
 
 
 @app.route('/')
@@ -111,9 +114,9 @@ def list_project_files():
 @app.route('/projects/files/commits')
 def list_file_commits():
     file_name = "app.py"
-    commits = get_commits_per_file(file_name)
+    commits, additions, deletions = get_stats_per_file(file_name)
 
-    return file_name+" | Number of commits: "+str(commits)
+    return "{f} | {c} Commits {a} Additions {d} Deletions".format(f=file_name,c=commits,a=additions,d=deletions)
 
 
 @app.route('/projects/members')
