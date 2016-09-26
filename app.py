@@ -38,8 +38,7 @@ def get_commits_per_user(user_email):
     return count, adds, dels
 
 
-def get_commit_stats(commit_id):
-    project_id = get_project_id()
+def get_commit_stats(project_id, commit_id):
     path = '/projects/{project_id}/repository/commits/{sha}'.format(project_id=project_id, \
             sha=commit_id)
     response = make_get_request(path)
@@ -49,8 +48,7 @@ def get_commit_stats(commit_id):
     return additions, deletions
 
 
-def get_file_diff(commit_id):
-    project_id = get_project_id()
+def get_file_diff(project_id, commit_id):
     path = '/projects/{project_id}/repository/commits/{sha}/diff'.format(project_id=project_id, \
             sha=commit_id)
     response = make_get_request(path)
@@ -75,9 +73,9 @@ def get_stats_per_file(file_name):
     commit_count = additions = deletions = 0
 
     for commits in response.json():
-        if get_file_diff(str(commits['id'])) == file_name:
+        if get_file_diff(project_id, str(commits['id'])) == file_name:
             commit_count += 1
-            adds, dels = get_commit_stats(str(commits['id']))
+            adds, dels = get_commit_stats(project_id, str(commits['id']))
             additions += adds
             deletions += dels
     return commit_count, additions, deletions
