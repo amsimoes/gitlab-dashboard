@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 import requests
 import json
 
@@ -83,17 +83,21 @@ def get_stats_per_file(file_name):
 
 @app.route('/')
 def welcome():
-    return 'Se tens zig entras. Se não, boa noite.'
+    return render_template('hello.html')
 
 
 @app.route('/projects')
+def render_projects():
+    return render_template('index.html')
+
+@app.route('/list_projects')
 def list_projects():
     path = '/projects'
     response = make_get_request(path)
 
     print(response.json()[0]['default_branch'])
 
-    return response.content
+    return response.json()[0]['name']
 
 
 @app.route('/projects/files')
@@ -108,7 +112,6 @@ def list_project_files():
     return response.content
 
 
-# Lista o numero de commits por ficheiro (Tá a bombar, mas tá lento pa crl)
 @app.route('/projects/files/commits')
 def list_file_commits():
     file_name = "app.py"
@@ -122,8 +125,13 @@ def list_project_members():
     project_id = get_project_id()
     path = '/projects/{project_id}/members'.format(project_id=project_id)
     response = make_get_request(path)
+    
+    contributors = []
+    for contributor in response.json():
+        contributors.append(contributor['name'])
 
-    return response.content
+    print json.dumps(contributors)
+    return json.dumps(contributors)
 
 
 @app.route('/projects/commits')
