@@ -177,14 +177,20 @@ def list_project_files():
     return response.content
 
 
-# Precisa do id do ficheiro para mostrar o conteúdo
-@app.route('/projects/files/raw')
-def get_raw_file():
-    file_path = 'app.py'
+# Precisa do id do ficheiro para mostrar o conteúdo (HTML n mostram o conteudo, mostra o produto)
+@app.route('/projects/files/raw_blob')
+def get_raw_blob():
+    file_path = 'templates/hello.html'
     project_id = get_project_id()
     blob_id = get_blob_id(project_id, file_path)
     path = '/projects/{project_id}/repository/raw_blobs/{blob_id}'.format(project_id=project_id, blob_id=blob_id)
     response = make_get_request(path)
+
+    if ".html" in file_path:
+        string = str(response.content)
+        string = string[2:]
+        string = "<textarea rows=\"25\" cols =\"75\">"+string+"</textarea>"
+        return string
     return response.content
 
 
