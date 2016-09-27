@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+from unidecode import unidecode
 import requests
 import json
 
@@ -192,7 +193,7 @@ def list_project_members():
 
     contributors = []
     for contributor in response.json():
-        contributors.append(contributor['name'])
+        contributors.append(unidecode(contributor['name']))
 
     return json.dumps(contributors)
 
