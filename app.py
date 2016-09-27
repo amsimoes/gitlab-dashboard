@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+from unidecode import unidecode
 import requests
 import json
 
@@ -95,6 +96,7 @@ def get_stats_per_file(file_name):
     response = make_get_request(path)
     commit_count = additions = deletions = 0
     contributors = []
+    found = False
 
     for commits in response.json():
         if get_file_diff(project_id, str(commits['id'])) == file_name:
@@ -105,6 +107,9 @@ def get_stats_per_file(file_name):
             additions += adds
             deletions += dels
             creation_date = commits['created_at']
+            found = True
+    if found == False:
+        return 0,0,0,0,0
     return commit_count, additions, deletions, parse_date(creation_date), contributors
 
 
@@ -129,6 +134,7 @@ def teste():
 def render_projects():
     return render_template('index.html')
 
+
 @app.route('/list_projects')
 def list_projects():
     path = '/projects'
@@ -147,10 +153,11 @@ def list_project_files():
 
     return response.content
 
+
 @app.route('/projects/folders', methods=["GET", "POST"])
 def list_folder_files():
     project_id = get_project_id()
-    files = {} 
+    files = {}
     if request.method == "POST":
         path=request.json['folder']
         path = '/projects/{project_id}/repository/tree?path={path}'.format(project_id=project_id, path=path)
@@ -162,13 +169,15 @@ def list_folder_files():
     for file in response.json():
         files.update({file['name']:file['type']})
 
-    return json.dumps(files) 
+    return json.dumps(files)
 
 # Lista o numero de commits por ficheiro
 @app.route('/projects/files/commits')
 def list_file_stats():
     file_name = "app.py"
     commits, additions, deletions, creation_date, contributors = get_stats_per_file(file_name)
+    if commits == 0:
+        return "File {f} not commited yet.".format(f=file_name)
     lista = ', '.join(contributors)
 
     return "{f} | Creation date: {date} | \
@@ -181,10 +190,10 @@ def list_project_members():
     project_id = get_project_id()
     path = '/projects/{project_id}/members'.format(project_id=project_id)
     response = make_get_request(path)
-    
+
     contributors = []
     for contributor in response.json():
-        contributors.append(contributor['name'])
+        contributors.append(unidecode(contributor['name']))
 
     return json.dumps(contributors)
 
