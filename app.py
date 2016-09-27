@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import requests
 import json
 
@@ -147,6 +147,22 @@ def list_project_files():
 
     return response.content
 
+@app.route('/projects/folders', methods=["GET", "POST"])
+def list_folder_files():
+    project_id = get_project_id()
+    files = {} 
+    if request.method == "POST":
+        path=request.json['folder']
+        path = '/projects/{project_id}/repository/tree?path={path}'.format(project_id=project_id, path=path)
+        response = make_get_request(path)
+    elif request.method == "GET":
+        path = '/projects/{project_id}/repository/tree'.format(project_id=project_id)
+        response = make_get_request(path)
+
+    for file in response.json():
+        files.update({file['name']:file['type']})
+
+    return json.dumps(files) 
 
 # Lista o numero de commits por ficheiro
 @app.route('/projects/files/commits')
@@ -170,7 +186,6 @@ def list_project_members():
     for contributor in response.json():
         contributors.append(contributor['name'])
 
-    print json.dumps(contributors)
     return json.dumps(contributors)
 
 
