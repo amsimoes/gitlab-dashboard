@@ -106,7 +106,6 @@
 
       var ProjectFiles = React.createClass({
         handleClick: function(key, value, e) {
-
           axios.post('projects/folders', {
             folder: key
           }) 
@@ -118,13 +117,31 @@
             console.log(error);
           });
         },
+        backHandleClick: function(){
+          axios.post('projects/folders',{
+            folder: ''
+          })
+          .then(function(response){
+            this.props.updateState(response.data);
+            console.log(this.props.project_files);
+          }.bind(this))
+          .catch(function(error){
+            console.log(error);
+          });
+        },
         render: function(){
           return (
             <div class="projectFiles">
+              
             <h2>
+            <p onClick={this.backHandleClick}> .. </p>
             {Object.keys(this.props.project_files).map(function(key) {
-              let boundItemClick = this.handleClick.bind(this, key, this.props.project_files[key]);
-              return <p onClick={boundItemClick}>{key}</p>
+              if(this.props.project_files[key] == "tree"){
+                let boundItemClick = this.handleClick.bind(this, key, this.props.project_files[key]);
+
+                return <p onClick={boundItemClick}>{key}</p>
+              }
+              return <p> {key} </p>
             }.bind(this))}
             </h2>
             </div>
