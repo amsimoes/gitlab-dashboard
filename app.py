@@ -205,6 +205,7 @@ def list_folder_files():
 
     return json.dumps(files)
 
+
 # Lista o numero de commits por ficheiro
 @app.route('/projects/files/commits')
 def list_file_stats():
