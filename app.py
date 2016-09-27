@@ -76,7 +76,9 @@ def get_file_diff(project_id, commit_id):
             sha=commit_id)
     response = make_get_request(path)
     f_name = ''
-    #print(response.content)
+    # print(response.content)
+
+    print("Len dicionario: "+str(len(response.json())))
 
     if len(str(response.content)) < 10: # Pode aparecer um commit vazio (sem modificacao nenhuma)
         return 'nothing'
@@ -84,6 +86,7 @@ def get_file_diff(project_id, commit_id):
         f_name = response.json()[0]["new_path"]
         print(f_name)
         if "/" in f_name:   # Em caso do ficheiro estar dentro de alguma pasta (por testar)
+            print("Dentro de uma pasta...")
             f_name = f_name.split("/")
             return f_name[:-1]
         else:
@@ -106,6 +109,7 @@ def get_stats_per_file(file_name):
             commit_count += 1
             additions += adds
             deletions += dels
+            print("Additions: "+str(additions)+" Deletions: "+str(deletions))
             creation_date = commits['created_at']
             found = True
     if found == False:
@@ -113,21 +117,40 @@ def get_stats_per_file(file_name):
     return commit_count, additions, deletions, parse_date(creation_date), contributors
 
 
+# Invalid file_path -> retorna 0
+def get_blob_id(project_id, file_path):
+    path = '/projects/{project_id}/repository/files?file_path={f}&ref=master'.format(project_id=project_id,f=file_path)
+    response = make_get_request(path)
+
+    if not response:
+        return 0
+    return response.json()['blob_id']
+
+
+def diff():
+    project_id = get_project_id()
+    path = '/projects/{project_id}/repository/commits/{sha}/diff'.format(project_id=project_id, \
+            sha='a5b58613b1a4a12d53f8e8024a57c60a47634193')
+    response = make_get_request(path)
+    return response.content
+
+
 @app.route('/')
 def welcome():
     return render_template('hello.html')
 
 
-@app.route('/repo')
-def teste():
+@app.route('/testing')
+def repo_files():
     project_id = get_project_id()
-    file_path = 'app.py'
-    file_commit_id = get_file_id(project_id, file_path)
+    file_path = '.babelrc'
+    path = '/projects/{project_id}/repository/files?file_path={f}&ref=d2c40026052ca2ce1d7cf7ad40c4d6f39cec5141'.format(project_id=project_id,f=file_path)
+    response = make_get_request(path)
 
-    path2 = '/projects/{project_id}/repository/commits/{sha}'.format(project_id=project_id,sha=file_commit_id)
-    response2 = make_get_request(path2)
-
-    return response2.json()["created_at"]
+    print(response.json()['commit_id'])
+    adds, dels = get_commit_stats(project_id, response.json()['commit_id'])
+    #return "Additions: {a} Deletions {d}".format(a=adds, d=dels)
+    return response.content
 
 
 @app.route('/projects')
@@ -154,6 +177,17 @@ def list_project_files():
     return response.content
 
 
+# Precisa do id do ficheiro para mostrar o conteúdo
+@app.route('/projects/files/raw')
+def get_raw_file():
+    file_path = 'app.py'
+    project_id = get_project_id()
+    blob_id = get_blob_id(project_id, file_path)
+    path = '/projects/{project_id}/repository/raw_blobs/{blob_id}'.format(project_id=project_id, blob_id=blob_id)
+    response = make_get_request(path)
+    return response.content
+
+
 @app.route('/projects/folders', methods=["GET", "POST"])
 def list_folder_files():
     project_id = get_project_id()
@@ -174,7 +208,7 @@ def list_folder_files():
 # Lista o numero de commits por ficheiro
 @app.route('/projects/files/commits')
 def list_file_stats():
-    file_name = "app.py"
+    file_name = ".babelrc"
     commits, additions, deletions, creation_date, contributors = get_stats_per_file(file_name)
     if commits == 0:
         return "File {f} not commited yet.".format(f=file_name)
