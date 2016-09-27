@@ -60,6 +60,9 @@
             console.log(error);
           });
         },
+        updateState: function(newState){
+          this.setState({files: newState});
+        },
 
         render: function(){
           return (
@@ -71,7 +74,7 @@
                 <ProjectContributors project_contributors={this.state.contributors}/>
               </div>
               <div className="listProjectFiles">
-                <ProjectFiles project_files={this.state.files}/>
+                <ProjectFiles project_files={this.state.files} updateState={this.updateState}/>
               </div>
             </div>
           )
@@ -103,16 +106,42 @@
 
       var ProjectFiles = React.createClass({
         handleClick: function(key, value, e) {
-          console.log(key);
-          console.log(value);
+          axios.post('projects/folders', {
+            folder: key
+          }) 
+          .then(function(response){
+            this.props.updateState(response.data);
+            console.log(this.props.project_files);
+          }.bind(this))
+          .catch(function(error){
+            console.log(error);
+          });
+        },
+        backHandleClick: function(){
+          axios.post('projects/folders',{
+            folder: ''
+          })
+          .then(function(response){
+            this.props.updateState(response.data);
+            console.log(this.props.project_files);
+          }.bind(this))
+          .catch(function(error){
+            console.log(error);
+          });
         },
         render: function(){
           return (
             <div class="projectFiles">
+              
             <h2>
+            <p onClick={this.backHandleClick}> .. </p>
             {Object.keys(this.props.project_files).map(function(key) {
-              let boundItemClick = this.handleClick.bind(this, key, this.props.project_files[key]);
-              return <p onClick={boundItemClick}>{key}</p>
+              if(this.props.project_files[key] == "tree"){
+                let boundItemClick = this.handleClick.bind(this, key, this.props.project_files[key]);
+
+                return <p onClick={boundItemClick}>{key}</p>
+              }
+              return <p> {key} </p>
             }.bind(this))}
             </h2>
             </div>

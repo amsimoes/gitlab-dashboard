@@ -194,7 +194,10 @@ def list_folder_files():
     files = {}
     if request.method == "POST":
         path=request.json['folder']
-        path = '/projects/{project_id}/repository/tree?path={path}'.format(project_id=project_id, path=path)
+        if(path != ''):
+            path = '/projects/{project_id}/repository/tree?path={path}'.format(project_id=project_id, path=path)
+        else:
+            path = '/projects/{project_id}/repository/tree'.format(project_id=project_id,path=path)
         response = make_get_request(path)
     elif request.method == "GET":
         path = '/projects/{project_id}/repository/tree'.format(project_id=project_id)
