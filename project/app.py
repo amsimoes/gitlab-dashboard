@@ -23,6 +23,7 @@ def get_project_id():
     return (make_get_request(path)).json()[0]['id']
 
 
+# TODO: Extrair stats de cada file de um commit com mais q 1 ficheiro
 def get_commit_stats(project_id, commit_id):
     path = '/projects/{project_id}/repository/commits/{sha}'.format(project_id=project_id, \
             sha=str(commit_id))
