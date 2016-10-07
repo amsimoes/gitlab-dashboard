@@ -24,6 +24,7 @@ def get_project_id():
     return (make_get_request(path)).json()[0]['id']
 
 
+# TODO: Extrair stats de cada file de um commit com mais q 1 ficheiro
 def get_commit_stats(project_id, commit_id):
     path = '/projects/{project_id}/repository/commits/{sha}'.format(project_id=project_id, \
             sha=str(commit_id))
@@ -250,7 +251,7 @@ def get_commits_per_user(user_email):
         return 'Error 502: user_email invalid'
 
     project_id = get_project_id()
-    path = '/projects/{project_id}/repository/commits&per_page=100'.format(project_id=project_id)
+    path = '/projects/{project_id}/repository/commits?per_page=100'.format(project_id=project_id)
     response = make_get_request(path)
     count = adds = dels = 0
 
