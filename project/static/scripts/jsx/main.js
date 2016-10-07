@@ -36,16 +36,6 @@ var App = React.createClass({
       });
 
 
-    axios.post('projects/folders', {
-      folder: ""
-    })
-    .then(function(response){
-      this.setState({files: response.data});
-      console.log(response);
-    }.bind(this))
-    .catch(function(error){
-      console.log(error);
-    });
   },
   updateState: function(newState){
     this.setState({files: newState});

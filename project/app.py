@@ -3,7 +3,8 @@ from flask import Flask, render_template, request
 from unidecode import unidecode
 import requests
 import json
-
+global current_path
+current_path= []
 app = Flask(__name__)
 
 def make_get_request(path):
@@ -174,17 +175,23 @@ def get_file_content():
 def list_folder_files():
     project_id = get_project_id()
     files = {}
+    s = ''
     if request.method == "POST":
         path=request.json['folder']
         if(path != ''):
-            path = '/projects/{project_id}/repository/tree?path={path}'.format(project_id=project_id, path=path)
+            current_path.append(str(path) + "/")
+            for file in current_path:
+                s += str(file)
+            path = '/projects/{project_id}/repository/tree?path={s}'.format(project_id=project_id, s=s)
         else:
-            path = '/projects/{project_id}/repository/tree'.format(project_id=project_id,path=path)
+            current_path.pop()
+            for file in current_path:
+                s += str(file) 
+            path = '/projects/{project_id}/repository/tree?path={s}'.format(project_id=project_id,path=path, s=s)
         response = make_get_request(path)
     elif request.method == "GET":
         path = '/projects/{project_id}/repository/tree'.format(project_id=project_id)
         response = make_get_request(path)
-
     for file in response.json():
         files.update({file['name']:file['type']})
 
