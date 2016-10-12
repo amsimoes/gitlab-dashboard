@@ -7,6 +7,7 @@ global current_path
 current_path= []
 app = Flask(__name__)
 
+
 def make_get_request(path):
     private_token = '8fH8Vs4WNpYhVUBPzq5g'
     request_url = 'https://git.dei.uc.pt/api/v3'
@@ -111,6 +112,14 @@ def get_blob_id(project_id, file_path):
     if not response:
         return 0
     return response.json()['blob_id']
+
+
+def get_last_commit_id(file_path, branch):
+    project_id = get_project_id()
+    path = 'projects/{id}/repository/files?file_path={f}&ref={b}'.format(id=project_id, f=file_path, b=branch)
+    response = make_get_request(path)
+
+    return response.json()["last_commit_id"]
 
 
 @app.route('/')
@@ -245,7 +254,7 @@ def list_project_contributors():    # and their stats (additions, deletions)
     response = make_get_request(path)
 
     return response.content
-    
+
 
 if __name__ == '__main__':
     app.run()
