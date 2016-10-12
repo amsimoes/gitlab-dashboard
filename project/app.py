@@ -187,7 +187,7 @@ def list_folder_files():
         else:
             current_path.pop()
             for file in current_path:
-                s += str(file) 
+                s += str(file)
             path = '/projects/{project_id}/repository/tree?path={s}'.format(project_id=project_id,path=path, s=s)
         response = make_get_request(path)
     elif request.method == "GET":
@@ -238,33 +238,14 @@ def list_commits():
     return response.content
 
 
-@app.route('/projects/commits/user')
-def list_commits_by_user():
-    user_email = "asimoes@student.dei.uc.pt"
-    count, additions, deletions = get_commits_per_user(user_email)
-
-    return "{user} | Commits: {c} | Additions: {a} | Deletions: {d}".format(user=user_email,c=count,a=additions,d=deletions)
-
-
-def get_commits_per_user(user_email):
-    if not user_email:
-        return 'Error 502: user_email invalid'
-
+@app.route('/projects/contributors')
+def list_project_contributors():    # and their stats (additions, deletions)
     project_id = get_project_id()
-    path = '/projects/{project_id}/repository/commits?per_page=100'.format(project_id=project_id)
+    path = '/projects/{id}/repository/contributors'.format(p=project_id)
     response = make_get_request(path)
-    count = adds = dels = 0
 
-    for commits in response.json():
-        if commits['author_email'] == user_email:
-            count += 1
-            print(commits['id'])
-            additions, deletions = get_commit_stats(project_id, str(commits['id']))
-            adds += additions
-            dels += deletions
-
-    return count, adds, dels
-
+    return response.content
+    
 
 if __name__ == '__main__':
     app.run()
