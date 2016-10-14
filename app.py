@@ -60,12 +60,6 @@ def get_last_commit_id(file_path, branch):
 
     return response.json()["last_commit_id"]
 
-
-@app.route('/')
-def welcome():
-    return render_template('hello.html')
-
-
 @app.route('/testing')
 def repo_files():
     project_id = get_project_id()
@@ -77,12 +71,6 @@ def repo_files():
     adds, dels = get_commit_stats(project_id, response.json()['commit_id'])
     #return "Additions: {a} Deletions {d}".format(a=adds, d=dels)
     return response.content
-
-
-@app.route('/projects')
-def render_projects():
-    return render_template('index.html')
-
 
 @app.route('/list_projects')
 def list_projects():
@@ -184,4 +172,4 @@ def list_project_contributors():    # and their stats (additions, deletions)
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(threaded=True)
