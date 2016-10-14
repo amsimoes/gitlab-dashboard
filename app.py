@@ -184,4 +184,4 @@ def list_project_contributors():    # and their stats (additions, deletions)
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(threaded = True)
