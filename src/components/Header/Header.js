@@ -9,18 +9,15 @@ import Link from '../Link';
 
 function Header() {
   return (
-    <div>
-      <ProjectName />
-      <UserName />
-      <DateTime />
-      <Navigation className={s.nav}/>
-      <Link className={s.brand} to="/">
-        <span className={s.brandTxt}>Your Company</span>
-      </Link>
+    <div classname={s.root}>
+      <div className={s.container}>
+        <ProjectName />
+        <UserName />
+        <DateTime />
+        <Navigation className={s.nav}/>
+      </div>
     </div>
-
   );
-
 }
 
 export default withStyles(s)(Header);
