@@ -1,15 +1,15 @@
 import React, { PropTypes  } from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
-import s from './Project.css';
+import s from './Processes.css';
 import Header from '../../components/Header';
 
-function Project() {
+function Processes() {
   return (
     <div>
-      <p> Project </p>
+      <p> Processes </p>
       <Header />
     </div>
   );
 }
 
-export default withStyles(s)(Project);
+export default withStyles(s)(Processes);
