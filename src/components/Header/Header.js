@@ -9,7 +9,7 @@ import Link from '../Link';
 
 function Header() {
   return (
-    <div classname={s.root}>
+    <div className={s.root}>
       <div className={s.container}>
         <ProjectName />
         <UserName />

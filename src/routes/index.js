@@ -16,7 +16,7 @@ import App from '../components/App';
 // Child routes
 import home from './home';
 import notFound from './notFound';
-
+import project from './project';
 export default {
 
   path: '/',
@@ -24,6 +24,7 @@ export default {
   // Keep in mind, routes are evaluated in order
   children: [
     require('./home').default,
+    require('./project').default,
     require('./notFound').default,
   ],
 

@@ -16,6 +16,7 @@ import { host } from '../src/config';
 const routes = [
   '/',
   '/contact',
+  '/project',
   '/login',
   '/register',
   '/about',
