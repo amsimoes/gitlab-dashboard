@@ -46,20 +46,24 @@ class ListProjectFiles extends Component {
   }
 
   render = () =>{
-    return (
-      <div className="projectFiles">
-        <h2>
-       <p onClick={this.backHandleClick}> .. </p>
-          {Object.keys(this.state.files).map(function(key) {
-            if(this.state.files[key] == "tree"){
-              let boundItemClick = this.handleClick.bind(this, key, this.state.files[key]);
-              return <p onClick={boundItemClick}>{key}</p>
-            }
-          return <p> {key} </p>
-         }.bind(this))}
-        </h2>
-      </div>
-    )
+    if(this.state.files) {
+      return (
+        <div className="projectFiles">
+          <h2>
+            <p onClick={this.backHandleClick}> .. </p>
+              {Object.keys(this.state.files).map(function(key) {
+                if(this.state.files[key] == "tree"){
+                  let boundItemClick = this.handleClick.bind(this, key, this.state.files[key]);
+                  return <p onClick={boundItemClick}>{key}</p>
+                }
+                return <p> {key} </p>
+              }.bind(this))}
+          </h2>
+        </div>
+      )
+    } else {
+      return <div>Loading</div>;
+    }
   }
 }
 
