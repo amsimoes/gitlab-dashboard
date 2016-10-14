@@ -17,6 +17,10 @@ import App from '../components/App';
 import home from './home';
 import notFound from './notFound';
 import project from './project';
+import artifacts from './artifacts';
+import work from './work';
+import processes from './processes';
+import people from './people';
 export default {
 
   path: '/',
@@ -25,6 +29,10 @@ export default {
   children: [
     require('./home').default,
     require('./project').default,
+    require('./artifacts').default,
+    require('./work').default,
+    require('./processes').default,
+    require('./people').default,
     require('./notFound').default,
   ],
 
