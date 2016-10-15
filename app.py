@@ -1,11 +1,20 @@
 # coding=utf-8
-from flask import Flask, render_template, request
+from flask import *
+from flask_security import *
+from flask_login import *
 from unidecode import unidecode
+from time import time
 import requests
 import json
 global current_path
 current_path= []
+
+
 app = Flask(__name__)
+app.secret_key = 'xxxxyyyyyzzzzz'
+login_manager = LoginManager()
+login_manager.init_app(app)
+login_manager.login_view = 'login'
 
 
 def make_get_request(path):
@@ -60,6 +69,29 @@ def get_last_commit_id(file_path, branch):
 
     return response.json()["last_commit_id"]
 
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    error = None
+    if request.method == 'POST':
+        if request.form['username'] != 'admin' or request.form['password'] != 'admin':
+            error = "Oops! Invalid credentials."
+        else:
+            return redirect(url_for('list_projects'))
+    return render_template('login.html', error=error)
+
+
+@app.route("/")
+#@login_required
+def home():
+    return "Hello WORLD! Login Sucessful!"
+
+
+@login_manager.unauthorized_handler
+def unauthorized():
+    return redirect(url_for('login'))
+
+
 @app.route('/testing')
 def repo_files():
     project_id = get_project_id()
@@ -72,7 +104,8 @@ def repo_files():
     #return "Additions: {a} Deletions {d}".format(a=adds, d=dels)
     return response.content
 
-@app.route('/list_projects')
+
+@app.route('/projects')
 def list_projects():
     path = '/projects'
     response = make_get_request(path)
@@ -136,7 +169,6 @@ def list_folder_files():
     return json.dumps(files)
 
 
-# Substituir pela funcao contributors?
 @app.route('/projects/members')
 def list_project_members():
     project_id = get_project_id()
@@ -164,12 +196,16 @@ def list_commits():
 
 @app.route('/projects/contributors')
 def list_project_contributors():    # and their stats (additions, deletions)
+    start = time()
     project_id = get_project_id()
     path = '/projects/{id}/repository/contributors'.format(id=project_id)
     response = make_get_request(path)
+    end = time()
+    tempo = end - start
+    print("list_project_contributors | Demorou {s:.2f} segundos".format(s=tempo))
 
     return response.content
 
 
 if __name__ == '__main__':
-    app.run(threaded=True)
+    app.run(threaded=True, debug=True)
