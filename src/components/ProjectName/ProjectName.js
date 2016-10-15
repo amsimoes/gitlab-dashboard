@@ -7,7 +7,6 @@ class ProjectName extends Component {
     super(props);
     this.state = {
       projectName: '',
-      contributors: '',
     };
   }
 
