@@ -28,6 +28,37 @@ def make_get_request(path):
     return response
 
 
+def valid_login(username, password):
+    request_url = 'https://git.dei.uc.pt/api/v3'
+    path = '/session?login={user}&password={p}'.format(user=username, p=password)
+    response = requests.post(request_url+path)
+
+    return True if "private_token" in response.json() else False
+
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    error = None
+    if request.method == 'POST':
+        if valid_login(request.form['username'], request.form['password']) == False:
+            error = "OOPS! Invalid credentials. Please use your GitDEI user/password"
+        else:
+            session['logged_in'] = True
+            return redirect(url_for('list_projects'))
+    return render_template('login.html', error=error)
+
+
+@app.route("/")
+#@login_required
+def home():
+    return "Hello WORLD! Login Sucessful!"
+
+
+@login_manager.unauthorized_handler
+def unauthorized():
+    return redirect(url_for('login'))
+
+
 # id = 737
 def get_project_id():
     path = '/projects'
@@ -68,28 +99,6 @@ def get_last_commit_id(file_path, branch):
     response = make_get_request(path)
 
     return response.json()["last_commit_id"]
-
-
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-    error = None
-    if request.method == 'POST':
-        if request.form['username'] != 'admin' or request.form['password'] != 'admin':
-            error = "Oops! Invalid credentials."
-        else:
-            return redirect(url_for('list_projects'))
-    return render_template('login.html', error=error)
-
-
-@app.route("/")
-#@login_required
-def home():
-    return "Hello WORLD! Login Sucessful!"
-
-
-@login_manager.unauthorized_handler
-def unauthorized():
-    return redirect(url_for('login'))
 
 
 @app.route('/testing')
