@@ -12,7 +12,7 @@ class ProjectName extends Component {
 
   componentWillMount = () => {
 
-    axios.get('http://localhost:5000/list_projects')
+    axios.get('http://localhost:5000/projects')
       .then(function (response) {
         this.setState({projectName: response.data});
         console.log(response);
