@@ -20,10 +20,10 @@ class Commits extends Component {
         console.log(error);
 
       });
+
   }
 
   render() {
-    console.log(this.state.contributors);
     if(this.state.contributors){
       return( 
        <div>
