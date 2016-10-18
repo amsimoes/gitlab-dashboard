@@ -1,12 +1,19 @@
 import React, { Component, PropTypes } from 'react';
 import * as axios from 'axios';
+import s from './Commits.css';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
+import cx from 'classnames';
+import Name from '../UserName';
+import Email from '../ProjectName';
+import Additionsn from '../Navigation';
+import Deletions from '../Link';
 
 class Commits extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      contributors: '', 
+      contributors: '',
     };
   }
 
@@ -25,12 +32,12 @@ class Commits extends Component {
   render() {
     console.log(this.state.contributors);
     if(this.state.contributors){
-      return( 
+      return(
        <div>
           {Object.keys(this.state.contributors).map(function(key) {
             return(
-              <div>
-                <div>Name: {this.state.contributors[key].name}</div>
+              <div className={cx(s.table, s.lines)}>
+                <div >Name: {this.state.contributors[key].name}</div>
                 <div>Email: {this.state.contributors[key].email}</div>
                 <div>Commits: {this.state.contributors[key].commits}</div>
                 <div>Additions: {this.state.contributors[key].additions}</div>
@@ -41,7 +48,7 @@ class Commits extends Component {
         </div>
       );
     } else {
-      return( 
+      return(
        <div>
         LOADING
         </div>
@@ -51,4 +58,4 @@ class Commits extends Component {
 }
 
 
-export default Commits;
+export default withStyles(s)(Commits);

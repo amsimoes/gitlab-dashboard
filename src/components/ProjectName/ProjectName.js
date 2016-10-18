@@ -1,5 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import * as axios from 'axios';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
+import s from './ProjectName.css';
+import cx from 'classnames';
 
 class ProjectName extends Component {
 
@@ -25,13 +28,12 @@ class ProjectName extends Component {
   }
 
   render() {
-    return( 
+    return(
       <div>
-        <div>{this.state.projectName}</div>
+        <div className={s.t}>{this.state.projectName}</div>
       </div>
     );
   }
 }
 
-
-export default ProjectName;
+export default withStyles(s)(ProjectName);

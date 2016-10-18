@@ -1,0 +1,10 @@
+@import '../variables.css';
+
+
+.t {
+  text-align: center;
+  font-size: 3em;
+  font-weight: 800;
+  color: #57576d;
+  margin-bottom: 7%;
+}

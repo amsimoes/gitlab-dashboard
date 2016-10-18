@@ -1,6 +1,7 @@
 import React, { PropTypes  } from 'react';
-import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './Header.css';
+import cx from 'classnames';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import UserName from '../UserName';
 import ProjectName from '../ProjectName';
 import DateTime from '../DateTime';
@@ -9,12 +10,12 @@ import Link from '../Link';
 
 function Header() {
   return (
-    <div className={s.root}>
+    <div className={cx(s.flex, s.justify_center)}>
       <div className={s.container}>
         <ProjectName />
         <UserName />
         <DateTime />
-        <Navigation className={s.nav}/>
+        <Navigation />
       </div>
     </div>
   );

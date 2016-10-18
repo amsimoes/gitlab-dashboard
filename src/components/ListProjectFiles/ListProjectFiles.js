@@ -1,5 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import * as axios from 'axios';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
+import s from './ListProjectFiles.css';
+import cx from 'classnames';
 
 class ListProjectFiles extends Component {
 
@@ -48,15 +51,15 @@ class ListProjectFiles extends Component {
   render = () =>{
     if(this.state.files) {
       return (
-        <div className="projectFiles">
+        <div className={s.grid}>
           <h2>
-            <p onClick={this.backHandleClick}> .. </p>
+            <p onClick={this.backHandleClick} className={s.points}> .. </p>
               {Object.keys(this.state.files).map(function(key) {
                 if(this.state.files[key] == "tree"){
                   let boundItemClick = this.handleClick.bind(this, key, this.state.files[key]);
-                  return <p onClick={boundItemClick}>{key}</p>
+                  return <p onClick={boundItemClick} className={s.file_list}>{key}</p>
                 }
-                return <p> {key} </p>
+                return <p className={s.file_list}> {key} </p>
               }.bind(this))}
           </h2>
         </div>
@@ -67,4 +70,4 @@ class ListProjectFiles extends Component {
   }
 }
 
-export default ListProjectFiles;
+export default withStyles(s)(ListProjectFiles);
