@@ -3,7 +3,6 @@ from flask import *
 from flask_security import *
 from flask_login import *
 from unidecode import unidecode
-from time import time
 import requests
 import json
 global current_path
@@ -99,7 +98,6 @@ def repo_files():
     path = '/projects/{project_id}/repository/files?file_path={f}&ref=d2c40026052ca2ce1d7cf7ad40c4d6f39cec5141'.format(project_id=project_id,f=file_path)
     response = make_get_request(path)
 
-    print(response.json()['commit_id'])
     adds, dels = get_commit_stats(project_id, response.json()['commit_id'])
     #return "Additions: {a} Deletions {d}".format(a=adds, d=dels)
     return response.content
@@ -110,7 +108,6 @@ def list_projects():
     path = '/projects'
     response = make_get_request(path)
 
-    print(response.json()[0]['default_branch'])
 
     return response.json()[0]['name']
 
@@ -134,7 +131,6 @@ def get_file_content():
     response = make_get_request(path)
 
     if ".html" in file_path:
-        print("html in file")
         string = str(response.content)
         string = string[2:]
         string = "<textarea rows=\"25\" cols =\"75\">"+string+"</textarea>"
@@ -188,24 +184,73 @@ def list_commits():
     path = '/projects/{project_id}/repository/commits?page=1&per_page=100'.format(project_id = project_id)
     response = make_get_request(path)
 
-    for commits in response.json():
-        print(commits['title'])
-
     return response.content
 
 
 @app.route('/projects/contributors')
 def list_project_contributors():    # and their stats (additions, deletions)
-    start = time()
     project_id = get_project_id()
     path = '/projects/{id}/repository/contributors'.format(id=project_id)
     response = make_get_request(path)
-    end = time()
-    tempo = end - start
-    print("list_project_contributors | Demorou {s:.2f} segundos".format(s=tempo))
 
     return response.content
 
+@app.route('/projects/weekly_contributions')
+def get_weekly_contributions():
+    project_id = get_project_id()
+    path = '/projects/{project_id}/repository/commits?per_page=100'.format(project_id = project_id)
+    response = make_get_request(path)
+    commits_per_week = [] 
+    print "123"
+    for i in range(13):
+        commits_per_week.append(0);
+
+
+    print "1234"
+
+    for commit in response.json():
+        print "12345"
+        day = commit['created_at'][8] + commit['created_at'][9]
+        print "123456"
+        month = commit['created_at'][5] + commit['created_at'][6] 
+        print "1234567"
+        week = check_week(day, month)
+        print "12345678"
+        commits_per_week[week-1] += 1
+        print "123456789"
+
+    return json.dumps(commits_per_week)
+
+def check_week(day, month):
+    day = int(day)
+    month = int(month)
+
+    if(day >= 12 and day <= 18 and month == 9):
+        return 1
+    elif(day >= 19 and day <= 25 and month == 9):
+        return 2
+    elif((day >= 26 and day <= 30 and month == 9) or (day >= 1 and day <= 2 and month == 10)): 
+        return 3
+    elif(day >= 3 and day <= 9 and month == 10): 
+        return 4
+    elif(day >= 10 and day <= 16 and month == 10): 
+        return 5
+    elif(day >= 17 and day <= 23 and month == 10): 
+        return 6
+    elif(day >= 24 and day <= 30 and month == 10): 
+        return 7
+    elif((day >= 31 and month == 10) or (day >= 1 and day <= 6 and month == 11)): 
+        return 8
+    elif(day >= 7 and day <= 13 and month == 11): 
+        return 9
+    elif(day >= 14 and day <= 20 and month == 11): 
+        return 10
+    elif(day >= 21 and day <= 27 and month == 11): 
+        return 11
+    elif((day >= 28 and day <= 30 and month == 11) or (day >= 1 and day <= 4 and month == 12)): 
+        return 12
+    elif(day >= 5 and day <= 11  and month == 12): 
+        return 13
 
 if __name__ == '__main__':
     app.run(threaded=True, debug=True)
