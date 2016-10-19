@@ -6,7 +6,6 @@ import Header from '../../components/Header';
 function Processes() {
   return (
     <div>
-      <p> Processes </p>
       <Header />
     </div>
   );

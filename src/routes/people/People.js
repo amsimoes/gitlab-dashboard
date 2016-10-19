@@ -6,7 +6,6 @@ import ProjectMembers from '../../components/ProjectMembers';
 function People() {
   return (
     <div>
-      <p> People </p>
       <Header />
       <ProjectMembers />
     </div>
