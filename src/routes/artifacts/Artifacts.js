@@ -6,7 +6,6 @@ import ListProjectFiles from '../../components/ListProjectFiles';
 function Artifacts() {
   return (
     <div>
-      <p> Artifacts </p>
       <Header />
       <ListProjectFiles />
     </div>

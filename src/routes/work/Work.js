@@ -6,7 +6,6 @@ import Header from '../../components/Header';
 function Work() {
   return (
     <div>
-      <p> Work </p>
       <Header />
     </div>
   );
