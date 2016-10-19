@@ -1,62 +1,98 @@
 # coding=utf-8
 from flask import *
 from flask_security import *
-from flask_login import *
+from flask_socketio import *
 from unidecode import unidecode
+from functools import wraps
 from time import time
 import requests
 import json
+
 global current_path
 current_path= []
 
-
 app = Flask(__name__)
-app.secret_key = 'xxxxyyyyyzzzzz'
-login_manager = LoginManager()
-login_manager.init_app(app)
-login_manager.login_view = 'login'
+app.secret_key = 'xyz'
+socketio = SocketIO(app)
+
+private_token = ''
+id_project = 0
+
+@socketio.on('disconnect')
+def disconnect_user():
+    session.pop('logged_in', None)
 
 
 def make_get_request(path):
-    private_token = '8fH8Vs4WNpYhVUBPzq5g'
     request_url = 'https://git.dei.uc.pt/api/v3'
+    token = private_token
+    print("GET REQUEST | private_token ="+token)
     if "?" not in path:
-        response = requests.get(request_url + path + '?private_token={private_token}'.format(private_token=private_token))
+        response = requests.get(request_url + path + '?private_token={private_token}'.format(private_token=token))
     else:
-        response = requests.get(request_url + path + '&private_token={private_token}'.format(private_token=private_token))
+        response = requests.get(request_url + path + '&private_token={private_token}'.format(private_token=token))
 
     return response
+
+
+def login_required(f):
+    @wraps(f)
+    def wrap(*args, **kwargs):
+        if 'logged_in' in session and private_token:
+            return f(*args, **kwargs)
+        else:
+            if not private_token:
+                flash("Server refreshed. You must login again.")
+            else:
+                flash("You must login first!")
+            return redirect(url_for('login_page'))
+    return wrap
 
 
 def valid_login(username, password):
     request_url = 'https://git.dei.uc.pt/api/v3'
     path = '/session?login={user}&password={p}'.format(user=username, p=password)
     response = requests.post(request_url+path)
+    global private_token
 
-    return True if "private_token" in response.json() else False
+    if "private_token" in response.json():
+        print(response.content)
+        print("token = "+response.json()['private_token'])
+        private_token = response.json()['private_token']
+        return True
+    return False
 
 
 @app.route('/login', methods=['GET', 'POST'])
-def login():
+def login_page():
     error = None
     if request.method == 'POST':
         if valid_login(request.form['username'], request.form['password']) == False:
             error = "OOPS! Invalid credentials. Please use your GitDEI user/password"
         else:
             session['logged_in'] = True
-            return redirect(url_for('list_projects'))
+            return redirect(url_for('logged'))
     return render_template('login.html', error=error)
 
 
+@app.route('/logged')
+@login_required
+def logged():
+    print(current_user.is_authenticated())
+    return render_template('welcome.html')
+
+
+@app.route('/logout')
+@login_required
+def logout():
+    session.pop('logged_in', None)
+    return redirect(url_for('login_page'))
+
+
 @app.route("/")
-#@login_required
-def home():
-    return "Hello WORLD! Login Sucessful!"
-
-
-@login_manager.unauthorized_handler
-def unauthorized():
-    return redirect(url_for('login'))
+@login_required
+def welcome():
+    return "You're sucessfully logged into wonderland!"
 
 
 # id = 737
@@ -114,17 +150,23 @@ def repo_files():
     return response.content
 
 
+# TODO: Pode haver mais que um projeto na conta do GitDEI
 @app.route('/projects')
+@login_required
 def list_projects():
     path = '/projects'
     response = make_get_request(path)
 
-    print(response.json()[0]['default_branch'])
-
-    return response.json()[0]['name']
+    if len(response.json()) > 1:
+        p = ''
+        for projects in response.json():
+            p += str(projects["name"]) + "\n"
+        return p
+    return response.content
 
 
 @app.route('/projects/files')
+@login_required
 def list_project_files():
     project_id = get_project_id()
     path = '/projects/{project_id}/repository/tree'.format(project_id=project_id)
@@ -135,6 +177,7 @@ def list_project_files():
 
 # Precisa do id do ficheiro para mostrar o conteúdo
 @app.route('/projects/files/content')
+@login_required
 def get_file_content():
     file_path = 'project/app.py'
     project_id = get_project_id()
@@ -152,6 +195,7 @@ def get_file_content():
 
 
 @app.route('/projects/folders', methods=["GET", "POST"])
+@login_required
 def list_folder_files():
     project_id = get_project_id()
     files = {}
@@ -179,6 +223,7 @@ def list_folder_files():
 
 
 @app.route('/projects/members')
+@login_required
 def list_project_members():
     project_id = get_project_id()
     path = '/projects/{project_id}/members'.format(project_id=project_id)
@@ -192,6 +237,7 @@ def list_project_members():
 
 
 @app.route('/projects/commits')
+@login_required
 def list_commits():
     project_id = get_project_id()
     path = '/projects/{project_id}/repository/commits?page=1&per_page=100'.format(project_id = project_id)
@@ -204,6 +250,7 @@ def list_commits():
 
 
 @app.route('/projects/contributors')
+@login_required
 def list_project_contributors():    # and their stats (additions, deletions)
     start = time()
     project_id = get_project_id()
