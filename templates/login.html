@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+
 <html>
   <head>
     <title>Flask Intro - login page</title>
@@ -7,7 +7,7 @@
   </head>
   <body>
     <div class="container">
-      <h1>Please login, bitch!</h1>
+      <h1>Please login using your GitDEI credentials.</h1>
       <br>
       <form action="" method="post">
         <input type="text" placeholder="Username" name="username" value="{{
@@ -17,8 +17,11 @@
         <input class="btn btn-default" type="submit" value="Login">
       </form>
       {% if error %}
-        <p class="error"><strong>Error:</strong> {{ error }}
+        <p class="error"><strong>Error:</strong> {{ error }}</p>
       {% endif %}
+      {% for message in get_flashed_messages() %}
+        {{ message }}
+      {% endfor %}
     </div>
   </body>
 </html>
