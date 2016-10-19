@@ -1,5 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import * as axios from 'axios';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
+import s from './ProjectMembers.css';
+import cx from 'classnames';
+
 class ProjectMembers extends Component {
 
   constructor(props) {
@@ -20,20 +24,20 @@ class ProjectMembers extends Component {
   render = () =>{
     if(this.state.contributors) {
       return (
-        <div className="contributors">
+        <div >
           {Object.keys(this.state.contributors).map(function(contributor) {
             return(
-              <div>
-                <li> {this.state.contributors[contributor]} </li>
+              <div >
+                <li className={s.file_list}> {this.state.contributors[contributor]} </li>
              </div>
             );
           }.bind(this))}
         </div>
       )
     } else {
-      return <div>Loading</div>;
+      return <div className={s.loading_style}>Loading</div>;
     }
   }
 }
 
-export default ProjectMembers;
+export default withStyles(s)(ProjectMembers);

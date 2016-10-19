@@ -30,7 +30,7 @@ class ProjectName extends Component {
   render() {
     return(
       <div>
-        <div className={s.t}>{this.state.projectName}</div>
+        <div className={s.main_title}>{this.state.projectName}</div>
       </div>
     );
   }

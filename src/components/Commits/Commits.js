@@ -33,7 +33,7 @@ class Commits extends Component {
   render() {
     if(this.state.contributors){
       return(
-       <div>
+       <div >
           {Object.keys(this.state.contributors).map(function(key) {
             return(
               <div className={cx(s.table, s.lines)}>
@@ -49,7 +49,7 @@ class Commits extends Component {
       );
     } else {
       return(
-       <div>
+       <div className={s.loading_style}>
         LOADING
         </div>
       );

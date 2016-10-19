@@ -52,7 +52,7 @@ class ListProjectFiles extends Component {
     if(this.state.files) {
       return (
         <div className={s.grid}>
-          <h2>
+          <h2 className={s.grid_v}>
             <p onClick={this.backHandleClick} className={s.points}> .. </p>
               {Object.keys(this.state.files).map(function(key) {
                 if(this.state.files[key] == "tree"){
@@ -65,7 +65,7 @@ class ListProjectFiles extends Component {
         </div>
       )
     } else {
-      return <div>Loading</div>;
+      return <div className={s.loading_style}>Loading</div>;
     }
   }
 }

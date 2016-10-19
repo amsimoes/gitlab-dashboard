@@ -2,11 +2,11 @@
 .file_list {
     border: 1px #e6e6e6 solid;
     border-radius: 10px;
-    padding: 1% 5%;
+    padding: 2% 24% 2% 2%;
     font-family: 'Raleway', sans-serif;
     font-size: 0.8em;
     color: #57576d;
-    font-weight: 400;
+    font-weight: 100;
 }
 
 
@@ -24,4 +24,18 @@
   align-items: center;
   justify-content: center;
   display: flex;
+}
+
+.grid_v {
+  width: 60%;
+}
+
+.loading_style {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1em;
+  color: #57576d;
+  font-weight: 500;
 }

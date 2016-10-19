@@ -8,7 +8,6 @@ import CommitsGraph from '../../components/CommitsGraph'
 function Project() {
   return (
     <div>
-      <p> Project </p>
       <Header />
       <CommitsGraph />
       <Commits />

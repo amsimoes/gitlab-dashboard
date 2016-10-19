@@ -1,6 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 var LineChart = require("react-chartjs").Line;
 import * as axios from 'axios';
+import s from './CommitsGraph.css';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
+import cx from 'classnames';
 
 class CommitsGraph extends Component {
 
@@ -19,7 +22,7 @@ class CommitsGraph extends Component {
         pointStrokeColor: "#fff",
         pointHighlightFill: "#fff",
         pointHighlightStroke: "rgba(220,220,220,1)",
-        data: [] 
+        data: []
       }],
     };
     this.chartOptions = {
@@ -48,11 +51,11 @@ class CommitsGraph extends Component {
 
   render() {
     if(this.state.check){
-      return <LineChart data={this.chartData} options={this.chartOptions} width="600" height="250"/>
+      return <LineChart data={this.chartData} options={this.chartOptions} width="600" height="250" className={s.loading_style}/>
     } else {
-      return <div>LOADING CHART</div>
+      return <div className={s.loading_style}>LOADING CHART</div>
     }
   }
 }
 
-export default CommitsGraph;
+export default withStyles(s)(CommitsGraph);

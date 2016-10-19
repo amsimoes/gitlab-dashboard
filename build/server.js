@@ -148,7 +148,7 @@ module.exports =
   
   var _routes2 = _interopRequireDefault(_routes);
   
-  var _assets = __webpack_require__(86);
+  var _assets = __webpack_require__(122);
   
   var _assets2 = _interopRequireDefault(_assets);
   
@@ -2285,31 +2285,38 @@ module.exports =
   
   var _home2 = _interopRequireDefault(_home);
   
-  var _notFound = __webpack_require__(82);
+  var _notFound = __webpack_require__(88);
   
   var _notFound2 = _interopRequireDefault(_notFound);
   
+  var _project = __webpack_require__(92);
+  
+  var _project2 = _interopRequireDefault(_project);
+  
+  var _artifacts = __webpack_require__(102);
+  
+  var _artifacts2 = _interopRequireDefault(_artifacts);
+  
+  var _work = __webpack_require__(109);
+  
+  var _work2 = _interopRequireDefault(_work);
+  
+  var _processes = __webpack_require__(113);
+  
+  var _processes2 = _interopRequireDefault(_processes);
+  
+  var _people = __webpack_require__(117);
+  
+  var _people2 = _interopRequireDefault(_people);
+  
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
-  // Child routes
-  /**
-   * React Starter Kit (https://www.reactstarterkit.com/)
-   *
-   * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
-   *
-   * This source code is licensed under the MIT license found in the
-   * LICENSE.txt file in the root directory of this source tree.
-   */
-  
-  /* eslint-disable global-require */
-  
-  // The top-level (parent) route
   exports.default = {
   
     path: '/',
   
     // Keep in mind, routes are evaluated in order
-    children: [__webpack_require__(62).default, __webpack_require__(82).default],
+    children: [__webpack_require__(62).default, __webpack_require__(92).default, __webpack_require__(102).default, __webpack_require__(109).default, __webpack_require__(113).default, __webpack_require__(117).default, __webpack_require__(88).default],
   
     action: function action(_ref) {
       var _this = this;
@@ -2356,6 +2363,20 @@ module.exports =
       }))();
     }
   };
+  
+  // Child routes
+  /**
+   * React Starter Kit (https://www.reactstarterkit.com/)
+   *
+   * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
+   *
+   * This source code is licensed under the MIT license found in the
+   * LICENSE.txt file in the root directory of this source tree.
+   */
+  
+  /* eslint-disable global-require */
+  
+  // The top-level (parent) route
 
 /***/ },
 /* 62 */
@@ -2414,7 +2435,11 @@ module.exports =
   
   var _Home2 = _interopRequireDefault(_Home);
   
-  var _Header = __webpack_require__(66);
+  var _classnames = __webpack_require__(66);
+  
+  var _classnames2 = _interopRequireDefault(_classnames);
+  
+  var _Header = __webpack_require__(67);
   
   var _Header2 = _interopRequireDefault(_Header);
   
@@ -2473,7 +2498,7 @@ module.exports =
   
   
   // module
-  exports.push([module.id, "/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n\n  /*\n   * Layout\n   * ======================================================================== */\n\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */  /* Extra small screen / phone */  /* Small screen / tablet */  /* Medium screen / desktop */ /* Large screen / wide desktop */\n}\n\n.Home_root_2IM {\n  padding-left: 20px;\n  padding-right: 20px;\n\n}\n\n.Home_container_2Ye {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: 1000px;\n\n}\n\n.Home_news_oTy {\n  padding: 0;\n\n}\n\n.Home_newsItem_3Ob {\n  list-style-type: none;\n  padding-bottom: 6px;\n\n}\n\n.Home_newsTitle_1yW {\n  font-size: 1.125em;\n\n}\n\n.Home_newsTitle_1yW,\n.Home_newsDesc_21L {\n  display: block;\n\n}\n", "", {"version":3,"sources":["/./components/variables.css","/./routes/home/Home.css"],"names":[],"mappings":"AAAA;;;;;;;GAOG;;AAEH;EACE;;gFAE8E;;EAI9E;;gFAE8E;;EAI9E;;gFAE8E,EAErD,gCAAgC,EAChC,2BAA2B,EAC3B,6BAA6B,CAC7B,iCAAiC;CAC3D;;AC3BD;EACE,mBAAmB;EACnB,oBAAoB;;CAErB;;AAED;EACE,eAAe;EACf,kBAAkB;EAClB,kBAAoC;;CAErC;;AAED;EACE,WAAW;;CAEZ;;AAED;EACE,sBAAsB;EACtB,oBAAoB;;CAErB;;AAED;EACE,mBAAmB;;CAEpB;;AAED;;EAEE,eAAe;;CAEhB","file":"Home.css","sourcesContent":["/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n\n  --font-family-base: 'Segoe UI', 'HelveticaNeue-Light', sans-serif;\n\n  /*\n   * Layout\n   * ======================================================================== */\n\n  --max-content-width: 1000px;\n\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */\n\n  --screen-xs-min: 480px;  /* Extra small screen / phone */\n  --screen-sm-min: 768px;  /* Small screen / tablet */\n  --screen-md-min: 992px;  /* Medium screen / desktop */\n  --screen-lg-min: 1200px; /* Large screen / wide desktop */\n}\n","\n@import '../../components/variables.css';\n\n.root {\n  padding-left: 20px;\n  padding-right: 20px;\n\n}\n\n.container {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: var(--max-content-width);\n\n}\n\n.news {\n  padding: 0;\n\n}\n\n.newsItem {\n  list-style-type: none;\n  padding-bottom: 6px;\n\n}\n\n.newsTitle {\n  font-size: 1.125em;\n\n}\n\n.newsTitle,\n.newsDesc {\n  display: block;\n\n}\n"],"sourceRoot":"webpack://"}]);
+  exports.push([module.id, "/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n\n  /*\n   * Layout\n   * ======================================================================== */\n\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */  /* Extra small screen / phone */  /* Small screen / tablet */  /* Medium screen / desktop */ /* Large screen / wide desktop */\n}\n\n.Home_root_2IM {\n  padding-left: 20px;\n  padding-right: 20px;\n\n}\n\n.Home_container_2Ye {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: 1000px;\n\n}\n\n.Home_news_oTy {\n  padding: 0;\n\n}\n\n.Home_newsItem_3Ob {\n  list-style-type: none;\n  padding-bottom: 6px;\n\n}\n\n.Home_newsTitle_1yW {\n  font-size: 1.125em;\n\n}\n\n.Home_newsTitle_1yW,\n.Home_newsDesc_21L {\n  display: block;\n\n}\n\n.Home_flex_2oB { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; }\n\n.Home_wrap_3rG { -webkit-flex-wrap: wrap; -ms-flex-wrap: wrap; flex-wrap: wrap; }\n\n.Home_justify-center_13j     { -webkit-box-pack: center; -webkit-justify-content: center; -ms-flex-pack: center; justify-content: center; }\n\n.Home_justify-around_1xl     { -webkit-justify-content: space-around; -ms-flex-pack: distribute; justify-content: space-around; }\n\n.Home_justify-between_109    { -webkit-box-pack: justify; -webkit-justify-content: space-between; -ms-flex-pack: justify; justify-content: space-between; }\n\n.Home_justify-start_2tg      { -webkit-box-pack: start; -webkit-justify-content: flex-start; -ms-flex-pack: start; justify-content: flex-start; }\n\n.Home_al-center_1nM  { -webkit-box-align: center; -webkit-align-items: center; -ms-flex-align: center; align-items: center; }\n\n.Home_self-center_1xw { -webkit-align-self: center; -ms-flex-item-align: center; -ms-grid-row-align: center; align-self: center; }\n\n.Home_self-start_1Vw  { -webkit-align-self: flex-start; -ms-flex-item-align: start; align-self: flex-start; }\n\n.Home_dir-row_3sw    { -webkit-box-orient: horizontal; -webkit-box-direction: normal; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; }\n\n.Home_dir-column_3VB { -webkit-box-orient: vertical; -webkit-box-direction: normal; -webkit-flex-direction: column; -ms-flex-direction: column; flex-direction: column; }\n", "", {"version":3,"sources":["/./components/variables.css","/./routes/home/Home.css"],"names":[],"mappings":"AAAA;;;;;;;GAOG;;AAEH;EACE;;gFAE8E;;EAI9E;;gFAE8E;;EAI9E;;gFAE8E,EAErD,gCAAgC,EAChC,2BAA2B,EAC3B,6BAA6B,CAC7B,iCAAiC;CAC3D;;AC3BD;EACE,mBAAmB;EACnB,oBAAoB;;CAErB;;AAED;EACE,eAAe;EACf,kBAAkB;EAClB,kBAAoC;;CAErC;;AAED;EACE,WAAW;;CAEZ;;AAED;EACE,sBAAsB;EACtB,oBAAoB;;CAErB;;AAED;EACE,mBAAmB;;CAEpB;;AAED;;EAEE,eAAe;;CAEhB;;AAED,iBAAQ,qBAAc,CAAd,sBAAc,CAAd,qBAAc,CAAd,cAAc,EAAE;;AAExB,iBAAQ,wBAAgB,CAAhB,oBAAgB,CAAhB,gBAAgB,EAAE;;AAE1B,+BAAsB,yBAAwB,CAAxB,gCAAwB,CAAxB,sBAAwB,CAAxB,wBAAwB,EAAE;;AAChD,+BAAsB,sCAA8B,CAA9B,0BAA8B,CAA9B,8BAA8B,EAAE;;AACtD,+BAAsB,0BAA+B,CAA/B,uCAA+B,CAA/B,uBAA+B,CAA/B,+BAA+B,EAAE;;AACvD,+BAAsB,wBAA4B,CAA5B,oCAA4B,CAA5B,qBAA4B,CAA5B,4BAA4B,EAAE;;AAEpD,uBAAc,0BAAoB,CAApB,4BAAoB,CAApB,uBAAoB,CAApB,oBAAoB,EAAE;;AAEpC,wBAAe,2BAAmB,CAAnB,4BAAmB,CAAnB,2BAAmB,CAAnB,mBAAmB,EAAE;;AACpC,wBAAe,+BAAuB,CAAvB,2BAAuB,CAAvB,uBAAuB,EAAE;;AAExC,uBAAc,+BAAoB,CAApB,8BAAoB,CAApB,4BAAoB,CAApB,wBAAoB,CAApB,oBAAoB,EAAE;;AACpC,uBAAc,6BAAuB,CAAvB,8BAAuB,CAAvB,+BAAuB,CAAvB,2BAAuB,CAAvB,uBAAuB,EAAE","file":"Home.css","sourcesContent":["/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n\n  --font-family-base: 'Segoe UI', 'HelveticaNeue-Light', sans-serif;\n\n  /*\n   * Layout\n   * ======================================================================== */\n\n  --max-content-width: 1000px;\n\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */\n\n  --screen-xs-min: 480px;  /* Extra small screen / phone */\n  --screen-sm-min: 768px;  /* Small screen / tablet */\n  --screen-md-min: 992px;  /* Medium screen / desktop */\n  --screen-lg-min: 1200px; /* Large screen / wide desktop */\n}\n","\n@import '../../components/variables.css';\n\n.root {\n  padding-left: 20px;\n  padding-right: 20px;\n\n}\n\n.container {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: var(--max-content-width);\n\n}\n\n.news {\n  padding: 0;\n\n}\n\n.newsItem {\n  list-style-type: none;\n  padding-bottom: 6px;\n\n}\n\n.newsTitle {\n  font-size: 1.125em;\n\n}\n\n.newsTitle,\n.newsDesc {\n  display: block;\n\n}\n\n.flex { display: flex; }\n\n.wrap { flex-wrap: wrap; }\n\n.justify-center     { justify-content: center; }\n.justify-around     { justify-content: space-around; }\n.justify-between    { justify-content: space-between; }\n.justify-start      { justify-content: flex-start; }\n\n.al-center  { align-items: center; }\n\n.self-center { align-self: center; }\n.self-start  { align-self: flex-start; }\n\n.dir-row    { flex-direction: row; }\n.dir-column { flex-direction: column; }\n"],"sourceRoot":"webpack://"}]);
   
   // exports
   exports.locals = {
@@ -2482,11 +2507,28 @@ module.exports =
   	"news": "Home_news_oTy",
   	"newsItem": "Home_newsItem_3Ob",
   	"newsTitle": "Home_newsTitle_1yW",
-  	"newsDesc": "Home_newsDesc_21L"
+  	"newsDesc": "Home_newsDesc_21L",
+  	"flex": "Home_flex_2oB",
+  	"wrap": "Home_wrap_3rG",
+  	"justify-center": "Home_justify-center_13j",
+  	"justify-around": "Home_justify-around_1xl",
+  	"justify-between": "Home_justify-between_109",
+  	"justify-start": "Home_justify-start_2tg",
+  	"al-center": "Home_al-center_1nM",
+  	"self-center": "Home_self-center_1xw",
+  	"self-start": "Home_self-start_1Vw",
+  	"dir-row": "Home_dir-row_3sw",
+  	"dir-column": "Home_dir-column_3VB"
   };
 
 /***/ },
 /* 66 */
+/***/ function(module, exports) {
+
+  module.exports = require("classnames");
+
+/***/ },
+/* 67 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -2499,31 +2541,35 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
+  var _Header = __webpack_require__(68);
+  
+  var _Header2 = _interopRequireDefault(_Header);
+  
+  var _classnames = __webpack_require__(66);
+  
+  var _classnames2 = _interopRequireDefault(_classnames);
+  
   var _withStyles = __webpack_require__(28);
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _Header = __webpack_require__(67);
-  
-  var _Header2 = _interopRequireDefault(_Header);
-  
-  var _UserName = __webpack_require__(69);
+  var _UserName = __webpack_require__(70);
   
   var _UserName2 = _interopRequireDefault(_UserName);
   
-  var _ProjectName = __webpack_require__(71);
+  var _ProjectName = __webpack_require__(74);
   
   var _ProjectName2 = _interopRequireDefault(_ProjectName);
   
-  var _DateTime = __webpack_require__(72);
+  var _DateTime = __webpack_require__(77);
   
   var _DateTime2 = _interopRequireDefault(_DateTime);
   
-  var _Navigation = __webpack_require__(74);
+  var _Navigation = __webpack_require__(81);
   
   var _Navigation2 = _interopRequireDefault(_Navigation);
   
-  var _Link = __webpack_require__(78);
+  var _Link = __webpack_require__(84);
   
   var _Link2 = _interopRequireDefault(_Link);
   
@@ -2532,14 +2578,14 @@ module.exports =
   function Header() {
     return _react2.default.createElement(
       'div',
-      { classname: _Header2.default.root },
+      { className: (0, _classnames2.default)(_Header2.default.flex, _Header2.default.justify_center) },
       _react2.default.createElement(
         'div',
         { className: _Header2.default.container },
         _react2.default.createElement(_ProjectName2.default, null),
         _react2.default.createElement(_UserName2.default, null),
         _react2.default.createElement(_DateTime2.default, null),
-        _react2.default.createElement(_Navigation2.default, { className: _Header2.default.nav })
+        _react2.default.createElement(_Navigation2.default, null)
       )
     );
   }
@@ -2547,11 +2593,11 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_Header2.default)(Header);
 
 /***/ },
-/* 67 */
+/* 68 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(68);
+      var content = __webpack_require__(69);
       var insertCss = __webpack_require__(32);
   
       if (typeof content === 'string') {
@@ -2581,7 +2627,7 @@ module.exports =
     
 
 /***/ },
-/* 68 */
+/* 69 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(31)();
@@ -2589,13 +2635,35 @@ module.exports =
   
   
   // module
-  exports.push([module.id, "/**\n *  * React Starter Kit (https://www.reactstarterkit.com/)\n *   *\n *    * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *     *\n *      * This source code is licensed under the MIT license found in the\n *       * LICENSE.txt file in the root directory of this source tree.\n *        */\n\n/*! normalize.css v4.1.1 | MIT License | github.com/necolas/normalize.css */\n\n/**\n * 1. Change the default font family in all browsers (opinionated).\n * 2. Correct the line height in all browsers.\n * 3. Prevent adjustments of font size after orientation changes in IE and iOS.\n */\n\nhtml {\n  font-family: sans-serif; /* 1 */\n  line-height: 1.15; /* 2 */\n  -ms-text-size-adjust: 100%; /* 3 */\n  -webkit-text-size-adjust: 100%; /* 3 */\n}\n\n/**\n * Remove the margin in all browsers (opinionated).\n */\n\nbody {\n  margin: 0;\n}\n\n/* HTML5 display definitions\n   ========================================================================== */\n\n/**\n * Add the correct display in IE 9-.\n * 1. Add the correct display in Edge, IE, and Firefox.\n * 2. Add the correct display in IE.\n */\n\narticle,\naside,\ndetails, /* 1 */\nfigcaption,\nfigure,\nfooter,\nheader,\nmain, /* 2 */\nmenu,\nnav,\nsection,\nsummary { /* 1 */\n  display: block;\n}\n\n/**\n * Add the correct display in IE 9-.\n */\n\naudio,\ncanvas,\nprogress,\nvideo {\n  display: inline-block;\n}\n\n/**\n * Add the correct display in iOS 4-7.\n */\n\naudio:not([controls]) {\n  display: none;\n  height: 0;\n}\n\n/**\n * Add the correct vertical alignment in Chrome, Firefox, and Opera.\n */\n\nprogress {\n  vertical-align: baseline;\n}\n\n/**\n * Add the correct display in IE 10-.\n * 1. Add the correct display in IE.\n */\n\ntemplate, /* 1 */\n[hidden] {\n  display: none;\n}\n\n/* Links\n   ========================================================================== */\n\n/**\n * 1. Remove the gray background on active links in IE 10.\n * 2. Remove gaps in links underline in iOS 8+ and Safari 8+.\n */\n\na {\n  background-color: transparent; /* 1 */\n  -webkit-text-decoration-skip: objects; /* 2 */\n}\n\n/**\n * Remove the outline on focused links when they are also active or hovered\n * in all browsers (opinionated).\n */\n\na:active,\na:hover {\n  outline-width: 0;\n}\n\n/* Text-level semantics\n   ========================================================================== */\n\n/**\n * 1. Remove the bottom border in Firefox 39-.\n * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.\n */\n\nabbr[title] {\n  border-bottom: none; /* 1 */\n  text-decoration: underline; /* 2 */\n  text-decoration: underline dotted; /* 2 */\n}\n\n/**\n * Prevent the duplicate application of `bolder` by the next rule in Safari 6.\n */\n\nb,\nstrong {\n  font-weight: inherit;\n}\n\n/**\n * Add the correct font weight in Chrome, Edge, and Safari.\n */\n\nb,\nstrong {\n  font-weight: bolder;\n}\n\n/**\n * Add the correct font style in Android 4.3-.\n */\n\ndfn {\n  font-style: italic;\n}\n\n/**\n * Correct the font size and margin on `h1` elements within `section` and\n * `article` contexts in Chrome, Firefox, and Safari.\n */\n\nh1 {\n  font-size: 2em;\n  margin: 0.67em 0;\n}\n\n/**\n * Add the correct background and color in IE 9-.\n */\n\nmark {\n  background-color: #ff0;\n  color: #000;\n}\n\n/**\n * Add the correct font size in all browsers.\n */\n\nsmall {\n  font-size: 80%;\n}\n\n/**\n * Prevent `sub` and `sup` elements from affecting the line height in\n * all browsers.\n */\n\nsub,\nsup {\n  font-size: 75%;\n  line-height: 0;\n  position: relative;\n  vertical-align: baseline;\n}\n\nsub {\n  bottom: -0.25em;\n}\n\nsup {\n  top: -0.5em;\n}\n\n/* Embedded content\n   ========================================================================== */\n\n/**\n * Remove the border on images inside links in IE 10-.\n */\n\nimg {\n  border-style: none;\n}\n\n/**\n * Hide the overflow in IE.\n */\n\nsvg:not(:root) {\n  overflow: hidden;\n}\n\n/* Grouping content\n   ========================================================================== */\n\n/**\n * 1. Correct the inheritance and scaling of font size in all browsers.\n * 2. Correct the odd `em` font sizing in all browsers.\n */\n\ncode,\nkbd,\npre,\nsamp {\n  font-family: monospace, monospace; /* 1 */\n  font-size: 1em; /* 2 */\n}\n\n/**\n * Add the correct margin in IE 8.\n */\n\nfigure {\n  margin: 1em 40px;\n}\n\n/**\n * 1. Add the correct box sizing in Firefox.\n * 2. Show the overflow in Edge and IE.\n */\n\nhr {\n  -webkit-box-sizing: content-box;\n          box-sizing: content-box; /* 1 */\n  height: 0; /* 1 */\n  overflow: visible; /* 2 */\n}\n\n/* Forms\n   ========================================================================== */\n\n/**\n * 1. Change font properties to `inherit` in all browsers (opinionated).\n * 2. Remove the margin in Firefox and Safari.\n */\n\nbutton,\ninput,\noptgroup,\nselect,\ntextarea {\n  font: inherit; /* 1 */\n  margin: 0; /* 2 */\n}\n\n/**\n * Restore the font weight unset by the previous rule.\n */\n\noptgroup {\n  font-weight: bold;\n}\n\n/**\n * Show the overflow in IE.\n * 1. Show the overflow in Edge.\n */\n\nbutton,\ninput { /* 1 */\n  overflow: visible;\n}\n\n/**\n * Remove the inheritance of text transform in Edge, Firefox, and IE.\n * 1. Remove the inheritance of text transform in Firefox.\n */\n\nbutton,\nselect { /* 1 */\n  text-transform: none;\n}\n\n/**\n * 1. Prevent a WebKit bug where (2) destroys native `audio` and `video`\n *    controls in Android 4.\n * 2. Correct the inability to style clickable types in iOS and Safari.\n */\n\nbutton,\nhtml [type=\"button\"], /* 1 */\n[type=\"reset\"],\n[type=\"submit\"] {\n  -webkit-appearance: button; /* 2 */\n}\n\n/**\n * Remove the inner border and padding in Firefox.\n */\n\nbutton::-moz-focus-inner,\n[type=\"button\"]::-moz-focus-inner,\n[type=\"reset\"]::-moz-focus-inner,\n[type=\"submit\"]::-moz-focus-inner {\n  border-style: none;\n  padding: 0;\n}\n\n/**\n * Restore the focus styles unset by the previous rule.\n */\n\nbutton:-moz-focusring,\n[type=\"button\"]:-moz-focusring,\n[type=\"reset\"]:-moz-focusring,\n[type=\"submit\"]:-moz-focusring {\n  outline: 1px dotted ButtonText;\n}\n\n/**\n * Change the border, margin, and padding in all browsers (opinionated).\n */\n\nfieldset {\n  border: 1px solid #c0c0c0;\n  margin: 0 2px;\n  padding: 0.35em 0.625em 0.75em;\n}\n\n/**\n * 1. Correct the text wrapping in Edge and IE.\n * 2. Correct the color inheritance from `fieldset` elements in IE.\n * 3. Remove the padding so developers are not caught out when they zero out\n *    `fieldset` elements in all browsers.\n */\n\nlegend {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box; /* 1 */\n  color: inherit; /* 2 */\n  display: table; /* 1 */\n  max-width: 100%; /* 1 */\n  padding: 0; /* 3 */\n  white-space: normal; /* 1 */\n}\n\n/**\n * Remove the default vertical scrollbar in IE.\n */\n\ntextarea {\n  overflow: auto;\n}\n\n/**\n * 1. Add the correct box sizing in IE 10-.\n * 2. Remove the padding in IE 10-.\n */\n\n[type=\"checkbox\"],\n[type=\"radio\"] {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box; /* 1 */\n  padding: 0; /* 2 */\n}\n\n/**\n * Correct the cursor style of increment and decrement buttons in Chrome.\n */\n\n[type=\"number\"]::-webkit-inner-spin-button,\n[type=\"number\"]::-webkit-outer-spin-button {\n  height: auto;\n}\n\n/**\n * 1. Correct the odd appearance in Chrome and Safari.\n * 2. Correct the outline style in Safari.\n */\n\n[type=\"search\"] {\n  -webkit-appearance: textfield; /* 1 */\n  outline-offset: -2px; /* 2 */\n}\n\n/**\n * Remove the inner padding and cancel buttons in Chrome and Safari on OS X.\n */\n\n[type=\"search\"]::-webkit-search-cancel-button,\n[type=\"search\"]::-webkit-search-decoration {\n  -webkit-appearance: none;\n}\n\n/**\n * Correct the text style of placeholders in Chrome, Edge, and Safari.\n */\n\n::-webkit-input-placeholder {\n  color: inherit;\n  opacity: 0.54;\n}\n\n/**\n * 1. Correct the inability to style clickable types in iOS and Safari.\n * 2. Change font properties to `inherit` in Safari.\n */\n\n::-webkit-file-upload-button {\n  -webkit-appearance: button; /* 1 */\n  font: inherit; /* 2 */\n}\n\n/*! React Starter Kit | MIT License | https://www.reactstarterkit.com/ */\n\n/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n\n  /*\n   * Layout\n   * ======================================================================== */\n\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */  /* Extra small screen / phone */  /* Small screen / tablet */  /* Medium screen / desktop */ /* Large screen / wide desktop */\n}\n\n/*\n *  * Base styles\n *   * ========================================================================== */\n\nhtml {\n  color: #222;\n  font-weight: 100;\n  font-size: 1em; /* ~16px; */\n  font-family: 'Segoe UI', 'HelveticaNeue-Light', sans-serif;\n  line-height: 1.375; /* ~22px */\n\n}\n\na {\n  color: #0074c2;\n\n}\n\n/*\n *  * Remove text-shadow in selection highlight:\n *   * https://twitter.com/miketaylr/status/12228805301\n *    *\n *     * These selection rule sets have to be separate.\n *      * Customize the background color to match your design.\n *       */\n\n::-moz-selection {\n  background: #b3d4fc;\n  text-shadow: none;\n\n}\n\n::selection {\n  background: #b3d4fc;\n  text-shadow: none;\n\n}\n\n/*\n *  * A better looking default horizontal rule\n *   */\n\nhr {\n  display: block;\n  height: 1px;\n  border: 0;\n  border-top: 1px solid #ccc;\n  margin: 1em 0;\n  padding: 0;\n\n}\n\n/*\n *  * Remove the gap between audio, canvas, iframes,\n *   * images, videos and the bottom of their containers:\n *    * https://github.com/h5bp/html5-boilerplate/issues/440\n *     */\n\naudio,\ncanvas,\niframe,\nimg,\nsvg,\nvideo {\n  vertical-align: middle;\n\n}\n\n/*\n *  * Remove default fieldset styles.\n *   */\n\nfieldset {\n  border: 0;\n  margin: 0;\n  padding: 0;\n\n}\n\n/*\n *  * Allow only vertical resizing of textareas.\n *   */\n\ntextarea {\n  resize: vertical;\n\n}\n\n/*\n *  * Browser upgrade prompt\n *   * ========================================================================== */\n\n.browserupgrade {\n  margin: 0.2em 0;\n  background: #ccc;\n  color: #000;\n  padding: 0.2em 0;\n\n}\n\n/*\n *  * Print styles\n *   * Inlined to avoid the additional HTTP request:\n *    * http://www.phpied.com/delay-loading-your-print-css/\n *     * ========================================================================== */\n\n@media print {\n  *,\n    *::before,\n    *::after {\n      background: transparent !important;\n      color: #000 !important; /* Black prints faster: http://www.sanbeiji.com/archives/953 */\n      -webkit-box-shadow: none !important;\n              box-shadow: none !important;\n      text-shadow: none !important;\n\n    }\n\n    a,\n    a:visited {\n      text-decoration: underline;\n\n    }\n\n    a[href]::after {\n      content: ' (' attr(href) ')';\n\n    }\n\n    abbr[title]::after {\n      content: ' (' attr(title) ')';\n\n    }\n\n    /*\n     *    * Don't show links that are fragment identifiers,\n     *       * or use the `javascript:` pseudo protocol\n     *          */\n\na[href^='#']::after,\na[href^='javascript:']::after {\n  content: '';\n\n}\n\npre,\nblockquote {\n  border: 1px solid #999;\n  page-break-inside: avoid;\n\n}\n\n/*\n *    * Printing Tables:\n *       * http://css-discuss.incutio.com/wiki/Printing_Tables\n *          */\n\nthead {\n  display: table-header-group;\n\n}\n\ntr,\nimg {\n  page-break-inside: avoid;\n\n}\n\nimg {\n  max-width: 100% !important;\n\n}\n\np,\nh2,\nh3 {\n  orphans: 3;\n  widows: 3;\n\n}\n\nh2,\nh3 {\n  page-break-after: avoid;\n\n}\n\n}\n", "", {"version":3,"sources":["/./components/Header/Header.css","/../node_modules/normalize.css/normalize.css","/./components/variables.css"],"names":[],"mappings":"AAAA;;;;;;;YAOY;;ACPZ,4EAA4E;;AAE5E;;;;GAIG;;AAEH;EACE,wBAAwB,CAAC,OAAO;EAChC,kBAAkB,CAAC,OAAO;EAC1B,2BAA2B,CAAC,OAAO;EACnC,+BAA+B,CAAC,OAAO;CACxC;;AAED;;GAEG;;AAEH;EACE,UAAU;CACX;;AAED;gFACgF;;AAEhF;;;;GAIG;;AAEH;;;;;;;;;;;UAWU,OAAO;EACf,eAAe;CAChB;;AAED;;GAEG;;AAEH;;;;EAIE,sBAAsB;CACvB;;AAED;;GAEG;;AAEH;EACE,cAAc;EACd,UAAU;CACX;;AAED;;GAEG;;AAEH;EACE,yBAAyB;CAC1B;;AAED;;;GAGG;;AAEH;;EAEE,cAAc;CACf;;AAED;gFACgF;;AAEhF;;;GAGG;;AAEH;EACE,8BAA8B,CAAC,OAAO;EACtC,sCAAsC,CAAC,OAAO;CAC/C;;AAED;;;GAGG;;AAEH;;EAEE,iBAAiB;CAClB;;AAED;gFACgF;;AAEhF;;;GAGG;;AAEH;EACE,oBAAoB,CAAC,OAAO;EAC5B,2BAA2B,CAAC,OAAO;EACnC,kCAAkC,CAAC,OAAO;CAC3C;;AAED;;GAEG;;AAEH;;EAEE,qBAAqB;CACtB;;AAED;;GAEG;;AAEH;;EAEE,oBAAoB;CACrB;;AAED;;GAEG;;AAEH;EACE,mBAAmB;CACpB;;AAED;;;GAGG;;AAEH;EACE,eAAe;EACf,iBAAiB;CAClB;;AAED;;GAEG;;AAEH;EACE,uBAAuB;EACvB,YAAY;CACb;;AAED;;GAEG;;AAEH;EACE,eAAe;CAChB;;AAED;;;GAGG;;AAEH;;EAEE,eAAe;EACf,eAAe;EACf,mBAAmB;EACnB,yBAAyB;CAC1B;;AAED;EACE,gBAAgB;CACjB;;AAED;EACE,YAAY;CACb;;AAED;gFACgF;;AAEhF;;GAEG;;AAEH;EACE,mBAAmB;CACpB;;AAED;;GAEG;;AAEH;EACE,iBAAiB;CAClB;;AAED;gFACgF;;AAEhF;;;GAGG;;AAEH;;;;EAIE,kCAAkC,CAAC,OAAO;EAC1C,eAAe,CAAC,OAAO;CACxB;;AAED;;GAEG;;AAEH;EACE,iBAAiB;CAClB;;AAED;;;GAGG;;AAEH;EACE,gCAAwB;UAAxB,wBAAwB,CAAC,OAAO;EAChC,UAAU,CAAC,OAAO;EAClB,kBAAkB,CAAC,OAAO;CAC3B;;AAED;gFACgF;;AAEhF;;;GAGG;;AAEH;;;;;EAKE,cAAc,CAAC,OAAO;EACtB,UAAU,CAAC,OAAO;CACnB;;AAED;;GAEG;;AAEH;EACE,kBAAkB;CACnB;;AAED;;;GAGG;;AAEH;QACQ,OAAO;EACb,kBAAkB;CACnB;;AAED;;;GAGG;;AAEH;SACS,OAAO;EACd,qBAAqB;CACtB;;AAED;;;;GAIG;;AAEH;;;;EAIE,2BAA2B,CAAC,OAAO;CACpC;;AAED;;GAEG;;AAEH;;;;EAIE,mBAAmB;EACnB,WAAW;CACZ;;AAED;;GAEG;;AAEH;;;;EAIE,+BAA+B;CAChC;;AAED;;GAEG;;AAEH;EACE,0BAA0B;EAC1B,cAAc;EACd,+BAA+B;CAChC;;AAED;;;;;GAKG;;AAEH;EACE,+BAAuB;UAAvB,uBAAuB,CAAC,OAAO;EAC/B,eAAe,CAAC,OAAO;EACvB,eAAe,CAAC,OAAO;EACvB,gBAAgB,CAAC,OAAO;EACxB,WAAW,CAAC,OAAO;EACnB,oBAAoB,CAAC,OAAO;CAC7B;;AAED;;GAEG;;AAEH;EACE,eAAe;CAChB;;AAED;;;GAGG;;AAEH;;EAEE,+BAAuB;UAAvB,uBAAuB,CAAC,OAAO;EAC/B,WAAW,CAAC,OAAO;CACpB;;AAED;;GAEG;;AAEH;;EAEE,aAAa;CACd;;AAED;;;GAGG;;AAEH;EACE,8BAA8B,CAAC,OAAO;EACtC,qBAAqB,CAAC,OAAO;CAC9B;;AAED;;GAEG;;AAEH;;EAEE,yBAAyB;CAC1B;;AAED;;GAEG;;AAEH;EACE,eAAe;EACf,cAAc;CACf;;AAED;;;GAGG;;AAEH;EACE,2BAA2B,CAAC,OAAO;EACnC,cAAc,CAAC,OAAO;CACvB;;AD1ZD,yEAAyE;;AEXzE;;;;;;;GAOG;;AAEH;EACE;;gFAE8E;;EAI9E;;gFAE8E;;EAI9E;;gFAE8E,EAErD,gCAAgC,EAChC,2BAA2B,EAC3B,6BAA6B,CAC7B,iCAAiC;CAC3D;;AFfD;;oFAEoF;;AAEpF;EACE,YAAY;EACZ,iBAAiB;EACjB,eAAe,CAAC,YAAY;EAC5B,2DAAqC;EACrC,mBAAmB,CAAC,WAAW;;CAEhC;;AAED;EACE,eAAe;;CAEhB;;AAED;;;;;;WAMW;;AAEX;EACE,oBAAoB;EACpB,kBAAkB;;CAEnB;;AAED;EACE,oBAAoB;EACpB,kBAAkB;;CAEnB;;AAED;;OAEO;;AAEP;EACE,eAAe;EACf,YAAY;EACZ,UAAU;EACV,2BAA2B;EAC3B,cAAc;EACd,WAAW;;CAEZ;;AAED;;;;SAIS;;AAET;;;;;;EAME,uBAAuB;;CAExB;;AAED;;OAEO;;AAEP;EACE,UAAU;EACV,UAAU;EACV,WAAW;;CAEZ;;AAED;;OAEO;;AAEP;EACE,iBAAiB;;CAElB;;AAED;;oFAEoF;;AAEpF;EACE,gBAAgB;EAChB,iBAAiB;EACjB,YAAY;EACZ,iBAAiB;;CAElB;;AAED;;;;sFAIsF;;AAEtF;EACE;;;MAGI,mCAAmC;MACnC,uBAAuB,CAAC,+DAA+D;MACvF,oCAA4B;cAA5B,4BAA4B;MAC5B,6BAA6B;;KAE9B;;IAED;;MAEE,2BAA2B;;KAE5B;;IAED;MACE,6BAA6B;;KAE9B;;IAED;MACE,8BAA8B;;KAE/B;;IAED;;;kBAGc;;AAElB;;EAEE,YAAY;;CAEb;;AAED;;EAEE,uBAAuB;EACvB,yBAAyB;;CAE1B;;AAED;;;cAGc;;AAEd;EACE,4BAA4B;;CAE7B;;AAED;;EAEE,yBAAyB;;CAE1B;;AAED;EACE,2BAA2B;;CAE5B;;AAED;;;EAGE,WAAW;EACX,UAAU;;CAEX;;AAED;;EAEE,wBAAwB;;CAEzB;;CAEA","file":"Header.css","sourcesContent":["/**\n *  * React Starter Kit (https://www.reactstarterkit.com/)\n *   *\n *    * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *     *\n *      * This source code is licensed under the MIT license found in the\n *       * LICENSE.txt file in the root directory of this source tree.\n *        */\n\n@import '../../../node_modules/normalize.css/normalize.css';\n\n/*! React Starter Kit | MIT License | https://www.reactstarterkit.com/ */\n\n@import '../variables.css';\n\n/*\n *  * Base styles\n *   * ========================================================================== */\n\nhtml {\n  color: #222;\n  font-weight: 100;\n  font-size: 1em; /* ~16px; */\n  font-family: var(--font-family-base);\n  line-height: 1.375; /* ~22px */\n\n}\n\na {\n  color: #0074c2;\n\n}\n\n/*\n *  * Remove text-shadow in selection highlight:\n *   * https://twitter.com/miketaylr/status/12228805301\n *    *\n *     * These selection rule sets have to be separate.\n *      * Customize the background color to match your design.\n *       */\n\n::-moz-selection {\n  background: #b3d4fc;\n  text-shadow: none;\n\n}\n\n::selection {\n  background: #b3d4fc;\n  text-shadow: none;\n\n}\n\n/*\n *  * A better looking default horizontal rule\n *   */\n\nhr {\n  display: block;\n  height: 1px;\n  border: 0;\n  border-top: 1px solid #ccc;\n  margin: 1em 0;\n  padding: 0;\n\n}\n\n/*\n *  * Remove the gap between audio, canvas, iframes,\n *   * images, videos and the bottom of their containers:\n *    * https://github.com/h5bp/html5-boilerplate/issues/440\n *     */\n\naudio,\ncanvas,\niframe,\nimg,\nsvg,\nvideo {\n  vertical-align: middle;\n\n}\n\n/*\n *  * Remove default fieldset styles.\n *   */\n\nfieldset {\n  border: 0;\n  margin: 0;\n  padding: 0;\n\n}\n\n/*\n *  * Allow only vertical resizing of textareas.\n *   */\n\ntextarea {\n  resize: vertical;\n\n}\n\n/*\n *  * Browser upgrade prompt\n *   * ========================================================================== */\n\n:global(.browserupgrade) {\n  margin: 0.2em 0;\n  background: #ccc;\n  color: #000;\n  padding: 0.2em 0;\n\n}\n\n/*\n *  * Print styles\n *   * Inlined to avoid the additional HTTP request:\n *    * http://www.phpied.com/delay-loading-your-print-css/\n *     * ========================================================================== */\n\n@media print {\n  *,\n    *::before,\n    *::after {\n      background: transparent !important;\n      color: #000 !important; /* Black prints faster: http://www.sanbeiji.com/archives/953 */\n      box-shadow: none !important;\n      text-shadow: none !important;\n\n    }\n\n    a,\n    a:visited {\n      text-decoration: underline;\n\n    }\n\n    a[href]::after {\n      content: ' (' attr(href) ')';\n\n    }\n\n    abbr[title]::after {\n      content: ' (' attr(title) ')';\n\n    }\n\n    /*\n     *    * Don't show links that are fragment identifiers,\n     *       * or use the `javascript:` pseudo protocol\n     *          */\n\na[href^='#']::after,\na[href^='javascript:']::after {\n  content: '';\n\n}\n\npre,\nblockquote {\n  border: 1px solid #999;\n  page-break-inside: avoid;\n\n}\n\n/*\n *    * Printing Tables:\n *       * http://css-discuss.incutio.com/wiki/Printing_Tables\n *          */\n\nthead {\n  display: table-header-group;\n\n}\n\ntr,\nimg {\n  page-break-inside: avoid;\n\n}\n\nimg {\n  max-width: 100% !important;\n\n}\n\np,\nh2,\nh3 {\n  orphans: 3;\n  widows: 3;\n\n}\n\nh2,\nh3 {\n  page-break-after: avoid;\n\n}\n\n}\n","/*! normalize.css v4.1.1 | MIT License | github.com/necolas/normalize.css */\n\n/**\n * 1. Change the default font family in all browsers (opinionated).\n * 2. Correct the line height in all browsers.\n * 3. Prevent adjustments of font size after orientation changes in IE and iOS.\n */\n\nhtml {\n  font-family: sans-serif; /* 1 */\n  line-height: 1.15; /* 2 */\n  -ms-text-size-adjust: 100%; /* 3 */\n  -webkit-text-size-adjust: 100%; /* 3 */\n}\n\n/**\n * Remove the margin in all browsers (opinionated).\n */\n\nbody {\n  margin: 0;\n}\n\n/* HTML5 display definitions\n   ========================================================================== */\n\n/**\n * Add the correct display in IE 9-.\n * 1. Add the correct display in Edge, IE, and Firefox.\n * 2. Add the correct display in IE.\n */\n\narticle,\naside,\ndetails, /* 1 */\nfigcaption,\nfigure,\nfooter,\nheader,\nmain, /* 2 */\nmenu,\nnav,\nsection,\nsummary { /* 1 */\n  display: block;\n}\n\n/**\n * Add the correct display in IE 9-.\n */\n\naudio,\ncanvas,\nprogress,\nvideo {\n  display: inline-block;\n}\n\n/**\n * Add the correct display in iOS 4-7.\n */\n\naudio:not([controls]) {\n  display: none;\n  height: 0;\n}\n\n/**\n * Add the correct vertical alignment in Chrome, Firefox, and Opera.\n */\n\nprogress {\n  vertical-align: baseline;\n}\n\n/**\n * Add the correct display in IE 10-.\n * 1. Add the correct display in IE.\n */\n\ntemplate, /* 1 */\n[hidden] {\n  display: none;\n}\n\n/* Links\n   ========================================================================== */\n\n/**\n * 1. Remove the gray background on active links in IE 10.\n * 2. Remove gaps in links underline in iOS 8+ and Safari 8+.\n */\n\na {\n  background-color: transparent; /* 1 */\n  -webkit-text-decoration-skip: objects; /* 2 */\n}\n\n/**\n * Remove the outline on focused links when they are also active or hovered\n * in all browsers (opinionated).\n */\n\na:active,\na:hover {\n  outline-width: 0;\n}\n\n/* Text-level semantics\n   ========================================================================== */\n\n/**\n * 1. Remove the bottom border in Firefox 39-.\n * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.\n */\n\nabbr[title] {\n  border-bottom: none; /* 1 */\n  text-decoration: underline; /* 2 */\n  text-decoration: underline dotted; /* 2 */\n}\n\n/**\n * Prevent the duplicate application of `bolder` by the next rule in Safari 6.\n */\n\nb,\nstrong {\n  font-weight: inherit;\n}\n\n/**\n * Add the correct font weight in Chrome, Edge, and Safari.\n */\n\nb,\nstrong {\n  font-weight: bolder;\n}\n\n/**\n * Add the correct font style in Android 4.3-.\n */\n\ndfn {\n  font-style: italic;\n}\n\n/**\n * Correct the font size and margin on `h1` elements within `section` and\n * `article` contexts in Chrome, Firefox, and Safari.\n */\n\nh1 {\n  font-size: 2em;\n  margin: 0.67em 0;\n}\n\n/**\n * Add the correct background and color in IE 9-.\n */\n\nmark {\n  background-color: #ff0;\n  color: #000;\n}\n\n/**\n * Add the correct font size in all browsers.\n */\n\nsmall {\n  font-size: 80%;\n}\n\n/**\n * Prevent `sub` and `sup` elements from affecting the line height in\n * all browsers.\n */\n\nsub,\nsup {\n  font-size: 75%;\n  line-height: 0;\n  position: relative;\n  vertical-align: baseline;\n}\n\nsub {\n  bottom: -0.25em;\n}\n\nsup {\n  top: -0.5em;\n}\n\n/* Embedded content\n   ========================================================================== */\n\n/**\n * Remove the border on images inside links in IE 10-.\n */\n\nimg {\n  border-style: none;\n}\n\n/**\n * Hide the overflow in IE.\n */\n\nsvg:not(:root) {\n  overflow: hidden;\n}\n\n/* Grouping content\n   ========================================================================== */\n\n/**\n * 1. Correct the inheritance and scaling of font size in all browsers.\n * 2. Correct the odd `em` font sizing in all browsers.\n */\n\ncode,\nkbd,\npre,\nsamp {\n  font-family: monospace, monospace; /* 1 */\n  font-size: 1em; /* 2 */\n}\n\n/**\n * Add the correct margin in IE 8.\n */\n\nfigure {\n  margin: 1em 40px;\n}\n\n/**\n * 1. Add the correct box sizing in Firefox.\n * 2. Show the overflow in Edge and IE.\n */\n\nhr {\n  box-sizing: content-box; /* 1 */\n  height: 0; /* 1 */\n  overflow: visible; /* 2 */\n}\n\n/* Forms\n   ========================================================================== */\n\n/**\n * 1. Change font properties to `inherit` in all browsers (opinionated).\n * 2. Remove the margin in Firefox and Safari.\n */\n\nbutton,\ninput,\noptgroup,\nselect,\ntextarea {\n  font: inherit; /* 1 */\n  margin: 0; /* 2 */\n}\n\n/**\n * Restore the font weight unset by the previous rule.\n */\n\noptgroup {\n  font-weight: bold;\n}\n\n/**\n * Show the overflow in IE.\n * 1. Show the overflow in Edge.\n */\n\nbutton,\ninput { /* 1 */\n  overflow: visible;\n}\n\n/**\n * Remove the inheritance of text transform in Edge, Firefox, and IE.\n * 1. Remove the inheritance of text transform in Firefox.\n */\n\nbutton,\nselect { /* 1 */\n  text-transform: none;\n}\n\n/**\n * 1. Prevent a WebKit bug where (2) destroys native `audio` and `video`\n *    controls in Android 4.\n * 2. Correct the inability to style clickable types in iOS and Safari.\n */\n\nbutton,\nhtml [type=\"button\"], /* 1 */\n[type=\"reset\"],\n[type=\"submit\"] {\n  -webkit-appearance: button; /* 2 */\n}\n\n/**\n * Remove the inner border and padding in Firefox.\n */\n\nbutton::-moz-focus-inner,\n[type=\"button\"]::-moz-focus-inner,\n[type=\"reset\"]::-moz-focus-inner,\n[type=\"submit\"]::-moz-focus-inner {\n  border-style: none;\n  padding: 0;\n}\n\n/**\n * Restore the focus styles unset by the previous rule.\n */\n\nbutton:-moz-focusring,\n[type=\"button\"]:-moz-focusring,\n[type=\"reset\"]:-moz-focusring,\n[type=\"submit\"]:-moz-focusring {\n  outline: 1px dotted ButtonText;\n}\n\n/**\n * Change the border, margin, and padding in all browsers (opinionated).\n */\n\nfieldset {\n  border: 1px solid #c0c0c0;\n  margin: 0 2px;\n  padding: 0.35em 0.625em 0.75em;\n}\n\n/**\n * 1. Correct the text wrapping in Edge and IE.\n * 2. Correct the color inheritance from `fieldset` elements in IE.\n * 3. Remove the padding so developers are not caught out when they zero out\n *    `fieldset` elements in all browsers.\n */\n\nlegend {\n  box-sizing: border-box; /* 1 */\n  color: inherit; /* 2 */\n  display: table; /* 1 */\n  max-width: 100%; /* 1 */\n  padding: 0; /* 3 */\n  white-space: normal; /* 1 */\n}\n\n/**\n * Remove the default vertical scrollbar in IE.\n */\n\ntextarea {\n  overflow: auto;\n}\n\n/**\n * 1. Add the correct box sizing in IE 10-.\n * 2. Remove the padding in IE 10-.\n */\n\n[type=\"checkbox\"],\n[type=\"radio\"] {\n  box-sizing: border-box; /* 1 */\n  padding: 0; /* 2 */\n}\n\n/**\n * Correct the cursor style of increment and decrement buttons in Chrome.\n */\n\n[type=\"number\"]::-webkit-inner-spin-button,\n[type=\"number\"]::-webkit-outer-spin-button {\n  height: auto;\n}\n\n/**\n * 1. Correct the odd appearance in Chrome and Safari.\n * 2. Correct the outline style in Safari.\n */\n\n[type=\"search\"] {\n  -webkit-appearance: textfield; /* 1 */\n  outline-offset: -2px; /* 2 */\n}\n\n/**\n * Remove the inner padding and cancel buttons in Chrome and Safari on OS X.\n */\n\n[type=\"search\"]::-webkit-search-cancel-button,\n[type=\"search\"]::-webkit-search-decoration {\n  -webkit-appearance: none;\n}\n\n/**\n * Correct the text style of placeholders in Chrome, Edge, and Safari.\n */\n\n::-webkit-input-placeholder {\n  color: inherit;\n  opacity: 0.54;\n}\n\n/**\n * 1. Correct the inability to style clickable types in iOS and Safari.\n * 2. Change font properties to `inherit` in Safari.\n */\n\n::-webkit-file-upload-button {\n  -webkit-appearance: button; /* 1 */\n  font: inherit; /* 2 */\n}\n","/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n\n  --font-family-base: 'Segoe UI', 'HelveticaNeue-Light', sans-serif;\n\n  /*\n   * Layout\n   * ======================================================================== */\n\n  --max-content-width: 1000px;\n\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */\n\n  --screen-xs-min: 480px;  /* Extra small screen / phone */\n  --screen-sm-min: 768px;  /* Small screen / tablet */\n  --screen-md-min: 992px;  /* Medium screen / desktop */\n  --screen-lg-min: 1200px; /* Large screen / wide desktop */\n}\n"],"sourceRoot":"webpack://"}]);
+  exports.push([module.id, "/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n\n  /*\n   * Layout\n   * ======================================================================== */\n\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */  /* Extra small screen / phone */  /* Small screen / tablet */  /* Medium screen / desktop */ /* Large screen / wide desktop */\n}\n\n.Header_root_3Gi {\n  background: #373277;\n  color: #fff;\n}\n\n.Header_container_1rG {\n  margin-top: 10%;\n  /*margin: 0 auto;*/\n  /*padding: 20px 0;*/\n  max-width: 1000px;\n  font-family: 'Raleway', sans-serif;\n  text-align: center;\n\n}\n\n.Header_brand_19l {\n  color: rgb(146, 229, 252);\n  text-decoration: none;\n  font-size: 1.75em; /* ~28px */\n}\n\n.Header_brandTxt_2mi {\n  margin-left: 10px;\n}\n\n.Header_nav_1zC {\n  text-align: center;\n}\n\n.Header_navigation_2X9 {\n  padding-top: 5%;\n  color: #57576d;\n  font-family: 'Raleway', sans-serif;\n}\n\n.Header_head_hBB {\n  margin-bottom: 3%;\n  font-size: 3em;\n  font-weight: 900;\n  color: #57576d;\n}\n\n.Header_banner_2Lc {\n  text-align: center;\n}\n\n.Header_bannerTitle_2Qz {\n  margin: 0;\n  padding: 10px;\n  font-weight: normal;\n  font-size: 4em;\n  line-height: 1em;\n}\n\n.Header_bannerDesc_3mm {\n  padding: 0;\n  color: rgba(255, 255, 255, 0.5);\n  font-size: 1.25em;\n  margin: 0;\n}\n\n.Header_flex_2d2 { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; }\n\n.Header_wrap_JuS { -webkit-flex-wrap: wrap; -ms-flex-wrap: wrap; flex-wrap: wrap; }\n\n.Header_justify_center_1xU     { -webkit-box-pack: center; -webkit-justify-content: center; -ms-flex-pack: center; justify-content: center; }\n\n.Header_justify-around_eQv     { -webkit-justify-content: space-around; -ms-flex-pack: distribute; justify-content: space-around; }\n\n.Header_justify-between_Jkk    { -webkit-box-pack: justify; -webkit-justify-content: space-between; -ms-flex-pack: justify; justify-content: space-between; }\n\n.Header_justify-start_2Gn      { -webkit-box-pack: start; -webkit-justify-content: flex-start; -ms-flex-pack: start; justify-content: flex-start; }\n\n.Header_al-center_-4U  { -webkit-box-align: center; -webkit-align-items: center; -ms-flex-align: center; align-items: center; }\n\n.Header_self-center_1zZ { -webkit-align-self: center; -ms-flex-item-align: center; -ms-grid-row-align: center; align-self: center; }\n\n.Header_self-start_2oC  { -webkit-align-self: flex-start; -ms-flex-item-align: start; align-self: flex-start; }\n\n.Header_dir-row_1Yl    { -webkit-box-orient: horizontal; -webkit-box-direction: normal; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; }\n\n.Header_dir-column_3rZ { -webkit-box-orient: vertical; -webkit-box-direction: normal; -webkit-flex-direction: column; -ms-flex-direction: column; flex-direction: column; }\n", "", {"version":3,"sources":["/./components/Header/Header.css","/./components/variables.css"],"names":[],"mappings":"AAAA;;;;;;;GAOG;;ACPH;;;;;;;GAOG;;AAEH;EACE;;gFAE8E;;EAI9E;;gFAE8E;;EAI9E;;gFAE8E,EAErD,gCAAgC,EAChC,2BAA2B,EAC3B,6BAA6B,CAC7B,iCAAiC;CAC3D;;ADfD;EACE,oBAAoB;EACpB,YAAY;CACb;;AAED;EACE,gBAAgB;EAChB,mBAAmB;EACnB,oBAAoB;EACpB,kBAAoC;EACpC,mCAAmC;EACnC,mBAAmB;;CAEpB;;AAED;EACE,0BAAiD;EACjD,sBAAsB;EACtB,kBAAkB,CAAC,WAAW;CAC/B;;AAED;EACE,kBAAkB;CACnB;;AAED;EACE,mBAAmB;CACpB;;AAED;EACE,gBAAgB;EAChB,eAAe;EACf,mCAAmC;CACpC;;AAED;EACE,kBAAkB;EAClB,eAAe;EACf,iBAAiB;EACjB,eAAe;CAChB;;AAED;EACE,mBAAmB;CACpB;;AAED;EACE,UAAU;EACV,cAAc;EACd,oBAAoB;EACpB,eAAe;EACf,iBAAiB;CAClB;;AAED;EACE,WAAW;EACX,gCAAgC;EAChC,kBAAkB;EAClB,UAAU;CACX;;AAED,mBAAQ,qBAAc,CAAd,sBAAc,CAAd,qBAAc,CAAd,cAAc,EAAE;;AAExB,mBAAQ,wBAAgB,CAAhB,oBAAgB,CAAhB,gBAAgB,EAAE;;AAE1B,iCAAsB,yBAAwB,CAAxB,gCAAwB,CAAxB,sBAAwB,CAAxB,wBAAwB,EAAE;;AAChD,iCAAsB,sCAA8B,CAA9B,0BAA8B,CAA9B,8BAA8B,EAAE;;AACtD,iCAAsB,0BAA+B,CAA/B,uCAA+B,CAA/B,uBAA+B,CAA/B,+BAA+B,EAAE;;AACvD,iCAAsB,wBAA4B,CAA5B,oCAA4B,CAA5B,qBAA4B,CAA5B,4BAA4B,EAAE;;AAEpD,yBAAc,0BAAoB,CAApB,4BAAoB,CAApB,uBAAoB,CAApB,oBAAoB,EAAE;;AAEpC,0BAAe,2BAAmB,CAAnB,4BAAmB,CAAnB,2BAAmB,CAAnB,mBAAmB,EAAE;;AACpC,0BAAe,+BAAuB,CAAvB,2BAAuB,CAAvB,uBAAuB,EAAE;;AAExC,yBAAc,+BAAoB,CAApB,8BAAoB,CAApB,4BAAoB,CAApB,wBAAoB,CAApB,oBAAoB,EAAE;;AACpC,yBAAc,6BAAuB,CAAvB,8BAAuB,CAAvB,+BAAuB,CAAvB,2BAAuB,CAAvB,uBAAuB,EAAE","file":"Header.css","sourcesContent":["/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n@import '../variables.css';\n\n:root {\n  --brand-color: #61dafb;\n}\n\n.root {\n  background: #373277;\n  color: #fff;\n}\n\n.container {\n  margin-top: 10%;\n  /*margin: 0 auto;*/\n  /*padding: 20px 0;*/\n  max-width: var(--max-content-width);\n  font-family: 'Raleway', sans-serif;\n  text-align: center;\n\n}\n\n.brand {\n  color: color(var(--brand-color) lightness(+10%));\n  text-decoration: none;\n  font-size: 1.75em; /* ~28px */\n}\n\n.brandTxt {\n  margin-left: 10px;\n}\n\n.nav {\n  text-align: center;\n}\n\n.navigation {\n  padding-top: 5%;\n  color: #57576d;\n  font-family: 'Raleway', sans-serif;\n}\n\n.head {\n  margin-bottom: 3%;\n  font-size: 3em;\n  font-weight: 900;\n  color: #57576d;\n}\n\n.banner {\n  text-align: center;\n}\n\n.bannerTitle {\n  margin: 0;\n  padding: 10px;\n  font-weight: normal;\n  font-size: 4em;\n  line-height: 1em;\n}\n\n.bannerDesc {\n  padding: 0;\n  color: rgba(255, 255, 255, 0.5);\n  font-size: 1.25em;\n  margin: 0;\n}\n\n.flex { display: flex; }\n\n.wrap { flex-wrap: wrap; }\n\n.justify_center     { justify-content: center; }\n.justify-around     { justify-content: space-around; }\n.justify-between    { justify-content: space-between; }\n.justify-start      { justify-content: flex-start; }\n\n.al-center  { align-items: center; }\n\n.self-center { align-self: center; }\n.self-start  { align-self: flex-start; }\n\n.dir-row    { flex-direction: row; }\n.dir-column { flex-direction: column; }\n","/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n\n  --font-family-base: 'Segoe UI', 'HelveticaNeue-Light', sans-serif;\n\n  /*\n   * Layout\n   * ======================================================================== */\n\n  --max-content-width: 1000px;\n\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */\n\n  --screen-xs-min: 480px;  /* Extra small screen / phone */\n  --screen-sm-min: 768px;  /* Small screen / tablet */\n  --screen-md-min: 992px;  /* Medium screen / desktop */\n  --screen-lg-min: 1200px; /* Large screen / wide desktop */\n}\n"],"sourceRoot":"webpack://"}]);
   
   // exports
-
+  exports.locals = {
+  	"root": "Header_root_3Gi",
+  	"container": "Header_container_1rG",
+  	"brand": "Header_brand_19l",
+  	"brandTxt": "Header_brandTxt_2mi",
+  	"nav": "Header_nav_1zC",
+  	"navigation": "Header_navigation_2X9",
+  	"head": "Header_head_hBB",
+  	"banner": "Header_banner_2Lc",
+  	"bannerTitle": "Header_bannerTitle_2Qz",
+  	"bannerDesc": "Header_bannerDesc_3mm",
+  	"flex": "Header_flex_2d2",
+  	"wrap": "Header_wrap_JuS",
+  	"justify_center": "Header_justify_center_1xU",
+  	"justify-around": "Header_justify-around_eQv",
+  	"justify-between": "Header_justify-between_Jkk",
+  	"justify-start": "Header_justify-start_2Gn",
+  	"al-center": "Header_al-center_-4U",
+  	"self-center": "Header_self-center_1zZ",
+  	"self-start": "Header_self-start_2oC",
+  	"dir-row": "Header_dir-row_1Yl",
+  	"dir-column": "Header_dir-column_3rZ"
+  };
 
 /***/ },
-/* 69 */
+/* 70 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -2628,9 +2696,21 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _axios = __webpack_require__(70);
+  var _axios = __webpack_require__(71);
   
   var axios = _interopRequireWildcard(_axios);
+  
+  var _withStyles = __webpack_require__(28);
+  
+  var _withStyles2 = _interopRequireDefault(_withStyles);
+  
+  var _UserName = __webpack_require__(72);
+  
+  var _UserName2 = _interopRequireDefault(_UserName);
+  
+  var _classnames = __webpack_require__(66);
+  
+  var _classnames2 = _interopRequireDefault(_classnames);
   
   function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
   
@@ -2653,7 +2733,7 @@ module.exports =
     //componentWillMount = () => {
   
     //// MAKE A REQUEST TO THE API TO GET THE CURRENT USER
-    //// 
+    ////
     //axios.get('http://localhost:5000/list_projects')
     //.then(function (response) {
     //this.setState({projectName: response.data});
@@ -2674,7 +2754,7 @@ module.exports =
           null,
           _react2.default.createElement(
             'div',
-            null,
+            { className: _UserName2.default.line_text },
             _react2.default.createElement(
               'p',
               null,
@@ -2687,16 +2767,66 @@ module.exports =
     return UserName;
   }(_react.Component);
   
-  exports.default = UserName;
+  exports.default = (0, _withStyles2.default)(_UserName2.default)(UserName);
 
 /***/ },
-/* 70 */
+/* 71 */
 /***/ function(module, exports) {
 
   module.exports = require("axios");
 
 /***/ },
-/* 71 */
+/* 72 */
+/***/ function(module, exports, __webpack_require__) {
+
+  
+      var content = __webpack_require__(73);
+      var insertCss = __webpack_require__(32);
+  
+      if (typeof content === 'string') {
+        content = [[module.id, content, '']];
+      }
+  
+      module.exports = content.locals || {};
+      module.exports._getCss = function() { return content.toString(); };
+      module.exports._insertCss = function(options) { return insertCss(content, options) };
+    
+      // Hot Module Replacement
+      // https://webpack.github.io/docs/hot-module-replacement
+      // Only activated in browser context
+      if (false) {
+        var removeCss = function() {};
+        module.hot.accept("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./UserName.css", function() {
+          content = require("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./UserName.css");
+  
+          if (typeof content === 'string') {
+            content = [[module.id, content, '']];
+          }
+  
+          removeCss = insertCss(content, { replace: true });
+        });
+        module.hot.dispose(function() { removeCss(); });
+      }
+    
+
+/***/ },
+/* 73 */
+/***/ function(module, exports, __webpack_require__) {
+
+  exports = module.exports = __webpack_require__(31)();
+  // imports
+  
+  
+  // module
+  exports.push([module.id, "/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n\n  /*\n   * Layout\n   * ======================================================================== */\n\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */  /* Extra small screen / phone */  /* Small screen / tablet */  /* Medium screen / desktop */ /* Large screen / wide desktop */\n}\n\n.UserName_line_text_3EF {\n  margin: 0;\n  font-size: 1em;\n  font-weight: 200;\n  color: #57576d;\n}\n", "", {"version":3,"sources":["/./components/variables.css","/./components/UserName/UserName.css"],"names":[],"mappings":"AAAA;;;;;;;GAOG;;AAEH;EACE;;gFAE8E;;EAI9E;;gFAE8E;;EAI9E;;gFAE8E,EAErD,gCAAgC,EAChC,2BAA2B,EAC3B,6BAA6B,CAC7B,iCAAiC;CAC3D;;AC3BD;EACE,UAAU;EACV,eAAe;EACf,iBAAiB;EACjB,eAAe;CAChB","file":"UserName.css","sourcesContent":["/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n\n  --font-family-base: 'Segoe UI', 'HelveticaNeue-Light', sans-serif;\n\n  /*\n   * Layout\n   * ======================================================================== */\n\n  --max-content-width: 1000px;\n\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */\n\n  --screen-xs-min: 480px;  /* Extra small screen / phone */\n  --screen-sm-min: 768px;  /* Small screen / tablet */\n  --screen-md-min: 992px;  /* Medium screen / desktop */\n  --screen-lg-min: 1200px; /* Large screen / wide desktop */\n}\n","@import '../variables.css';\n\n\n.line_text {\n  margin: 0;\n  font-size: 1em;\n  font-weight: 200;\n  color: #57576d;\n}\n"],"sourceRoot":"webpack://"}]);
+  
+  // exports
+  exports.locals = {
+  	"line_text": "UserName_line_text_3EF"
+  };
+
+/***/ },
+/* 74 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -2729,9 +2859,21 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _axios = __webpack_require__(70);
+  var _axios = __webpack_require__(71);
   
   var axios = _interopRequireWildcard(_axios);
+  
+  var _withStyles = __webpack_require__(28);
+  
+  var _withStyles2 = _interopRequireDefault(_withStyles);
+  
+  var _ProjectName = __webpack_require__(75);
+  
+  var _ProjectName2 = _interopRequireDefault(_ProjectName);
+  
+  var _classnames = __webpack_require__(66);
+  
+  var _classnames2 = _interopRequireDefault(_classnames);
   
   function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
   
@@ -2747,7 +2889,7 @@ module.exports =
   
       _this.componentWillMount = function () {
   
-        axios.get('http://localhost:5000/list_projects').then(function (response) {
+        axios.get('http://localhost:5000/projects').then(function (response) {
           this.setState({ projectName: response.data });
           console.log(response);
         }.bind(_this)).catch(function (error) {
@@ -2756,8 +2898,7 @@ module.exports =
       };
   
       _this.state = {
-        projectName: '',
-        contributors: ''
+        projectName: ''
       };
       return _this;
     }
@@ -2770,7 +2911,7 @@ module.exports =
           null,
           _react2.default.createElement(
             'div',
-            null,
+            { className: _ProjectName2.default.main_title },
             this.state.projectName
           )
         );
@@ -2779,10 +2920,60 @@ module.exports =
     return ProjectName;
   }(_react.Component);
   
-  exports.default = ProjectName;
+  exports.default = (0, _withStyles2.default)(_ProjectName2.default)(ProjectName);
 
 /***/ },
-/* 72 */
+/* 75 */
+/***/ function(module, exports, __webpack_require__) {
+
+  
+      var content = __webpack_require__(76);
+      var insertCss = __webpack_require__(32);
+  
+      if (typeof content === 'string') {
+        content = [[module.id, content, '']];
+      }
+  
+      module.exports = content.locals || {};
+      module.exports._getCss = function() { return content.toString(); };
+      module.exports._insertCss = function(options) { return insertCss(content, options) };
+    
+      // Hot Module Replacement
+      // https://webpack.github.io/docs/hot-module-replacement
+      // Only activated in browser context
+      if (false) {
+        var removeCss = function() {};
+        module.hot.accept("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./ProjectName.css", function() {
+          content = require("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./ProjectName.css");
+  
+          if (typeof content === 'string') {
+            content = [[module.id, content, '']];
+          }
+  
+          removeCss = insertCss(content, { replace: true });
+        });
+        module.hot.dispose(function() { removeCss(); });
+      }
+    
+
+/***/ },
+/* 76 */
+/***/ function(module, exports, __webpack_require__) {
+
+  exports = module.exports = __webpack_require__(31)();
+  // imports
+  
+  
+  // module
+  exports.push([module.id, "/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n\n  /*\n   * Layout\n   * ======================================================================== */\n\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */  /* Extra small screen / phone */  /* Small screen / tablet */  /* Medium screen / desktop */ /* Large screen / wide desktop */\n}\n\n.ProjectName_main_title_2Wa {\n  text-align: center;\n  font-size: 3em;\n  font-weight: 800;\n  color: #57576d;\n  margin-bottom: 7%;\n}\n", "", {"version":3,"sources":["/./components/variables.css","/./components/ProjectName/ProjectName.css"],"names":[],"mappings":"AAAA;;;;;;;GAOG;;AAEH;EACE;;gFAE8E;;EAI9E;;gFAE8E;;EAI9E;;gFAE8E,EAErD,gCAAgC,EAChC,2BAA2B,EAC3B,6BAA6B,CAC7B,iCAAiC;CAC3D;;AC3BD;EACE,mBAAmB;EACnB,eAAe;EACf,iBAAiB;EACjB,eAAe;EACf,kBAAkB;CACnB","file":"ProjectName.css","sourcesContent":["/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n\n  --font-family-base: 'Segoe UI', 'HelveticaNeue-Light', sans-serif;\n\n  /*\n   * Layout\n   * ======================================================================== */\n\n  --max-content-width: 1000px;\n\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */\n\n  --screen-xs-min: 480px;  /* Extra small screen / phone */\n  --screen-sm-min: 768px;  /* Small screen / tablet */\n  --screen-md-min: 992px;  /* Medium screen / desktop */\n  --screen-lg-min: 1200px; /* Large screen / wide desktop */\n}\n","@import '../variables.css';\n\n\n.main_title {\n  text-align: center;\n  font-size: 3em;\n  font-weight: 800;\n  color: #57576d;\n  margin-bottom: 7%;\n}\n"],"sourceRoot":"webpack://"}]);
+  
+  // exports
+  exports.locals = {
+  	"main_title": "ProjectName_main_title_2Wa"
+  };
+
+/***/ },
+/* 77 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -2815,9 +3006,21 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _reactTime = __webpack_require__(73);
+  var _reactTime = __webpack_require__(78);
   
   var _reactTime2 = _interopRequireDefault(_reactTime);
+  
+  var _withStyles = __webpack_require__(28);
+  
+  var _withStyles2 = _interopRequireDefault(_withStyles);
+  
+  var _DateTime = __webpack_require__(79);
+  
+  var _DateTime2 = _interopRequireDefault(_DateTime);
+  
+  var _classnames = __webpack_require__(66);
+  
+  var _classnames2 = _interopRequireDefault(_classnames);
   
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
@@ -2835,7 +3038,7 @@ module.exports =
         var now = new Date();
         return _react2.default.createElement(
           'div',
-          null,
+          { className: _DateTime2.default.line_text },
           _react2.default.createElement(
             'p',
             null,
@@ -2848,16 +3051,66 @@ module.exports =
     return DateTime;
   }(_react.Component);
   
-  exports.default = DateTime;
+  exports.default = (0, _withStyles2.default)(_DateTime2.default)(DateTime);
 
 /***/ },
-/* 73 */
+/* 78 */
 /***/ function(module, exports) {
 
   module.exports = require("react-time");
 
 /***/ },
-/* 74 */
+/* 79 */
+/***/ function(module, exports, __webpack_require__) {
+
+  
+      var content = __webpack_require__(80);
+      var insertCss = __webpack_require__(32);
+  
+      if (typeof content === 'string') {
+        content = [[module.id, content, '']];
+      }
+  
+      module.exports = content.locals || {};
+      module.exports._getCss = function() { return content.toString(); };
+      module.exports._insertCss = function(options) { return insertCss(content, options) };
+    
+      // Hot Module Replacement
+      // https://webpack.github.io/docs/hot-module-replacement
+      // Only activated in browser context
+      if (false) {
+        var removeCss = function() {};
+        module.hot.accept("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./DateTime.css", function() {
+          content = require("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./DateTime.css");
+  
+          if (typeof content === 'string') {
+            content = [[module.id, content, '']];
+          }
+  
+          removeCss = insertCss(content, { replace: true });
+        });
+        module.hot.dispose(function() { removeCss(); });
+      }
+    
+
+/***/ },
+/* 80 */
+/***/ function(module, exports, __webpack_require__) {
+
+  exports = module.exports = __webpack_require__(31)();
+  // imports
+  
+  
+  // module
+  exports.push([module.id, "/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n\n  /*\n   * Layout\n   * ======================================================================== */\n\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */  /* Extra small screen / phone */  /* Small screen / tablet */  /* Medium screen / desktop */ /* Large screen / wide desktop */\n}\n\n.DateTime_line_text_DjI {\n  margin: 0;\n  font-size: 1em;\n  font-weight: 200;\n  color: #57576d;\n  padding: 0;\n}\n", "", {"version":3,"sources":["/./components/variables.css","/./components/DateTime/DateTime.css"],"names":[],"mappings":"AAAA;;;;;;;GAOG;;AAEH;EACE;;gFAE8E;;EAI9E;;gFAE8E;;EAI9E;;gFAE8E,EAErD,gCAAgC,EAChC,2BAA2B,EAC3B,6BAA6B,CAC7B,iCAAiC;CAC3D;;AC3BD;EACE,UAAU;EACV,eAAe;EACf,iBAAiB;EACjB,eAAe;EACf,WAAW;CACZ","file":"DateTime.css","sourcesContent":["/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n\n  --font-family-base: 'Segoe UI', 'HelveticaNeue-Light', sans-serif;\n\n  /*\n   * Layout\n   * ======================================================================== */\n\n  --max-content-width: 1000px;\n\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */\n\n  --screen-xs-min: 480px;  /* Extra small screen / phone */\n  --screen-sm-min: 768px;  /* Small screen / tablet */\n  --screen-md-min: 992px;  /* Medium screen / desktop */\n  --screen-lg-min: 1200px; /* Large screen / wide desktop */\n}\n","@import '../variables.css';\n\n\n.line_text {\n  margin: 0;\n  font-size: 1em;\n  font-weight: 200;\n  color: #57576d;\n  padding: 0;\n}\n"],"sourceRoot":"webpack://"}]);
+  
+  // exports
+  exports.locals = {
+  	"line_text": "DateTime_line_text_DjI"
+  };
+
+/***/ },
+/* 81 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -2870,7 +3123,7 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _classnames = __webpack_require__(75);
+  var _classnames = __webpack_require__(66);
   
   var _classnames2 = _interopRequireDefault(_classnames);
   
@@ -2878,11 +3131,11 @@ module.exports =
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _Navigation = __webpack_require__(76);
+  var _Navigation = __webpack_require__(82);
   
   var _Navigation2 = _interopRequireDefault(_Navigation);
   
-  var _Link = __webpack_require__(78);
+  var _Link = __webpack_require__(84);
   
   var _Link2 = _interopRequireDefault(_Link);
   
@@ -2930,17 +3183,11 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_Navigation2.default)(Navigation);
 
 /***/ },
-/* 75 */
-/***/ function(module, exports) {
-
-  module.exports = require("classnames");
-
-/***/ },
-/* 76 */
+/* 82 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(77);
+      var content = __webpack_require__(83);
       var insertCss = __webpack_require__(32);
   
       if (typeof content === 'string') {
@@ -2970,7 +3217,7 @@ module.exports =
     
 
 /***/ },
-/* 77 */
+/* 83 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(31)();
@@ -2978,7 +3225,7 @@ module.exports =
   
   
   // module
-  exports.push([module.id, ".Navigation_root_Kev {\n  margin: 0;\n\n}\n\n.Navigation_link_1-r {\n  display: inline-block;\n  padding: 3px 8px;\n  text-decoration: none;\n  font-size: 1.125em; /* ~18px */\n\n}\n\n.Navigation_link_1-r,\n.Navigation_link_1-r:active,\n.Navigation_link_1-r:visited {\n  color: rgba(255, 255, 255, 0.6);\n\n}\n\n.Navigation_link_1-r:hover {\n  color: rgba(255, 255, 255, 1);\n\n}\n\n.Navigation_highlight_g6k {\n  margin-right: 8px;\n  margin-left: 8px;\n  border-radius: 3px;\n  background: rgba(0, 0, 0, 0.15);\n  color: #fff;\n\n}\n\n.Navigation_highlight_g6k:hover {\n  background: rgba(0, 0, 0, 0.3);\n\n}\n\n.Navigation_spacer_2KA {\n  color: rgba(255, 255, 255, 0.3);\n\n}\n", "", {"version":3,"sources":["/./components/Navigation/Navigation.css"],"names":[],"mappings":"AAAA;EACE,UAAU;;CAEX;;AAED;EACE,sBAAsB;EACtB,iBAAiB;EACjB,sBAAsB;EACtB,mBAAmB,CAAC,WAAW;;CAEhC;;AAED;;;EAGE,gCAAgC;;CAEjC;;AAED;EACE,8BAA8B;;CAE/B;;AAED;EACE,kBAAkB;EAClB,iBAAiB;EACjB,mBAAmB;EACnB,gCAAgC;EAChC,YAAY;;CAEb;;AAED;EACE,+BAA+B;;CAEhC;;AAED;EACE,gCAAgC;;CAEjC","file":"Navigation.css","sourcesContent":[".root {\n  margin: 0;\n\n}\n\n.link {\n  display: inline-block;\n  padding: 3px 8px;\n  text-decoration: none;\n  font-size: 1.125em; /* ~18px */\n\n}\n\n.link,\n.link:active,\n.link:visited {\n  color: rgba(255, 255, 255, 0.6);\n\n}\n\n.link:hover {\n  color: rgba(255, 255, 255, 1);\n\n}\n\n.highlight {\n  margin-right: 8px;\n  margin-left: 8px;\n  border-radius: 3px;\n  background: rgba(0, 0, 0, 0.15);\n  color: #fff;\n\n}\n\n.highlight:hover {\n  background: rgba(0, 0, 0, 0.3);\n\n}\n\n.spacer {\n  color: rgba(255, 255, 255, 0.3);\n\n}\n"],"sourceRoot":"webpack://"}]);
+  exports.push([module.id, ".Navigation_root_Kev {\n  margin: 0;\n  margin-bottom: 3%;\n}\n\n.Navigation_link_1-r {\n  display: inline-block;\n  padding: 3px 8px;\n  text-decoration: none;\n  font-size: 1.125em; /* ~18px */\n\n}\n\n.Navigation_link_1-r,\n.Navigation_link_1-r:active,\n.Navigation_link_1-r:visited {\n  color: rgba(255, 255, 255, 0.6);\n\n}\n\n.Navigation_link_1-r:hover {\n  color: rgba(255, 255, 255, 1);\n\n}\n\n.Navigation_highlight_g6k {\n  margin-right: 8px;\n  margin-left: 8px;\n  border-radius: 3px;\n  background: rgba(0, 0, 0, 0.15);\n  color: #fff;\n\n}\n\n.Navigation_highlight_g6k:hover {\n  background: rgba(0, 0, 0, 0.3);\n\n}\n\n.Navigation_spacer_2KA {\n  color: rgba(255, 255, 255, 0.3);\n\n}\n", "", {"version":3,"sources":["/./components/Navigation/Navigation.css"],"names":[],"mappings":"AAAA;EACE,UAAU;EACV,kBAAkB;CACnB;;AAED;EACE,sBAAsB;EACtB,iBAAiB;EACjB,sBAAsB;EACtB,mBAAmB,CAAC,WAAW;;CAEhC;;AAED;;;EAGE,gCAAgC;;CAEjC;;AAED;EACE,8BAA8B;;CAE/B;;AAED;EACE,kBAAkB;EAClB,iBAAiB;EACjB,mBAAmB;EACnB,gCAAgC;EAChC,YAAY;;CAEb;;AAED;EACE,+BAA+B;;CAEhC;;AAED;EACE,gCAAgC;;CAEjC","file":"Navigation.css","sourcesContent":[".root {\n  margin: 0;\n  margin-bottom: 3%;\n}\n\n.link {\n  display: inline-block;\n  padding: 3px 8px;\n  text-decoration: none;\n  font-size: 1.125em; /* ~18px */\n\n}\n\n.link,\n.link:active,\n.link:visited {\n  color: rgba(255, 255, 255, 0.6);\n\n}\n\n.link:hover {\n  color: rgba(255, 255, 255, 1);\n\n}\n\n.highlight {\n  margin-right: 8px;\n  margin-left: 8px;\n  border-radius: 3px;\n  background: rgba(0, 0, 0, 0.15);\n  color: #fff;\n\n}\n\n.highlight:hover {\n  background: rgba(0, 0, 0, 0.3);\n\n}\n\n.spacer {\n  color: rgba(255, 255, 255, 0.3);\n\n}\n"],"sourceRoot":"webpack://"}]);
   
   // exports
   exports.locals = {
@@ -2989,7 +3236,7 @@ module.exports =
   };
 
 /***/ },
-/* 78 */
+/* 84 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3002,7 +3249,7 @@ module.exports =
   
   var _extends3 = _interopRequireDefault(_extends2);
   
-  var _objectWithoutProperties2 = __webpack_require__(79);
+  var _objectWithoutProperties2 = __webpack_require__(85);
   
   var _objectWithoutProperties3 = _interopRequireDefault(_objectWithoutProperties2);
   
@@ -3030,7 +3277,7 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _history = __webpack_require__(80);
+  var _history = __webpack_require__(86);
   
   var _history2 = _interopRequireDefault(_history);
   
@@ -3103,13 +3350,13 @@ module.exports =
   exports.default = Link;
 
 /***/ },
-/* 79 */
+/* 85 */
 /***/ function(module, exports) {
 
   module.exports = require("babel-runtime/helpers/objectWithoutProperties");
 
 /***/ },
-/* 80 */
+/* 86 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3118,7 +3365,7 @@ module.exports =
     value: true
   });
   
-  var _createBrowserHistory = __webpack_require__(81);
+  var _createBrowserHistory = __webpack_require__(87);
   
   var _createBrowserHistory2 = _interopRequireDefault(_createBrowserHistory);
   
@@ -3129,13 +3376,13 @@ module.exports =
   exports.default = (false) && (0, _createBrowserHistory2.default)();
 
 /***/ },
-/* 81 */
+/* 87 */
 /***/ function(module, exports) {
 
   module.exports = require("history/createBrowserHistory");
 
 /***/ },
-/* 82 */
+/* 88 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3148,7 +3395,7 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _NotFound = __webpack_require__(83);
+  var _NotFound = __webpack_require__(89);
   
   var _NotFound2 = _interopRequireDefault(_NotFound);
   
@@ -3179,7 +3426,7 @@ module.exports =
   };
 
 /***/ },
-/* 83 */
+/* 89 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3196,7 +3443,7 @@ module.exports =
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _NotFound = __webpack_require__(84);
+  var _NotFound = __webpack_require__(90);
   
   var _NotFound2 = _interopRequireDefault(_NotFound);
   
@@ -3239,11 +3486,11 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_NotFound2.default)(NotFound);
 
 /***/ },
-/* 84 */
+/* 90 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(85);
+      var content = __webpack_require__(91);
       var insertCss = __webpack_require__(32);
   
       if (typeof content === 'string') {
@@ -3273,7 +3520,7 @@ module.exports =
     
 
 /***/ },
-/* 85 */
+/* 91 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(31)();
@@ -3290,10 +3537,1463 @@ module.exports =
   };
 
 /***/ },
-/* 86 */
+/* 92 */
+/***/ function(module, exports, __webpack_require__) {
+
+  'use strict';
+  
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  
+  var _react = __webpack_require__(15);
+  
+  var _react2 = _interopRequireDefault(_react);
+  
+  var _Project = __webpack_require__(93);
+  
+  var _Project2 = _interopRequireDefault(_Project);
+  
+  var _fetch = __webpack_require__(58);
+  
+  var _fetch2 = _interopRequireDefault(_fetch);
+  
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  
+  exports.default = {
+  
+    path: '/project',
+  
+    action: function action() {
+      return {
+        component: _react2.default.createElement(_Project2.default, null)
+      };
+    }
+  };
+
+/***/ },
+/* 93 */
+/***/ function(module, exports, __webpack_require__) {
+
+  'use strict';
+  
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  
+  var _react = __webpack_require__(15);
+  
+  var _react2 = _interopRequireDefault(_react);
+  
+  var _withStyles = __webpack_require__(28);
+  
+  var _withStyles2 = _interopRequireDefault(_withStyles);
+  
+  var _Project = __webpack_require__(94);
+  
+  var _Project2 = _interopRequireDefault(_Project);
+  
+  var _Header = __webpack_require__(67);
+  
+  var _Header2 = _interopRequireDefault(_Header);
+  
+  var _Commits = __webpack_require__(96);
+  
+  var _Commits2 = _interopRequireDefault(_Commits);
+  
+  var _CommitsGraph = __webpack_require__(100);
+  
+  var _CommitsGraph2 = _interopRequireDefault(_CommitsGraph);
+  
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  
+  function Project() {
+    return _react2.default.createElement(
+      'div',
+      null,
+      _react2.default.createElement(_Header2.default, null),
+      _react2.default.createElement(_CommitsGraph2.default, null),
+      _react2.default.createElement(_Commits2.default, null)
+    );
+  }
+  
+  exports.default = (0, _withStyles2.default)(_Project2.default)(Project);
+
+/***/ },
+/* 94 */
+/***/ function(module, exports, __webpack_require__) {
+
+  
+      var content = __webpack_require__(95);
+      var insertCss = __webpack_require__(32);
+  
+      if (typeof content === 'string') {
+        content = [[module.id, content, '']];
+      }
+  
+      module.exports = content.locals || {};
+      module.exports._getCss = function() { return content.toString(); };
+      module.exports._insertCss = function(options) { return insertCss(content, options) };
+    
+      // Hot Module Replacement
+      // https://webpack.github.io/docs/hot-module-replacement
+      // Only activated in browser context
+      if (false) {
+        var removeCss = function() {};
+        module.hot.accept("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./Project.css", function() {
+          content = require("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./Project.css");
+  
+          if (typeof content === 'string') {
+            content = [[module.id, content, '']];
+          }
+  
+          removeCss = insertCss(content, { replace: true });
+        });
+        module.hot.dispose(function() { removeCss(); });
+      }
+    
+
+/***/ },
+/* 95 */
+/***/ function(module, exports, __webpack_require__) {
+
+  exports = module.exports = __webpack_require__(31)();
+  // imports
+  
+  
+  // module
+  exports.push([module.id, "/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n\n  /*\n   * Layout\n   * ======================================================================== */\n\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */  /* Extra small screen / phone */  /* Small screen / tablet */  /* Medium screen / desktop */ /* Large screen / wide desktop */\n}\n\n.Project_root_lYx {\n  padding-left: 20px;\n  padding-right: 20px;\n\n}\n\n.Project_container_3KE {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: 1000px;\n\n}\n\n.Project_news_VLx {\n  padding: 0;\n\n}\n\n.Project_newsItem_v2d {\n  list-style-type: none;\n  padding-bottom: 6px;\n\n}\n\n.Project_newsTitle_3cH {\n  font-size: 1.125em;\n\n}\n\n.Project_newsTitle_3cH,\n.Project_newsDesc_2hC {\n  display: block;\n\n}\n", "", {"version":3,"sources":["/./components/variables.css","/./routes/project/Project.css"],"names":[],"mappings":"AAAA;;;;;;;GAOG;;AAEH;EACE;;gFAE8E;;EAI9E;;gFAE8E;;EAI9E;;gFAE8E,EAErD,gCAAgC,EAChC,2BAA2B,EAC3B,6BAA6B,CAC7B,iCAAiC;CAC3D;;AC3BD;EACE,mBAAmB;EACnB,oBAAoB;;CAErB;;AAED;EACE,eAAe;EACf,kBAAkB;EAClB,kBAAoC;;CAErC;;AAED;EACE,WAAW;;CAEZ;;AAED;EACE,sBAAsB;EACtB,oBAAoB;;CAErB;;AAED;EACE,mBAAmB;;CAEpB;;AAED;;EAEE,eAAe;;CAEhB","file":"Project.css","sourcesContent":["/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n\n  --font-family-base: 'Segoe UI', 'HelveticaNeue-Light', sans-serif;\n\n  /*\n   * Layout\n   * ======================================================================== */\n\n  --max-content-width: 1000px;\n\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */\n\n  --screen-xs-min: 480px;  /* Extra small screen / phone */\n  --screen-sm-min: 768px;  /* Small screen / tablet */\n  --screen-md-min: 992px;  /* Medium screen / desktop */\n  --screen-lg-min: 1200px; /* Large screen / wide desktop */\n}\n","\n@import '../../components/variables.css';\n\n.root {\n  padding-left: 20px;\n  padding-right: 20px;\n\n}\n\n.container {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: var(--max-content-width);\n\n}\n\n.news {\n  padding: 0;\n\n}\n\n.newsItem {\n  list-style-type: none;\n  padding-bottom: 6px;\n\n}\n\n.newsTitle {\n  font-size: 1.125em;\n\n}\n\n.newsTitle,\n.newsDesc {\n  display: block;\n\n}\n"],"sourceRoot":"webpack://"}]);
+  
+  // exports
+  exports.locals = {
+  	"root": "Project_root_lYx",
+  	"container": "Project_container_3KE",
+  	"news": "Project_news_VLx",
+  	"newsItem": "Project_newsItem_v2d",
+  	"newsTitle": "Project_newsTitle_3cH",
+  	"newsDesc": "Project_newsDesc_2hC"
+  };
+
+/***/ },
+/* 96 */
+/***/ function(module, exports, __webpack_require__) {
+
+  'use strict';
+  
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  
+  var _keys = __webpack_require__(97);
+  
+  var _keys2 = _interopRequireDefault(_keys);
+  
+  var _getPrototypeOf = __webpack_require__(20);
+  
+  var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+  
+  var _classCallCheck2 = __webpack_require__(21);
+  
+  var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+  
+  var _createClass2 = __webpack_require__(22);
+  
+  var _createClass3 = _interopRequireDefault(_createClass2);
+  
+  var _possibleConstructorReturn2 = __webpack_require__(23);
+  
+  var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+  
+  var _inherits2 = __webpack_require__(24);
+  
+  var _inherits3 = _interopRequireDefault(_inherits2);
+  
+  var _react = __webpack_require__(15);
+  
+  var _react2 = _interopRequireDefault(_react);
+  
+  var _axios = __webpack_require__(71);
+  
+  var axios = _interopRequireWildcard(_axios);
+  
+  var _Commits = __webpack_require__(98);
+  
+  var _Commits2 = _interopRequireDefault(_Commits);
+  
+  var _withStyles = __webpack_require__(28);
+  
+  var _withStyles2 = _interopRequireDefault(_withStyles);
+  
+  var _classnames = __webpack_require__(66);
+  
+  var _classnames2 = _interopRequireDefault(_classnames);
+  
+  var _UserName = __webpack_require__(70);
+  
+  var _UserName2 = _interopRequireDefault(_UserName);
+  
+  var _ProjectName = __webpack_require__(74);
+  
+  var _ProjectName2 = _interopRequireDefault(_ProjectName);
+  
+  var _Navigation = __webpack_require__(81);
+  
+  var _Navigation2 = _interopRequireDefault(_Navigation);
+  
+  var _Link = __webpack_require__(84);
+  
+  var _Link2 = _interopRequireDefault(_Link);
+  
+  function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+  
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  
+  var Commits = function (_Component) {
+    (0, _inherits3.default)(Commits, _Component);
+  
+    function Commits(props) {
+      (0, _classCallCheck3.default)(this, Commits);
+  
+      var _this = (0, _possibleConstructorReturn3.default)(this, (Commits.__proto__ || (0, _getPrototypeOf2.default)(Commits)).call(this, props));
+  
+      _this.componentWillMount = function () {
+        axios.get('http://localhost:5000/projects/contributors').then(function (response) {
+          console.log(response.data);
+          this.setState({ contributors: response.data });
+        }.bind(_this)).catch(function (error) {
+          console.log(error);
+        });
+      };
+  
+      _this.state = {
+        contributors: ''
+      };
+      return _this;
+    }
+  
+    (0, _createClass3.default)(Commits, [{
+      key: 'render',
+      value: function render() {
+        if (this.state.contributors) {
+          return _react2.default.createElement(
+            'div',
+            null,
+            (0, _keys2.default)(this.state.contributors).map(function (key) {
+              return _react2.default.createElement(
+                'div',
+                { className: (0, _classnames2.default)(_Commits2.default.table, _Commits2.default.lines) },
+                _react2.default.createElement(
+                  'div',
+                  null,
+                  'Name: ',
+                  this.state.contributors[key].name
+                ),
+                _react2.default.createElement(
+                  'div',
+                  null,
+                  'Email: ',
+                  this.state.contributors[key].email
+                ),
+                _react2.default.createElement(
+                  'div',
+                  null,
+                  'Commits: ',
+                  this.state.contributors[key].commits
+                ),
+                _react2.default.createElement(
+                  'div',
+                  null,
+                  'Additions: ',
+                  this.state.contributors[key].additions
+                ),
+                _react2.default.createElement(
+                  'div',
+                  null,
+                  'Deletions: ',
+                  this.state.contributors[key].deletions
+                )
+              );
+            }.bind(this))
+          );
+        } else {
+          return _react2.default.createElement(
+            'div',
+            { className: _Commits2.default.loading_style },
+            'LOADING'
+          );
+        }
+      }
+    }]);
+    return Commits;
+  }(_react.Component);
+  
+  exports.default = (0, _withStyles2.default)(_Commits2.default)(Commits);
+
+/***/ },
+/* 97 */
+/***/ function(module, exports) {
+
+  module.exports = require("babel-runtime/core-js/object/keys");
+
+/***/ },
+/* 98 */
+/***/ function(module, exports, __webpack_require__) {
+
+  
+      var content = __webpack_require__(99);
+      var insertCss = __webpack_require__(32);
+  
+      if (typeof content === 'string') {
+        content = [[module.id, content, '']];
+      }
+  
+      module.exports = content.locals || {};
+      module.exports._getCss = function() { return content.toString(); };
+      module.exports._insertCss = function(options) { return insertCss(content, options) };
+    
+      // Hot Module Replacement
+      // https://webpack.github.io/docs/hot-module-replacement
+      // Only activated in browser context
+      if (false) {
+        var removeCss = function() {};
+        module.hot.accept("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./Commits.css", function() {
+          content = require("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./Commits.css");
+  
+          if (typeof content === 'string') {
+            content = [[module.id, content, '']];
+          }
+  
+          removeCss = insertCss(content, { replace: true });
+        });
+        module.hot.dispose(function() { removeCss(); });
+      }
+    
+
+/***/ },
+/* 99 */
+/***/ function(module, exports, __webpack_require__) {
+
+  exports = module.exports = __webpack_require__(31)();
+  // imports
+  
+  
+  // module
+  exports.push([module.id, "\n\n.Commits_flex_TtV { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; }\n\n.Commits_wrap_2ta { -webkit-flex-wrap: wrap; -ms-flex-wrap: wrap; flex-wrap: wrap; }\n\n.Commits_justify_center_i2F     { -webkit-box-pack: center; -webkit-justify-content: center; -ms-flex-pack: center; justify-content: center; }\n\n.Commits_justify-around_1vQ     { -webkit-justify-content: space-around; -ms-flex-pack: distribute; justify-content: space-around; }\n\n.Commits_justify-between_3W_    { -webkit-box-pack: justify; -webkit-justify-content: space-between; -ms-flex-pack: justify; justify-content: space-between; }\n\n.Commits_justify-start_2Bl      { -webkit-box-pack: start; -webkit-justify-content: flex-start; -ms-flex-pack: start; justify-content: flex-start; }\n\n.Commits_al-center_2XJ  { -webkit-box-align: center; -webkit-align-items: center; -ms-flex-align: center; align-items: center; }\n\n.Commits_self-center_2-_ { -webkit-align-self: center; -ms-flex-item-align: center; -ms-grid-row-align: center; align-self: center; }\n\n.Commits_self-start_1UY  { -webkit-align-self: flex-start; -ms-flex-item-align: start; align-self: flex-start; }\n\n.Commits_dir-row_2IW    { -webkit-box-orient: horizontal; -webkit-box-direction: normal; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; }\n\n.Commits_dir_column_16Y { -webkit-box-orient: vertical; -webkit-box-direction: normal; -webkit-flex-direction: column; -ms-flex-direction: column; flex-direction: column; }\n\n.Commits_wd-5_2q3   { float: left; width: 5%; }\n\n.Commits_wd-10_2Nu  { float: left; width: 10%; }\n\n.Commits_wd-15_fnD  { float: left; width: 15%; }\n\n.Commits_wd-20_31r  { float: left; width: 20%; }\n\n.Commits_wd_30_3DF  { float: left; width: 30%; }\n\n.Commits_wd-40_2_b  { float: left; width: 40%; }\n\n.Commits_wd-50_aP9  { float: left; width: 50%; }\n\n.Commits_wd-60_3bk  { float: left; width: 60%; }\n\n.Commits_wd-65_233  { float: left; width: 65%; }\n\n.Commits_wd-70_2vT  { float: left; width: 70%; }\n\n.Commits_wd-80_2vI  { float: left; width: 80%; }\n\n.Commits_wd-90_2Gq  { float: left; width: 90%; }\n\n.Commits_wd-100_1h3 { float: left; width:100%; }\n\n.Commits_fs_2d5     { height: 100vh; }\n\n.Commits_fs-55_PkL  { height: 55vh; }\n\n.Commits_fs-75_3Ky  { height: 75vh; }\n\n.Commits_table_3t6 {\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  text-align: center;\n  float: left;\n  width: 60%;\n  margin-top: 3%;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n  -webkit-flex-direction: column;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n\n.Commits_lines_325 {\nwidth: 27%;\ntext-align: left;\nmargin: 3% 3%;\nfont-family: 'Raleway', sans-serif;\nfont-size: 1em;\ncolor: #57576d;\nfont-weight: 100;\n}\n\n.Commits_loading_style_3Jn {\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  text-align: center;\n  -webkit-box-pack: center;\n  -webkit-justify-content: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  font-family: 'Raleway', sans-serif;\n  font-size: 1em;\n  color: #57576d;\n  font-weight: 500;\n}\n", "", {"version":3,"sources":["/./components/Commits/Commits.css"],"names":[],"mappings":";;AAEA,oBAAQ,qBAAc,CAAd,sBAAc,CAAd,qBAAc,CAAd,cAAc,EAAE;;AAExB,oBAAQ,wBAAgB,CAAhB,oBAAgB,CAAhB,gBAAgB,EAAE;;AAE1B,kCAAsB,yBAAwB,CAAxB,gCAAwB,CAAxB,sBAAwB,CAAxB,wBAAwB,EAAE;;AAChD,kCAAsB,sCAA8B,CAA9B,0BAA8B,CAA9B,8BAA8B,EAAE;;AACtD,kCAAsB,0BAA+B,CAA/B,uCAA+B,CAA/B,uBAA+B,CAA/B,+BAA+B,EAAE;;AACvD,kCAAsB,wBAA4B,CAA5B,oCAA4B,CAA5B,qBAA4B,CAA5B,4BAA4B,EAAE;;AAEpD,0BAAc,0BAAoB,CAApB,4BAAoB,CAApB,uBAAoB,CAApB,oBAAoB,EAAE;;AAEpC,2BAAe,2BAAmB,CAAnB,4BAAmB,CAAnB,2BAAmB,CAAnB,mBAAmB,EAAE;;AACpC,2BAAe,+BAAuB,CAAvB,2BAAuB,CAAvB,uBAAuB,EAAE;;AAExC,0BAAc,+BAAoB,CAApB,8BAAoB,CAApB,4BAAoB,CAApB,wBAAoB,CAApB,oBAAoB,EAAE;;AACpC,0BAAc,6BAAuB,CAAvB,8BAAuB,CAAvB,+BAAuB,CAAvB,2BAAuB,CAAvB,uBAAuB,EAAE;;AAEvC,sBAAU,YAAY,CAAC,UAAU,EAAE;;AACnC,sBAAU,YAAY,CAAC,WAAW,EAAE;;AACpC,sBAAU,YAAY,CAAC,WAAW,EAAE;;AACpC,sBAAU,YAAY,CAAC,WAAW,EAAE;;AACpC,sBAAU,YAAY,CAAC,WAAW,EAAE;;AACpC,sBAAU,YAAY,CAAC,WAAW,EAAE;;AACpC,sBAAU,YAAY,CAAC,WAAW,EAAE;;AACpC,sBAAU,YAAY,CAAC,WAAW,EAAE;;AACpC,sBAAU,YAAY,CAAC,WAAW,EAAE;;AACpC,sBAAU,YAAY,CAAC,WAAW,EAAE;;AACpC,sBAAU,YAAY,CAAC,WAAW,EAAE;;AACpC,sBAAU,YAAY,CAAC,WAAW,EAAE;;AACpC,sBAAU,YAAY,CAAC,WAAW,EAAE;;AAEpC,sBAAU,cAAc,EAAE;;AAC1B,sBAAU,aAAa,EAAE;;AACzB,sBAAU,aAAa,EAAE;;AAGzB;EACE,qBAAc;EAAd,sBAAc;EAAd,qBAAc;EAAd,cAAc;EACd,mBAAmB;EACnB,YAAY;EACZ,WAAW;EACX,eAAe;EACf,6BAAuB;EAAvB,8BAAuB;EAAvB,+BAAuB;MAAvB,2BAAuB;UAAvB,uBAAuB;CACxB;;AAED;AACA,WAAW;AACX,iBAAiB;AACjB,cAAc;AACd,mCAAmC;AACnC,eAAe;AACf,eAAe;AACf,iBAAiB;CAChB;;AAED;EACE,qBAAc;EAAd,sBAAc;EAAd,qBAAc;EAAd,cAAc;EACd,mBAAmB;EACnB,yBAAwB;EAAxB,gCAAwB;MAAxB,sBAAwB;UAAxB,wBAAwB;EACxB,mCAAmC;EACnC,eAAe;EACf,eAAe;EACf,iBAAiB;CAClB","file":"Commits.css","sourcesContent":["\n\n.flex { display: flex; }\n\n.wrap { flex-wrap: wrap; }\n\n.justify_center     { justify-content: center; }\n.justify-around     { justify-content: space-around; }\n.justify-between    { justify-content: space-between; }\n.justify-start      { justify-content: flex-start; }\n\n.al-center  { align-items: center; }\n\n.self-center { align-self: center; }\n.self-start  { align-self: flex-start; }\n\n.dir-row    { flex-direction: row; }\n.dir_column { flex-direction: column; }\n\n.wd-5   { float: left; width: 5%; }\n.wd-10  { float: left; width: 10%; }\n.wd-15  { float: left; width: 15%; }\n.wd-20  { float: left; width: 20%; }\n.wd_30  { float: left; width: 30%; }\n.wd-40  { float: left; width: 40%; }\n.wd-50  { float: left; width: 50%; }\n.wd-60  { float: left; width: 60%; }\n.wd-65  { float: left; width: 65%; }\n.wd-70  { float: left; width: 70%; }\n.wd-80  { float: left; width: 80%; }\n.wd-90  { float: left; width: 90%; }\n.wd-100 { float: left; width:100%; }\n\n.fs     { height: 100vh; }\n.fs-55  { height: 55vh; }\n.fs-75  { height: 75vh; }\n\n\n.table {\n  display: flex;\n  text-align: center;\n  float: left;\n  width: 60%;\n  margin-top: 3%;\n  flex-direction: column;\n}\n\n.lines {\nwidth: 27%;\ntext-align: left;\nmargin: 3% 3%;\nfont-family: 'Raleway', sans-serif;\nfont-size: 1em;\ncolor: #57576d;\nfont-weight: 100;\n}\n\n.loading_style {\n  display: flex;\n  text-align: center;\n  justify-content: center;\n  font-family: 'Raleway', sans-serif;\n  font-size: 1em;\n  color: #57576d;\n  font-weight: 500;\n}\n"],"sourceRoot":"webpack://"}]);
+  
+  // exports
+  exports.locals = {
+  	"flex": "Commits_flex_TtV",
+  	"wrap": "Commits_wrap_2ta",
+  	"justify_center": "Commits_justify_center_i2F",
+  	"justify-around": "Commits_justify-around_1vQ",
+  	"justify-between": "Commits_justify-between_3W_",
+  	"justify-start": "Commits_justify-start_2Bl",
+  	"al-center": "Commits_al-center_2XJ",
+  	"self-center": "Commits_self-center_2-_",
+  	"self-start": "Commits_self-start_1UY",
+  	"dir-row": "Commits_dir-row_2IW",
+  	"dir_column": "Commits_dir_column_16Y",
+  	"wd-5": "Commits_wd-5_2q3",
+  	"wd-10": "Commits_wd-10_2Nu",
+  	"wd-15": "Commits_wd-15_fnD",
+  	"wd-20": "Commits_wd-20_31r",
+  	"wd_30": "Commits_wd_30_3DF",
+  	"wd-40": "Commits_wd-40_2_b",
+  	"wd-50": "Commits_wd-50_aP9",
+  	"wd-60": "Commits_wd-60_3bk",
+  	"wd-65": "Commits_wd-65_233",
+  	"wd-70": "Commits_wd-70_2vT",
+  	"wd-80": "Commits_wd-80_2vI",
+  	"wd-90": "Commits_wd-90_2Gq",
+  	"wd-100": "Commits_wd-100_1h3",
+  	"fs": "Commits_fs_2d5",
+  	"fs-55": "Commits_fs-55_PkL",
+  	"fs-75": "Commits_fs-75_3Ky",
+  	"table": "Commits_table_3t6",
+  	"lines": "Commits_lines_325",
+  	"loading_style": "Commits_loading_style_3Jn"
+  };
+
+/***/ },
+/* 100 */
+/***/ function(module, exports, __webpack_require__) {
+
+  'use strict';
+  
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  
+  var _getPrototypeOf = __webpack_require__(20);
+  
+  var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+  
+  var _classCallCheck2 = __webpack_require__(21);
+  
+  var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+  
+  var _createClass2 = __webpack_require__(22);
+  
+  var _createClass3 = _interopRequireDefault(_createClass2);
+  
+  var _possibleConstructorReturn2 = __webpack_require__(23);
+  
+  var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+  
+  var _inherits2 = __webpack_require__(24);
+  
+  var _inherits3 = _interopRequireDefault(_inherits2);
+  
+  var _react = __webpack_require__(15);
+  
+  var _react2 = _interopRequireDefault(_react);
+  
+  var _axios = __webpack_require__(71);
+  
+  var axios = _interopRequireWildcard(_axios);
+  
+  var _CommitsGraph = __webpack_require__(123);
+  
+  var _CommitsGraph2 = _interopRequireDefault(_CommitsGraph);
+  
+  var _withStyles = __webpack_require__(28);
+  
+  var _withStyles2 = _interopRequireDefault(_withStyles);
+  
+  var _classnames = __webpack_require__(66);
+  
+  var _classnames2 = _interopRequireDefault(_classnames);
+  
+  function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+  
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  
+  var LineChart = __webpack_require__(101).Line;
+  
+  var CommitsGraph = function (_Component) {
+    (0, _inherits3.default)(CommitsGraph, _Component);
+  
+    function CommitsGraph(props) {
+      (0, _classCallCheck3.default)(this, CommitsGraph);
+  
+      var _this = (0, _possibleConstructorReturn3.default)(this, (CommitsGraph.__proto__ || (0, _getPrototypeOf2.default)(CommitsGraph)).call(this, props));
+  
+      _this.componentWillMount = function () {
+        axios.get('http://localhost:5000/projects/weekly_contributions').then(function (response) {
+          this.chartData.datasets[0].data = response.data;
+          this.setState({ check: true });
+          console.log(response.data);
+          console.log("já dei update");
+        }.bind(_this)).catch(function (error) {
+          console.log(error);
+        });
+      };
+  
+      _this.state = {
+        check: false
+      };
+      _this.chartData = {
+        labels: ["W1", "W2", "W3", "W4", "W5", "W6", "W7", "W8", "W9", "W10", "W11", "W12", "W13"],
+        datasets: [{
+          label: "My First dataset",
+          fillColor: "rgba(150,220,220,0.2)",
+          strokeColor: "rgba(220,220,220,1)",
+          pointColor: "rgba(220,220,220,1)",
+          pointStrokeColor: "#fff",
+          pointHighlightFill: "#fff",
+          pointHighlightStroke: "rgba(220,220,220,1)",
+          data: []
+        }]
+      };
+      _this.chartOptions = {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
+      };
+      return _this;
+    }
+  
+    (0, _createClass3.default)(CommitsGraph, [{
+      key: 'render',
+      value: function render() {
+        if (this.state.check) {
+          return _react2.default.createElement(LineChart, { data: this.chartData, options: this.chartOptions, width: '600', height: '250', className: _CommitsGraph2.default.loading_style });
+        } else {
+          return _react2.default.createElement(
+            'div',
+            { className: _CommitsGraph2.default.loading_style },
+            'LOADING CHART'
+          );
+        }
+      }
+    }]);
+    return CommitsGraph;
+  }(_react.Component);
+  
+  exports.default = (0, _withStyles2.default)(_CommitsGraph2.default)(CommitsGraph);
+
+/***/ },
+/* 101 */
+/***/ function(module, exports) {
+
+  module.exports = require("react-chartjs");
+
+/***/ },
+/* 102 */
+/***/ function(module, exports, __webpack_require__) {
+
+  'use strict';
+  
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  
+  var _react = __webpack_require__(15);
+  
+  var _react2 = _interopRequireDefault(_react);
+  
+  var _Artifacts = __webpack_require__(103);
+  
+  var _Artifacts2 = _interopRequireDefault(_Artifacts);
+  
+  var _fetch = __webpack_require__(58);
+  
+  var _fetch2 = _interopRequireDefault(_fetch);
+  
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  
+  exports.default = {
+  
+    path: '/artifacts',
+  
+    action: function action() {
+      return {
+        component: _react2.default.createElement(_Artifacts2.default, null)
+      };
+    }
+  };
+
+/***/ },
+/* 103 */
+/***/ function(module, exports, __webpack_require__) {
+
+  'use strict';
+  
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  
+  var _react = __webpack_require__(15);
+  
+  var _react2 = _interopRequireDefault(_react);
+  
+  var _withStyles = __webpack_require__(28);
+  
+  var _withStyles2 = _interopRequireDefault(_withStyles);
+  
+  var _Artifacts = __webpack_require__(104);
+  
+  var _Artifacts2 = _interopRequireDefault(_Artifacts);
+  
+  var _Header = __webpack_require__(67);
+  
+  var _Header2 = _interopRequireDefault(_Header);
+  
+  var _ListProjectFiles = __webpack_require__(106);
+  
+  var _ListProjectFiles2 = _interopRequireDefault(_ListProjectFiles);
+  
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  
+  function Artifacts() {
+    return _react2.default.createElement(
+      'div',
+      null,
+      _react2.default.createElement(
+        'p',
+        null,
+        ' Artifacts '
+      ),
+      _react2.default.createElement(_Header2.default, null),
+      _react2.default.createElement(_ListProjectFiles2.default, null)
+    );
+  }
+  
+  exports.default = (0, _withStyles2.default)(_Artifacts2.default)(Artifacts);
+
+/***/ },
+/* 104 */
+/***/ function(module, exports, __webpack_require__) {
+
+  
+      var content = __webpack_require__(105);
+      var insertCss = __webpack_require__(32);
+  
+      if (typeof content === 'string') {
+        content = [[module.id, content, '']];
+      }
+  
+      module.exports = content.locals || {};
+      module.exports._getCss = function() { return content.toString(); };
+      module.exports._insertCss = function(options) { return insertCss(content, options) };
+    
+      // Hot Module Replacement
+      // https://webpack.github.io/docs/hot-module-replacement
+      // Only activated in browser context
+      if (false) {
+        var removeCss = function() {};
+        module.hot.accept("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./Artifacts.css", function() {
+          content = require("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./Artifacts.css");
+  
+          if (typeof content === 'string') {
+            content = [[module.id, content, '']];
+          }
+  
+          removeCss = insertCss(content, { replace: true });
+        });
+        module.hot.dispose(function() { removeCss(); });
+      }
+    
+
+/***/ },
+/* 105 */
+/***/ function(module, exports, __webpack_require__) {
+
+  exports = module.exports = __webpack_require__(31)();
+  // imports
+  
+  
+  // module
+  exports.push([module.id, "/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n\n  /*\n   * Layout\n   * ======================================================================== */\n\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */  /* Extra small screen / phone */  /* Small screen / tablet */  /* Medium screen / desktop */ /* Large screen / wide desktop */\n}\n\n.Artifacts_root_2H8 {\n  padding-left: 20px;\n  padding-right: 20px;\n\n}\n\n.Artifacts_container_Bso {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: 1000px;\n\n}\n\n.Artifacts_news_qdB {\n  padding: 0;\n\n}\n\n.Artifacts_newsItem_1uZ {\n  list-style-type: none;\n  padding-bottom: 6px;\n\n}\n\n.Artifacts_newsTitle_3y8 {\n  font-size: 1.125em;\n\n}\n\n.Artifacts_newsTitle_3y8,\n.Artifacts_newsDesc_2qZ {\n  display: block;\n\n}\n", "", {"version":3,"sources":["/./components/variables.css","/./routes/artifacts/Artifacts.css"],"names":[],"mappings":"AAAA;;;;;;;GAOG;;AAEH;EACE;;gFAE8E;;EAI9E;;gFAE8E;;EAI9E;;gFAE8E,EAErD,gCAAgC,EAChC,2BAA2B,EAC3B,6BAA6B,CAC7B,iCAAiC;CAC3D;;AC3BD;EACE,mBAAmB;EACnB,oBAAoB;;CAErB;;AAED;EACE,eAAe;EACf,kBAAkB;EAClB,kBAAoC;;CAErC;;AAED;EACE,WAAW;;CAEZ;;AAED;EACE,sBAAsB;EACtB,oBAAoB;;CAErB;;AAED;EACE,mBAAmB;;CAEpB;;AAED;;EAEE,eAAe;;CAEhB","file":"Artifacts.css","sourcesContent":["/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n\n  --font-family-base: 'Segoe UI', 'HelveticaNeue-Light', sans-serif;\n\n  /*\n   * Layout\n   * ======================================================================== */\n\n  --max-content-width: 1000px;\n\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */\n\n  --screen-xs-min: 480px;  /* Extra small screen / phone */\n  --screen-sm-min: 768px;  /* Small screen / tablet */\n  --screen-md-min: 992px;  /* Medium screen / desktop */\n  --screen-lg-min: 1200px; /* Large screen / wide desktop */\n}\n","\n@import '../../components/variables.css';\n\n.root {\n  padding-left: 20px;\n  padding-right: 20px;\n\n}\n\n.container {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: var(--max-content-width);\n\n}\n\n.news {\n  padding: 0;\n\n}\n\n.newsItem {\n  list-style-type: none;\n  padding-bottom: 6px;\n\n}\n\n.newsTitle {\n  font-size: 1.125em;\n\n}\n\n.newsTitle,\n.newsDesc {\n  display: block;\n\n}\n"],"sourceRoot":"webpack://"}]);
+  
+  // exports
+  exports.locals = {
+  	"root": "Artifacts_root_2H8",
+  	"container": "Artifacts_container_Bso",
+  	"news": "Artifacts_news_qdB",
+  	"newsItem": "Artifacts_newsItem_1uZ",
+  	"newsTitle": "Artifacts_newsTitle_3y8",
+  	"newsDesc": "Artifacts_newsDesc_2qZ"
+  };
+
+/***/ },
+/* 106 */
+/***/ function(module, exports, __webpack_require__) {
+
+  'use strict';
+  
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  
+  var _keys = __webpack_require__(97);
+  
+  var _keys2 = _interopRequireDefault(_keys);
+  
+  var _getPrototypeOf = __webpack_require__(20);
+  
+  var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+  
+  var _classCallCheck2 = __webpack_require__(21);
+  
+  var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+  
+  var _possibleConstructorReturn2 = __webpack_require__(23);
+  
+  var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+  
+  var _inherits2 = __webpack_require__(24);
+  
+  var _inherits3 = _interopRequireDefault(_inherits2);
+  
+  var _react = __webpack_require__(15);
+  
+  var _react2 = _interopRequireDefault(_react);
+  
+  var _axios = __webpack_require__(71);
+  
+  var axios = _interopRequireWildcard(_axios);
+  
+  var _withStyles = __webpack_require__(28);
+  
+  var _withStyles2 = _interopRequireDefault(_withStyles);
+  
+  var _ListProjectFiles = __webpack_require__(107);
+  
+  var _ListProjectFiles2 = _interopRequireDefault(_ListProjectFiles);
+  
+  var _classnames = __webpack_require__(66);
+  
+  var _classnames2 = _interopRequireDefault(_classnames);
+  
+  function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+  
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  
+  var ListProjectFiles = function (_Component) {
+    (0, _inherits3.default)(ListProjectFiles, _Component);
+  
+    function ListProjectFiles(props) {
+      (0, _classCallCheck3.default)(this, ListProjectFiles);
+  
+      var _this = (0, _possibleConstructorReturn3.default)(this, (ListProjectFiles.__proto__ || (0, _getPrototypeOf2.default)(ListProjectFiles)).call(this, props));
+  
+      _this.componentWillMount = function () {
+        axios.get('http://localhost:5000/projects/folders').then(function (response) {
+          this.setState({ files: response.data });
+        }.bind(_this)).catch(function (error) {
+          console.log(error);
+        });
+      };
+  
+      _this.handleClick = function (key, value, e) {
+        axios.post('http://localhost:5000/projects/folders', {
+          folder: key
+        }).then(function (response) {
+          this.setState({ files: response.data });
+        }.bind(_this)).catch(function (error) {
+          console.log(error);
+        });
+      };
+  
+      _this.backHandleClick = function () {
+        axios.post('http://localhost:5000/projects/folders', {
+          folder: ''
+        }).then(function (response) {
+          this.setState({ files: response.data });
+        }.bind(_this)).catch(function (error) {
+          console.log(error);
+        });
+      };
+  
+      _this.render = function () {
+        if (_this.state.files) {
+          return _react2.default.createElement(
+            'div',
+            { className: _ListProjectFiles2.default.grid },
+            _react2.default.createElement(
+              'h2',
+              { className: _ListProjectFiles2.default.grid_v },
+              _react2.default.createElement(
+                'p',
+                { onClick: _this.backHandleClick, className: _ListProjectFiles2.default.points },
+                ' .. '
+              ),
+              (0, _keys2.default)(_this.state.files).map(function (key) {
+                if (this.state.files[key] == "tree") {
+                  var boundItemClick = this.handleClick.bind(this, key, this.state.files[key]);
+                  return _react2.default.createElement(
+                    'p',
+                    { onClick: boundItemClick, className: _ListProjectFiles2.default.file_list },
+                    key
+                  );
+                }
+                return _react2.default.createElement(
+                  'p',
+                  { className: _ListProjectFiles2.default.file_list },
+                  ' ',
+                  key,
+                  ' '
+                );
+              }.bind(_this))
+            )
+          );
+        } else {
+          return _react2.default.createElement(
+            'div',
+            { className: _ListProjectFiles2.default.loading_style },
+            'Loading'
+          );
+        }
+      };
+  
+      _this.state = {
+        files: ''
+      };
+      return _this;
+    }
+  
+    return ListProjectFiles;
+  }(_react.Component);
+  
+  exports.default = (0, _withStyles2.default)(_ListProjectFiles2.default)(ListProjectFiles);
+
+/***/ },
+/* 107 */
+/***/ function(module, exports, __webpack_require__) {
+
+  
+      var content = __webpack_require__(108);
+      var insertCss = __webpack_require__(32);
+  
+      if (typeof content === 'string') {
+        content = [[module.id, content, '']];
+      }
+  
+      module.exports = content.locals || {};
+      module.exports._getCss = function() { return content.toString(); };
+      module.exports._insertCss = function(options) { return insertCss(content, options) };
+    
+      // Hot Module Replacement
+      // https://webpack.github.io/docs/hot-module-replacement
+      // Only activated in browser context
+      if (false) {
+        var removeCss = function() {};
+        module.hot.accept("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./ListProjectFiles.css", function() {
+          content = require("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./ListProjectFiles.css");
+  
+          if (typeof content === 'string') {
+            content = [[module.id, content, '']];
+          }
+  
+          removeCss = insertCss(content, { replace: true });
+        });
+        module.hot.dispose(function() { removeCss(); });
+      }
+    
+
+/***/ },
+/* 108 */
+/***/ function(module, exports, __webpack_require__) {
+
+  exports = module.exports = __webpack_require__(31)();
+  // imports
+  
+  
+  // module
+  exports.push([module.id, "\n.ListProjectFiles_file_list_sKU {\n    border: 1px #e6e6e6 solid;\n    border-radius: 10px;\n    padding: 2% 24% 2% 2%;\n    font-family: 'Raleway', sans-serif;\n    font-size: 0.8em;\n    color: #57576d;\n    font-weight: 100;\n}\n\n\n.ListProjectFiles_points_KWe {\n  font-size: 1em;\n  margin-bottom: 5%;\n  -webkit-box-align: center;\n  -webkit-align-items: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n  -webkit-justify-content: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  color: #57576d;\n}\n\n\n.ListProjectFiles_grid_2n7 {\n  margin-bottom: 5%;\n  -webkit-box-align: center;\n  -webkit-align-items: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n  -webkit-justify-content: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n}\n\n\n.ListProjectFiles_grid_v_3N8 {\n  width: 60%;\n}\n\n\n.ListProjectFiles_loading_style_3Mh {\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  text-align: center;\n  -webkit-box-pack: center;\n  -webkit-justify-content: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  font-family: 'Raleway', sans-serif;\n  font-size: 1em;\n  color: #57576d;\n  font-weight: 500;\n}\n", "", {"version":3,"sources":["/./components/ListProjectFiles/ListProjectFiles.css"],"names":[],"mappings":";AACA;IACI,0BAA0B;IAC1B,oBAAoB;IACpB,sBAAsB;IACtB,mCAAmC;IACnC,iBAAiB;IACjB,eAAe;IACf,iBAAiB;CACpB;;;AAGD;EACE,eAAe;EACf,kBAAkB;EAClB,0BAAoB;EAApB,4BAAoB;MAApB,uBAAoB;UAApB,oBAAoB;EACpB,yBAAwB;EAAxB,gCAAwB;MAAxB,sBAAwB;UAAxB,wBAAwB;EACxB,qBAAc;EAAd,sBAAc;EAAd,qBAAc;EAAd,cAAc;EACd,eAAe;CAChB;;;AAED;EACE,kBAAkB;EAClB,0BAAoB;EAApB,4BAAoB;MAApB,uBAAoB;UAApB,oBAAoB;EACpB,yBAAwB;EAAxB,gCAAwB;MAAxB,sBAAwB;UAAxB,wBAAwB;EACxB,qBAAc;EAAd,sBAAc;EAAd,qBAAc;EAAd,cAAc;CACf;;;AAED;EACE,WAAW;CACZ;;;AAED;EACE,qBAAc;EAAd,sBAAc;EAAd,qBAAc;EAAd,cAAc;EACd,mBAAmB;EACnB,yBAAwB;EAAxB,gCAAwB;MAAxB,sBAAwB;UAAxB,wBAAwB;EACxB,mCAAmC;EACnC,eAAe;EACf,eAAe;EACf,iBAAiB;CAClB","file":"ListProjectFiles.css","sourcesContent":["\n.file_list {\n    border: 1px #e6e6e6 solid;\n    border-radius: 10px;\n    padding: 2% 24% 2% 2%;\n    font-family: 'Raleway', sans-serif;\n    font-size: 0.8em;\n    color: #57576d;\n    font-weight: 100;\n}\n\n\n.points {\n  font-size: 1em;\n  margin-bottom: 5%;\n  align-items: center;\n  justify-content: center;\n  display: flex;\n  color: #57576d;\n}\n\n.grid {\n  margin-bottom: 5%;\n  align-items: center;\n  justify-content: center;\n  display: flex;\n}\n\n.grid_v {\n  width: 60%;\n}\n\n.loading_style {\n  display: flex;\n  text-align: center;\n  justify-content: center;\n  font-family: 'Raleway', sans-serif;\n  font-size: 1em;\n  color: #57576d;\n  font-weight: 500;\n}\n"],"sourceRoot":"webpack://"}]);
+  
+  // exports
+  exports.locals = {
+  	"file_list": "ListProjectFiles_file_list_sKU",
+  	"points": "ListProjectFiles_points_KWe",
+  	"grid": "ListProjectFiles_grid_2n7",
+  	"grid_v": "ListProjectFiles_grid_v_3N8",
+  	"loading_style": "ListProjectFiles_loading_style_3Mh"
+  };
+
+/***/ },
+/* 109 */
+/***/ function(module, exports, __webpack_require__) {
+
+  'use strict';
+  
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  
+  var _react = __webpack_require__(15);
+  
+  var _react2 = _interopRequireDefault(_react);
+  
+  var _Work = __webpack_require__(110);
+  
+  var _Work2 = _interopRequireDefault(_Work);
+  
+  var _fetch = __webpack_require__(58);
+  
+  var _fetch2 = _interopRequireDefault(_fetch);
+  
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  
+  exports.default = {
+  
+    path: '/work',
+  
+    action: function action() {
+      return {
+        component: _react2.default.createElement(_Work2.default, null)
+      };
+    }
+  };
+
+/***/ },
+/* 110 */
+/***/ function(module, exports, __webpack_require__) {
+
+  'use strict';
+  
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  
+  var _react = __webpack_require__(15);
+  
+  var _react2 = _interopRequireDefault(_react);
+  
+  var _withStyles = __webpack_require__(28);
+  
+  var _withStyles2 = _interopRequireDefault(_withStyles);
+  
+  var _Work = __webpack_require__(111);
+  
+  var _Work2 = _interopRequireDefault(_Work);
+  
+  var _Header = __webpack_require__(67);
+  
+  var _Header2 = _interopRequireDefault(_Header);
+  
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  
+  function Work() {
+    return _react2.default.createElement(
+      'div',
+      null,
+      _react2.default.createElement(
+        'p',
+        null,
+        ' Work '
+      ),
+      _react2.default.createElement(_Header2.default, null)
+    );
+  }
+  
+  exports.default = (0, _withStyles2.default)(_Work2.default)(Work);
+
+/***/ },
+/* 111 */
+/***/ function(module, exports, __webpack_require__) {
+
+  
+      var content = __webpack_require__(112);
+      var insertCss = __webpack_require__(32);
+  
+      if (typeof content === 'string') {
+        content = [[module.id, content, '']];
+      }
+  
+      module.exports = content.locals || {};
+      module.exports._getCss = function() { return content.toString(); };
+      module.exports._insertCss = function(options) { return insertCss(content, options) };
+    
+      // Hot Module Replacement
+      // https://webpack.github.io/docs/hot-module-replacement
+      // Only activated in browser context
+      if (false) {
+        var removeCss = function() {};
+        module.hot.accept("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./Work.css", function() {
+          content = require("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./Work.css");
+  
+          if (typeof content === 'string') {
+            content = [[module.id, content, '']];
+          }
+  
+          removeCss = insertCss(content, { replace: true });
+        });
+        module.hot.dispose(function() { removeCss(); });
+      }
+    
+
+/***/ },
+/* 112 */
+/***/ function(module, exports, __webpack_require__) {
+
+  exports = module.exports = __webpack_require__(31)();
+  // imports
+  
+  
+  // module
+  exports.push([module.id, "/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n\n  /*\n   * Layout\n   * ======================================================================== */\n\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */  /* Extra small screen / phone */  /* Small screen / tablet */  /* Medium screen / desktop */ /* Large screen / wide desktop */\n}\n\n.Work_root_3vP {\n  padding-left: 20px;\n  padding-right: 20px;\n\n}\n\n.Work_container_2ar {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: 1000px;\n\n}\n\n.Work_news_1js {\n  padding: 0;\n\n}\n\n.Work_newsItem_11v {\n  list-style-type: none;\n  padding-bottom: 6px;\n\n}\n\n.Work_newsTitle_M4I {\n  font-size: 1.125em;\n\n}\n\n.Work_newsTitle_M4I,\n.Work_newsDesc_1rD {\n  display: block;\n\n}\n", "", {"version":3,"sources":["/./components/variables.css","/./routes/work/Work.css"],"names":[],"mappings":"AAAA;;;;;;;GAOG;;AAEH;EACE;;gFAE8E;;EAI9E;;gFAE8E;;EAI9E;;gFAE8E,EAErD,gCAAgC,EAChC,2BAA2B,EAC3B,6BAA6B,CAC7B,iCAAiC;CAC3D;;AC3BD;EACE,mBAAmB;EACnB,oBAAoB;;CAErB;;AAED;EACE,eAAe;EACf,kBAAkB;EAClB,kBAAoC;;CAErC;;AAED;EACE,WAAW;;CAEZ;;AAED;EACE,sBAAsB;EACtB,oBAAoB;;CAErB;;AAED;EACE,mBAAmB;;CAEpB;;AAED;;EAEE,eAAe;;CAEhB","file":"Work.css","sourcesContent":["/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n\n  --font-family-base: 'Segoe UI', 'HelveticaNeue-Light', sans-serif;\n\n  /*\n   * Layout\n   * ======================================================================== */\n\n  --max-content-width: 1000px;\n\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */\n\n  --screen-xs-min: 480px;  /* Extra small screen / phone */\n  --screen-sm-min: 768px;  /* Small screen / tablet */\n  --screen-md-min: 992px;  /* Medium screen / desktop */\n  --screen-lg-min: 1200px; /* Large screen / wide desktop */\n}\n","\n@import '../../components/variables.css';\n\n.root {\n  padding-left: 20px;\n  padding-right: 20px;\n\n}\n\n.container {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: var(--max-content-width);\n\n}\n\n.news {\n  padding: 0;\n\n}\n\n.newsItem {\n  list-style-type: none;\n  padding-bottom: 6px;\n\n}\n\n.newsTitle {\n  font-size: 1.125em;\n\n}\n\n.newsTitle,\n.newsDesc {\n  display: block;\n\n}\n"],"sourceRoot":"webpack://"}]);
+  
+  // exports
+  exports.locals = {
+  	"root": "Work_root_3vP",
+  	"container": "Work_container_2ar",
+  	"news": "Work_news_1js",
+  	"newsItem": "Work_newsItem_11v",
+  	"newsTitle": "Work_newsTitle_M4I",
+  	"newsDesc": "Work_newsDesc_1rD"
+  };
+
+/***/ },
+/* 113 */
+/***/ function(module, exports, __webpack_require__) {
+
+  'use strict';
+  
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  
+  var _react = __webpack_require__(15);
+  
+  var _react2 = _interopRequireDefault(_react);
+  
+  var _Processes = __webpack_require__(114);
+  
+  var _Processes2 = _interopRequireDefault(_Processes);
+  
+  var _fetch = __webpack_require__(58);
+  
+  var _fetch2 = _interopRequireDefault(_fetch);
+  
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  
+  exports.default = {
+  
+    path: '/processes',
+  
+    action: function action() {
+      return {
+        component: _react2.default.createElement(_Processes2.default, null)
+      };
+    }
+  };
+
+/***/ },
+/* 114 */
+/***/ function(module, exports, __webpack_require__) {
+
+  'use strict';
+  
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  
+  var _react = __webpack_require__(15);
+  
+  var _react2 = _interopRequireDefault(_react);
+  
+  var _withStyles = __webpack_require__(28);
+  
+  var _withStyles2 = _interopRequireDefault(_withStyles);
+  
+  var _Processes = __webpack_require__(115);
+  
+  var _Processes2 = _interopRequireDefault(_Processes);
+  
+  var _Header = __webpack_require__(67);
+  
+  var _Header2 = _interopRequireDefault(_Header);
+  
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  
+  function Processes() {
+    return _react2.default.createElement(
+      'div',
+      null,
+      _react2.default.createElement(
+        'p',
+        null,
+        ' Processes '
+      ),
+      _react2.default.createElement(_Header2.default, null)
+    );
+  }
+  
+  exports.default = (0, _withStyles2.default)(_Processes2.default)(Processes);
+
+/***/ },
+/* 115 */
+/***/ function(module, exports, __webpack_require__) {
+
+  
+      var content = __webpack_require__(116);
+      var insertCss = __webpack_require__(32);
+  
+      if (typeof content === 'string') {
+        content = [[module.id, content, '']];
+      }
+  
+      module.exports = content.locals || {};
+      module.exports._getCss = function() { return content.toString(); };
+      module.exports._insertCss = function(options) { return insertCss(content, options) };
+    
+      // Hot Module Replacement
+      // https://webpack.github.io/docs/hot-module-replacement
+      // Only activated in browser context
+      if (false) {
+        var removeCss = function() {};
+        module.hot.accept("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./Processes.css", function() {
+          content = require("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./Processes.css");
+  
+          if (typeof content === 'string') {
+            content = [[module.id, content, '']];
+          }
+  
+          removeCss = insertCss(content, { replace: true });
+        });
+        module.hot.dispose(function() { removeCss(); });
+      }
+    
+
+/***/ },
+/* 116 */
+/***/ function(module, exports, __webpack_require__) {
+
+  exports = module.exports = __webpack_require__(31)();
+  // imports
+  
+  
+  // module
+  exports.push([module.id, "/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n\n  /*\n   * Layout\n   * ======================================================================== */\n\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */  /* Extra small screen / phone */  /* Small screen / tablet */  /* Medium screen / desktop */ /* Large screen / wide desktop */\n}\n\n.Processes_root_3Bz {\n  padding-left: 20px;\n  padding-right: 20px;\n\n}\n\n.Processes_container_3Y3 {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: 1000px;\n\n}\n\n.Processes_news_1bc {\n  padding: 0;\n\n}\n\n.Processes_newsItem_2uV {\n  list-style-type: none;\n  padding-bottom: 6px;\n\n}\n\n.Processes_newsTitle_aKw {\n  font-size: 1.125em;\n\n}\n\n.Processes_newsTitle_aKw,\n.Processes_newsDesc_Tnn {\n  display: block;\n\n}\n", "", {"version":3,"sources":["/./components/variables.css","/./routes/processes/Processes.css"],"names":[],"mappings":"AAAA;;;;;;;GAOG;;AAEH;EACE;;gFAE8E;;EAI9E;;gFAE8E;;EAI9E;;gFAE8E,EAErD,gCAAgC,EAChC,2BAA2B,EAC3B,6BAA6B,CAC7B,iCAAiC;CAC3D;;AC3BD;EACE,mBAAmB;EACnB,oBAAoB;;CAErB;;AAED;EACE,eAAe;EACf,kBAAkB;EAClB,kBAAoC;;CAErC;;AAED;EACE,WAAW;;CAEZ;;AAED;EACE,sBAAsB;EACtB,oBAAoB;;CAErB;;AAED;EACE,mBAAmB;;CAEpB;;AAED;;EAEE,eAAe;;CAEhB","file":"Processes.css","sourcesContent":["/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n\n  --font-family-base: 'Segoe UI', 'HelveticaNeue-Light', sans-serif;\n\n  /*\n   * Layout\n   * ======================================================================== */\n\n  --max-content-width: 1000px;\n\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */\n\n  --screen-xs-min: 480px;  /* Extra small screen / phone */\n  --screen-sm-min: 768px;  /* Small screen / tablet */\n  --screen-md-min: 992px;  /* Medium screen / desktop */\n  --screen-lg-min: 1200px; /* Large screen / wide desktop */\n}\n","\n@import '../../components/variables.css';\n\n.root {\n  padding-left: 20px;\n  padding-right: 20px;\n\n}\n\n.container {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: var(--max-content-width);\n\n}\n\n.news {\n  padding: 0;\n\n}\n\n.newsItem {\n  list-style-type: none;\n  padding-bottom: 6px;\n\n}\n\n.newsTitle {\n  font-size: 1.125em;\n\n}\n\n.newsTitle,\n.newsDesc {\n  display: block;\n\n}\n"],"sourceRoot":"webpack://"}]);
+  
+  // exports
+  exports.locals = {
+  	"root": "Processes_root_3Bz",
+  	"container": "Processes_container_3Y3",
+  	"news": "Processes_news_1bc",
+  	"newsItem": "Processes_newsItem_2uV",
+  	"newsTitle": "Processes_newsTitle_aKw",
+  	"newsDesc": "Processes_newsDesc_Tnn"
+  };
+
+/***/ },
+/* 117 */
+/***/ function(module, exports, __webpack_require__) {
+
+  'use strict';
+  
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  
+  var _react = __webpack_require__(15);
+  
+  var _react2 = _interopRequireDefault(_react);
+  
+  var _People = __webpack_require__(118);
+  
+  var _People2 = _interopRequireDefault(_People);
+  
+  var _fetch = __webpack_require__(58);
+  
+  var _fetch2 = _interopRequireDefault(_fetch);
+  
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  
+  exports.default = {
+  
+    path: '/people',
+  
+    action: function action() {
+      return {
+        component: _react2.default.createElement(_People2.default, null)
+      };
+    }
+  };
+
+/***/ },
+/* 118 */
+/***/ function(module, exports, __webpack_require__) {
+
+  'use strict';
+  
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  
+  var _react = __webpack_require__(15);
+  
+  var _react2 = _interopRequireDefault(_react);
+  
+  var _withStyles = __webpack_require__(28);
+  
+  var _withStyles2 = _interopRequireDefault(_withStyles);
+  
+  var _People = __webpack_require__(119);
+  
+  var _People2 = _interopRequireDefault(_People);
+  
+  var _Header = __webpack_require__(67);
+  
+  var _Header2 = _interopRequireDefault(_Header);
+  
+  var _ProjectMembers = __webpack_require__(121);
+  
+  var _ProjectMembers2 = _interopRequireDefault(_ProjectMembers);
+  
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  
+  function People() {
+    return _react2.default.createElement(
+      'div',
+      null,
+      _react2.default.createElement(
+        'p',
+        null,
+        ' People '
+      ),
+      _react2.default.createElement(_Header2.default, null),
+      _react2.default.createElement(_ProjectMembers2.default, null)
+    );
+  }
+  
+  exports.default = (0, _withStyles2.default)(_People2.default)(People);
+
+/***/ },
+/* 119 */
+/***/ function(module, exports, __webpack_require__) {
+
+  
+      var content = __webpack_require__(120);
+      var insertCss = __webpack_require__(32);
+  
+      if (typeof content === 'string') {
+        content = [[module.id, content, '']];
+      }
+  
+      module.exports = content.locals || {};
+      module.exports._getCss = function() { return content.toString(); };
+      module.exports._insertCss = function(options) { return insertCss(content, options) };
+    
+      // Hot Module Replacement
+      // https://webpack.github.io/docs/hot-module-replacement
+      // Only activated in browser context
+      if (false) {
+        var removeCss = function() {};
+        module.hot.accept("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./People.css", function() {
+          content = require("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./People.css");
+  
+          if (typeof content === 'string') {
+            content = [[module.id, content, '']];
+          }
+  
+          removeCss = insertCss(content, { replace: true });
+        });
+        module.hot.dispose(function() { removeCss(); });
+      }
+    
+
+/***/ },
+/* 120 */
+/***/ function(module, exports, __webpack_require__) {
+
+  exports = module.exports = __webpack_require__(31)();
+  // imports
+  
+  
+  // module
+  exports.push([module.id, "/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n\n  /*\n   * Layout\n   * ======================================================================== */\n\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */  /* Extra small screen / phone */  /* Small screen / tablet */  /* Medium screen / desktop */ /* Large screen / wide desktop */\n}\n\n.People_root_117 {\n  padding-left: 20px;\n  padding-right: 20px;\n\n}\n\n.People_container_1aq {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: 1000px;\n\n}\n\n.People_news_3Xw {\n  padding: 0;\n\n}\n\n.People_newsItem_1iM {\n  list-style-type: none;\n  padding-bottom: 6px;\n\n}\n\n.People_newsTitle_20J {\n  font-size: 1.125em;\n\n}\n\n.People_newsTitle_20J,\n.People_newsDesc_3wj {\n  display: block;\n\n}\n", "", {"version":3,"sources":["/./components/variables.css","/./routes/people/People.css"],"names":[],"mappings":"AAAA;;;;;;;GAOG;;AAEH;EACE;;gFAE8E;;EAI9E;;gFAE8E;;EAI9E;;gFAE8E,EAErD,gCAAgC,EAChC,2BAA2B,EAC3B,6BAA6B,CAC7B,iCAAiC;CAC3D;;AC3BD;EACE,mBAAmB;EACnB,oBAAoB;;CAErB;;AAED;EACE,eAAe;EACf,kBAAkB;EAClB,kBAAoC;;CAErC;;AAED;EACE,WAAW;;CAEZ;;AAED;EACE,sBAAsB;EACtB,oBAAoB;;CAErB;;AAED;EACE,mBAAmB;;CAEpB;;AAED;;EAEE,eAAe;;CAEhB","file":"People.css","sourcesContent":["/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n\n  --font-family-base: 'Segoe UI', 'HelveticaNeue-Light', sans-serif;\n\n  /*\n   * Layout\n   * ======================================================================== */\n\n  --max-content-width: 1000px;\n\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */\n\n  --screen-xs-min: 480px;  /* Extra small screen / phone */\n  --screen-sm-min: 768px;  /* Small screen / tablet */\n  --screen-md-min: 992px;  /* Medium screen / desktop */\n  --screen-lg-min: 1200px; /* Large screen / wide desktop */\n}\n","\n@import '../../components/variables.css';\n\n.root {\n  padding-left: 20px;\n  padding-right: 20px;\n\n}\n\n.container {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: var(--max-content-width);\n\n}\n\n.news {\n  padding: 0;\n\n}\n\n.newsItem {\n  list-style-type: none;\n  padding-bottom: 6px;\n\n}\n\n.newsTitle {\n  font-size: 1.125em;\n\n}\n\n.newsTitle,\n.newsDesc {\n  display: block;\n\n}\n"],"sourceRoot":"webpack://"}]);
+  
+  // exports
+  exports.locals = {
+  	"root": "People_root_117",
+  	"container": "People_container_1aq",
+  	"news": "People_news_3Xw",
+  	"newsItem": "People_newsItem_1iM",
+  	"newsTitle": "People_newsTitle_20J",
+  	"newsDesc": "People_newsDesc_3wj"
+  };
+
+/***/ },
+/* 121 */
+/***/ function(module, exports, __webpack_require__) {
+
+  'use strict';
+  
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  
+  var _keys = __webpack_require__(97);
+  
+  var _keys2 = _interopRequireDefault(_keys);
+  
+  var _getPrototypeOf = __webpack_require__(20);
+  
+  var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+  
+  var _classCallCheck2 = __webpack_require__(21);
+  
+  var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+  
+  var _possibleConstructorReturn2 = __webpack_require__(23);
+  
+  var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+  
+  var _inherits2 = __webpack_require__(24);
+  
+  var _inherits3 = _interopRequireDefault(_inherits2);
+  
+  var _react = __webpack_require__(15);
+  
+  var _react2 = _interopRequireDefault(_react);
+  
+  var _axios = __webpack_require__(71);
+  
+  var axios = _interopRequireWildcard(_axios);
+  
+  var _withStyles = __webpack_require__(28);
+  
+  var _withStyles2 = _interopRequireDefault(_withStyles);
+  
+  var _ProjectMembers = __webpack_require__(125);
+  
+  var _ProjectMembers2 = _interopRequireDefault(_ProjectMembers);
+  
+  var _classnames = __webpack_require__(66);
+  
+  var _classnames2 = _interopRequireDefault(_classnames);
+  
+  function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+  
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  
+  var ProjectMembers = function (_Component) {
+    (0, _inherits3.default)(ProjectMembers, _Component);
+  
+    function ProjectMembers(props) {
+      (0, _classCallCheck3.default)(this, ProjectMembers);
+  
+      var _this = (0, _possibleConstructorReturn3.default)(this, (ProjectMembers.__proto__ || (0, _getPrototypeOf2.default)(ProjectMembers)).call(this, props));
+  
+      _this.componentWillMount = function () {
+        axios.get('http://localhost:5000/projects/members').then(function (response) {
+          this.setState({ contributors: response.data });
+        }.bind(_this)).catch(function (error) {});
+      };
+  
+      _this.render = function () {
+        if (_this.state.contributors) {
+          return _react2.default.createElement(
+            'div',
+            null,
+            (0, _keys2.default)(_this.state.contributors).map(function (contributor) {
+              return _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement(
+                  'li',
+                  { className: _ProjectMembers2.default.file_list },
+                  ' ',
+                  this.state.contributors[contributor],
+                  ' '
+                )
+              );
+            }.bind(_this))
+          );
+        } else {
+          return _react2.default.createElement(
+            'div',
+            { className: _ProjectMembers2.default.loading_style },
+            'Loading'
+          );
+        }
+      };
+  
+      _this.state = {
+        contributors: ''
+      };
+      return _this;
+    }
+  
+    return ProjectMembers;
+  }(_react.Component);
+  
+  exports.default = (0, _withStyles2.default)(_ProjectMembers2.default)(ProjectMembers);
+
+/***/ },
+/* 122 */
 /***/ function(module, exports) {
 
   module.exports = require("./assets");
+
+/***/ },
+/* 123 */
+/***/ function(module, exports, __webpack_require__) {
+
+  
+      var content = __webpack_require__(124);
+      var insertCss = __webpack_require__(32);
+  
+      if (typeof content === 'string') {
+        content = [[module.id, content, '']];
+      }
+  
+      module.exports = content.locals || {};
+      module.exports._getCss = function() { return content.toString(); };
+      module.exports._insertCss = function(options) { return insertCss(content, options) };
+    
+      // Hot Module Replacement
+      // https://webpack.github.io/docs/hot-module-replacement
+      // Only activated in browser context
+      if (false) {
+        var removeCss = function() {};
+        module.hot.accept("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./CommitsGraph.css", function() {
+          content = require("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./CommitsGraph.css");
+  
+          if (typeof content === 'string') {
+            content = [[module.id, content, '']];
+          }
+  
+          removeCss = insertCss(content, { replace: true });
+        });
+        module.hot.dispose(function() { removeCss(); });
+      }
+    
+
+/***/ },
+/* 124 */
+/***/ function(module, exports, __webpack_require__) {
+
+  exports = module.exports = __webpack_require__(31)();
+  // imports
+  
+  
+  // module
+  exports.push([module.id, ".CommitsGraph_loading_style_2zQ {\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  text-align: center;\n  -webkit-box-pack: center;\n  -webkit-justify-content: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  font-family: 'Raleway', sans-serif;\n  font-size: 1em;\n  color: #57576d;\n  font-weight: 500;\n}\n\n.CommitsGraph_graphic_Y5i {\n  margin-top: 3%;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n  -webkit-justify-content: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n  -webkit-align-items: center;\n      -ms-flex-align: center;\n          align-items: center;\n}\n", "", {"version":3,"sources":["/./components/CommitsGraph/CommitsGraph.css"],"names":[],"mappings":"AAAA;EACE,qBAAc;EAAd,sBAAc;EAAd,qBAAc;EAAd,cAAc;EACd,mBAAmB;EACnB,yBAAwB;EAAxB,gCAAwB;MAAxB,sBAAwB;UAAxB,wBAAwB;EACxB,mCAAmC;EACnC,eAAe;EACf,eAAe;EACf,iBAAiB;CAClB;;AAED;EACE,eAAe;EACf,qBAAc;EAAd,sBAAc;EAAd,qBAAc;EAAd,cAAc;EACd,yBAAwB;EAAxB,gCAAwB;MAAxB,sBAAwB;UAAxB,wBAAwB;EACxB,0BAAoB;EAApB,4BAAoB;MAApB,uBAAoB;UAApB,oBAAoB;CACrB","file":"CommitsGraph.css","sourcesContent":[".loading_style {\n  display: flex;\n  text-align: center;\n  justify-content: center;\n  font-family: 'Raleway', sans-serif;\n  font-size: 1em;\n  color: #57576d;\n  font-weight: 500;\n}\n\n.graphic {\n  margin-top: 3%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n"],"sourceRoot":"webpack://"}]);
+  
+  // exports
+  exports.locals = {
+  	"loading_style": "CommitsGraph_loading_style_2zQ",
+  	"graphic": "CommitsGraph_graphic_Y5i"
+  };
+
+/***/ },
+/* 125 */
+/***/ function(module, exports, __webpack_require__) {
+
+  
+      var content = __webpack_require__(126);
+      var insertCss = __webpack_require__(32);
+  
+      if (typeof content === 'string') {
+        content = [[module.id, content, '']];
+      }
+  
+      module.exports = content.locals || {};
+      module.exports._getCss = function() { return content.toString(); };
+      module.exports._insertCss = function(options) { return insertCss(content, options) };
+    
+      // Hot Module Replacement
+      // https://webpack.github.io/docs/hot-module-replacement
+      // Only activated in browser context
+      if (false) {
+        var removeCss = function() {};
+        module.hot.accept("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./ProjectMembers.css", function() {
+          content = require("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./ProjectMembers.css");
+  
+          if (typeof content === 'string') {
+            content = [[module.id, content, '']];
+          }
+  
+          removeCss = insertCss(content, { replace: true });
+        });
+        module.hot.dispose(function() { removeCss(); });
+      }
+    
+
+/***/ },
+/* 126 */
+/***/ function(module, exports, __webpack_require__) {
+
+  exports = module.exports = __webpack_require__(31)();
+  // imports
+  
+  
+  // module
+  exports.push([module.id, ".ProjectMembers_file_list_HvE {\n    border: 1px #e6e6e6 solid;\n    border-radius: 10px;\n    padding: 2% 24% 2% 2%;\n    font-family: 'Raleway', sans-serif;\n    font-size: 0.8em;\n    color: #57576d;\n    font-weight: 100;\n    text-decoration: none;\n}\n\n.ProjectMembers_loading_style_1PE {\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  text-align: center;\n  -webkit-box-pack: center;\n  -webkit-justify-content: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  font-family: 'Raleway', sans-serif;\n  font-size: 1em;\n  color: #57576d;\n  font-weight: 500;\n}\n", "", {"version":3,"sources":["/./components/ProjectMembers/ProjectMembers.css"],"names":[],"mappings":"AAAA;IACI,0BAA0B;IAC1B,oBAAoB;IACpB,sBAAsB;IACtB,mCAAmC;IACnC,iBAAiB;IACjB,eAAe;IACf,iBAAiB;IACjB,sBAAsB;CACzB;;AAED;EACE,qBAAc;EAAd,sBAAc;EAAd,qBAAc;EAAd,cAAc;EACd,mBAAmB;EACnB,yBAAwB;EAAxB,gCAAwB;MAAxB,sBAAwB;UAAxB,wBAAwB;EACxB,mCAAmC;EACnC,eAAe;EACf,eAAe;EACf,iBAAiB;CAClB","file":"ProjectMembers.css","sourcesContent":[".file_list {\n    border: 1px #e6e6e6 solid;\n    border-radius: 10px;\n    padding: 2% 24% 2% 2%;\n    font-family: 'Raleway', sans-serif;\n    font-size: 0.8em;\n    color: #57576d;\n    font-weight: 100;\n    text-decoration: none;\n}\n\n.loading_style {\n  display: flex;\n  text-align: center;\n  justify-content: center;\n  font-family: 'Raleway', sans-serif;\n  font-size: 1em;\n  color: #57576d;\n  font-weight: 500;\n}\n"],"sourceRoot":"webpack://"}]);
+  
+  // exports
+  exports.locals = {
+  	"file_list": "ProjectMembers_file_list_HvE",
+  	"loading_style": "ProjectMembers_loading_style_1PE"
+  };
 
 /***/ }
 /******/ ]);
