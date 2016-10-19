@@ -32,7 +32,7 @@ class UserName extends Component {
   render() {
     return(
       <div>
-        <div className={s.line_text}><p>O Username atual é TODO THIS SHIT!!!!</p></div>
+        <div className={s.line_text}><p className={s.line_text_p}>O Username atual é TODO THIS SHIT!!!!</p></div>
       </div>
     );
   }

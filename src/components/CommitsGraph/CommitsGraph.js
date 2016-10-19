@@ -51,9 +51,9 @@ class CommitsGraph extends Component {
 
   render() {
     if(this.state.check){
-      return <LineChart data={this.chartData} options={this.chartOptions} width="600" height="250" className={s.loading_style}/>
+      return(<div className={s.graphic}><LineChart data={this.chartData} options={this.chartOptions} width="600" height="250" /></div>);
     } else {
-      return <div className={s.loading_style}>LOADING CHART</div>
+      return <div className={s.loading_style}>Loading Chart</div>
     }
   }
 }

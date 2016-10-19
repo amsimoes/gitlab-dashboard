@@ -36,6 +36,7 @@ function Html({ title, description, style, script, children }) {
           <script src="https://www.google-analytics.com/analytics.js" async defer />
         }
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="https://use.fontawesome.com/d74233e247.js"></script>
       </body>
     </html>
   );

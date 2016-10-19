@@ -50,7 +50,7 @@ class Commits extends Component {
     } else {
       return(
        <div className={s.loading_style}>
-        LOADING
+        Loading
         </div>
       );
     }

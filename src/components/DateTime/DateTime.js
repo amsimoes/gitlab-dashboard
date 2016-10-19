@@ -10,7 +10,7 @@ class DateTime extends Component {
     let now = new Date()
     return (
       <div  className={s.line_text}>
-      <p>Today is <Time value={now} titleFormat="YYYY/MM/DD HH:mm" /></p>
+      <p className={s.line_text_p}>Today is <Time value={now} titleFormat="YYYY/MM/DD HH:mm" /></p>
       </div>
 
     )

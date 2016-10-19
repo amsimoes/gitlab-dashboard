@@ -59,7 +59,7 @@ class ListProjectFiles extends Component {
                   let boundItemClick = this.handleClick.bind(this, key, this.state.files[key]);
                   return <p onClick={boundItemClick} className={s.file_list}>{key}</p>
                 }
-                return <p className={s.file_list}> {key} </p>
+                return(<p className={s.file_list}><i class="fa fa-file-text-o" aria-hidden="true"></i> {key} </p>);
               }.bind(this))}
           </h2>
         </div>

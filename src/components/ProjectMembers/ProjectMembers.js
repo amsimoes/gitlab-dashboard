@@ -24,11 +24,11 @@ class ProjectMembers extends Component {
   render = () =>{
     if(this.state.contributors) {
       return (
-        <div >
+        <div className={s.table_margin}>
           {Object.keys(this.state.contributors).map(function(contributor) {
             return(
-              <div >
-                <li className={s.file_list}> {this.state.contributors[contributor]} </li>
+              <div className={s.table}>
+                <li className={s.file_list}>{this.state.contributors[contributor]} </li>
              </div>
             );
           }.bind(this))}
