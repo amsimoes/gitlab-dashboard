@@ -1,0 +1,6 @@
+{
+  "name": "AllCommits",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./AllCommits.js"
+}
