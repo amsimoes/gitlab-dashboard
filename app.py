@@ -181,7 +181,7 @@ def list_project_members():
 @app.route('/projects/commits')
 def list_commits():
     project_id = get_project_id()
-    path = '/projects/{project_id}/repository/commits?page=1&per_page=100'.format(project_id = project_id)
+    path = '/projects/{project_id}/repository/commits'.format(project_id = project_id)
     response = make_get_request(path)
 
     return response.content
