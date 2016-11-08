@@ -31,15 +31,15 @@ class AllCommits extends Component {
   render() {
     if(this.state.commits){
      return(
-       <div >
+       <div className={s.grid}>
           {Object.keys(this.state.commits).map(function(key) {
             return(
-              <div>
-                <div>Name: {this.state.commits[key].author_name}</div>
-                <div>Email: {this.state.commits[key].author_email}</div>
-                <div>Data: {this.state.commits[key].created_at}</div>
-                <div>Commits: {this.state.commits[key].message}</div>
-                <div>Title: {this.state.commits[key].title}</div>
+              <div className={s.table}>
+                <div className={s.file_list}>Name: {this.state.commits[key].author_name}</div>
+                <div className={s.file_list}>Email: {this.state.commits[key].author_email}</div>
+                <div className={s.file_list}>Data: {this.state.commits[key].created_at}</div>
+                <div className={s.file_list}>Commits: {this.state.commits[key].message}</div>
+                <div className={s.file_list}>Title: {this.state.commits[key].title}</div>
                 </div>
             );
           }.bind(this))}
