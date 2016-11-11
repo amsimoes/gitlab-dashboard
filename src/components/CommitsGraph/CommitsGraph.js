@@ -1,9 +1,10 @@
 import React, { Component, PropTypes } from 'react';
-var LineChart = require("react-chartjs").Line;
 import * as axios from 'axios';
 import s from './CommitsGraph.css';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
+
+var LineChart = require("react-chartjs").Line;
 
 class CommitsGraph extends Component {
 
@@ -41,8 +42,6 @@ class CommitsGraph extends Component {
       .then(function (response) {
         this.chartData.datasets[0].data = response.data;
         this.setState({check: true});
-        console.log(response.data);
-        console.log("já dei update");
       }.bind(this))
       .catch(function (error) {
         console.log(error);
