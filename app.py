@@ -16,8 +16,7 @@ login_manager.init_app(app)
 login_manager.login_view = 'login'
 
 
-def make_get_request(path):
-    private_token = '8fH8Vs4WNpYhVUBPzq5g'
+def make_get_request(path, private_token):
     request_url = 'https://git.dei.uc.pt/api/v3'
     if "?" not in path:
         response = requests.get(request_url + path + '?private_token={private_token}'.format(private_token=private_token))
@@ -28,9 +27,9 @@ def make_get_request(path):
 
 
 # id = 737
-def get_project_id():
+def get_project_id(index):
     path = '/projects'
-    return (make_get_request(path)).json()[0]['id']
+    return (make_get_request(path, '8fH8Vs4WNpYhVUBPzq5g')).json()[index]['id']
 
 
 # TODO: Extrair stats de cada file de um commit com mais q 1 ficheiro
@@ -62,7 +61,7 @@ def get_blob_id(project_id, file_path):
 
 
 def get_last_commit_id(file_path, branch):
-    project_id = get_project_id()
+    project_id = get_project_id(0)
     path = 'projects/{id}/repository/files?file_path={f}&ref={b}'.format(id=project_id, f=file_path, b=branch)
     response = make_get_request(path)
 
@@ -93,10 +92,10 @@ def unauthorized():
 
 @app.route('/testing')
 def repo_files():
-    project_id = get_project_id()
+    project_id = get_project_id(0)
     file_path = 'app.py'
     path = '/projects/{project_id}/repository/files?file_path={f}&ref=d2c40026052ca2ce1d7cf7ad40c4d6f39cec5141'.format(project_id=project_id,f=file_path)
-    response = make_get_request(path)
+    response = make_get_request(path, '8fH8Vs4WNpYhVUBPzq5g')
 
     adds, dels = get_commit_stats(project_id, response.json()['commit_id'])
     #return "Additions: {a} Deletions {d}".format(a=adds, d=dels)
@@ -106,7 +105,7 @@ def repo_files():
 @app.route('/projects')
 def list_projects():
     path = '/projects'
-    response = make_get_request(path)
+    response = make_get_request(path, '8fH8Vs4WNpYhVUBPzq5g')
 
 
     return response.json()[0]['name']
@@ -114,9 +113,9 @@ def list_projects():
 
 @app.route('/projects/files')
 def list_project_files():
-    project_id = get_project_id()
+    project_id = get_project_id(0)
     path = '/projects/{project_id}/repository/tree'.format(project_id=project_id)
-    response = make_get_request(path)
+    response = make_get_request(path, '8fH8Vs4WNpYhVUBPzq5g')
 
     return response.content
 
@@ -125,10 +124,10 @@ def list_project_files():
 @app.route('/projects/files/content')
 def get_file_content():
     file_path = 'project/app.py'
-    project_id = get_project_id()
+    project_id = get_project_id(0)
     blob_id = get_blob_id(project_id, file_path)
     path = '/projects/{project_id}/repository/raw_blobs/{blob_id}'.format(project_id=project_id, blob_id=blob_id)
-    response = make_get_request(path)
+    response = make_get_request(path, '8fH8Vs4WNpYhVUBPzq5g')
 
     if ".html" in file_path:
         string = str(response.content)
@@ -140,7 +139,7 @@ def get_file_content():
 
 @app.route('/projects/folders', methods=["GET", "POST"])
 def list_folder_files():
-    project_id = get_project_id()
+    project_id = get_project_id(0)
     files = {}
     s = ''
     if request.method == "POST":
@@ -155,10 +154,10 @@ def list_folder_files():
             for file in current_path:
                 s += str(file)
             path = '/projects/{project_id}/repository/tree?path={s}'.format(project_id=project_id,path=path, s=s)
-        response = make_get_request(path)
+        response = make_get_request(path, '8fH8Vs4WNpYhVUBPzq5g')
     elif request.method == "GET":
         path = '/projects/{project_id}/repository/tree'.format(project_id=project_id)
-        response = make_get_request(path)
+        response = make_get_request(path, '8fH8Vs4WNpYhVUBPzq5g')
     for file in response.json():
         files.update({file['name']:file['type']})
 
@@ -167,9 +166,9 @@ def list_folder_files():
 
 @app.route('/projects/members')
 def list_project_members():
-    project_id = get_project_id()
+    project_id = get_project_id(0)
     path = '/projects/{project_id}/members'.format(project_id=project_id)
-    response = make_get_request(path)
+    response = make_get_request(path, '8fH8Vs4WNpYhVUBPzq5g')
 
     contributors = []
     for contributor in response.json():
@@ -178,46 +177,41 @@ def list_project_members():
     return json.dumps(contributors)
 
 
-@app.route('/projects/commits')
+@app.route('/projects/commits', methods=["GET", "POST"])
 def list_commits():
-    project_id = get_project_id()
+    index = request.json['index']
+    project_id = get_project_id(index)
+    private_token = request.json['private_token']
     path = '/projects/{project_id}/repository/commits'.format(project_id = project_id)
-    response = make_get_request(path)
+    response = make_get_request(path, private_token)
 
     return response.content
 
 
 @app.route('/projects/contributors')
 def list_project_contributors():    # and their stats (additions, deletions)
-    project_id = get_project_id()
+    project_id = get_project_id(0)
     path = '/projects/{id}/repository/contributors'.format(id=project_id)
-    response = make_get_request(path)
+    response = make_get_request(path, '8fH8Vs4WNpYhVUBPzq5g')
+
 
     return response.content
 
-@app.route('/projects/weekly_contributions')
+@app.route('/projects/weekly_contributions', methods=["GET", "POST"])
 def get_weekly_contributions():
-    project_id = get_project_id()
+    index = request.json['index']
+    project_id = get_project_id(index)
     path = '/projects/{project_id}/repository/commits?per_page=100'.format(project_id = project_id)
-    response = make_get_request(path)
+    private_token = request.json['private_token']
+    response = make_get_request(path, private_token)
     commits_per_week = [] 
-    print "123"
     for i in range(13):
         commits_per_week.append(0);
-
-
-    print "1234"
-
     for commit in response.json():
-        print "12345"
         day = commit['created_at'][8] + commit['created_at'][9]
-        print "123456"
         month = commit['created_at'][5] + commit['created_at'][6] 
-        print "1234567"
         week = check_week(day, month)
-        print "12345678"
         commits_per_week[week-1] += 1
-        print "123456789"
 
     return json.dumps(commits_per_week)
 

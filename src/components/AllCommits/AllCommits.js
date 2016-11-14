@@ -18,7 +18,10 @@ class AllCommits extends Component {
   }
 
   componentWillMount = () => {
-    axios.get('http://localhost:5000/projects/commits')
+    axios.post('http://localhost:5000/projects/commits',{
+      private_token : '8fH8Vs4WNpYhVUBPzq5g',
+      index : 0
+    })
       .then(function (response) {
         console.log(response.data);
         this.setState({commits: response.data});
