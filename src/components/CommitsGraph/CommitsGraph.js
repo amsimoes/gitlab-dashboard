@@ -58,7 +58,7 @@ class CommitsGraph extends Component {
       return(<div className={s.graphic}><LineChart data={this.chartData} options={this.chartOptions} width="600" height="250" /></div>);
     } else {
       return (
-        <div><Loading type='bubbles' color='#e3e3e3' /></div>
+        <div className={s.loading_style}><Loading type='bubbles' color='#e3e3e3' /></div>
       );
     }
   }

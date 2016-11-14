@@ -37,6 +37,7 @@
     "react-chartjs": "^0.8.0",
     "react-chartjs-2": "^1.4.0",
     "react-dom": "15.3.2",
+    "react-loading": "0.0.9",
     "react-time": "4.2.0",
     "sequelize": "3.24.3",
     "source-map-support": "0.4.2",

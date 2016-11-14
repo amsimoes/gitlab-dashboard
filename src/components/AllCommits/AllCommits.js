@@ -8,6 +8,8 @@ import Email from '../ProjectName';
 import Additionsn from '../Navigation';
 import Deletions from '../Link';
 
+var Loading = require('react-loading');
+
 class AllCommits extends Component {
 
   constructor(props) {
@@ -51,7 +53,7 @@ class AllCommits extends Component {
     } else {
       return(
        <div className={s.loading_style}>
-        Loading
+          <Loading type='bubbles' color='#e3e3e3' />
         </div>
       );
     }

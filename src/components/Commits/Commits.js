@@ -95,7 +95,7 @@ class Commits extends Component {
       );
     } else {
       return(
-        <div><Loading type='bubbles' color='#e3e3e3' /></div>
+        <div className={s.loading_style}><Loading type='bubbles' color='#e3e3e3' /></div>
       );
     }
   }
