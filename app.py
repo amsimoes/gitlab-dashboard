@@ -188,11 +188,13 @@ def list_commits():
     return response.content
 
 
-@app.route('/projects/contributors')
+@app.route('/projects/contributors', methods=["GET", "POST"])
 def list_project_contributors():    # and their stats (additions, deletions)
-    project_id = get_project_id(0)
+    index = request.json['index']
+    private_token = request.json['private_token']
+    project_id = get_project_id(index)
     path = '/projects/{id}/repository/contributors'.format(id=project_id)
-    response = make_get_request(path, '8fH8Vs4WNpYhVUBPzq5g')
+    response = make_get_request(path, private_token)
 
 
     return response.content

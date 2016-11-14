@@ -59,7 +59,10 @@ class Commits extends Component {
    }
 
   componentWillMount = () => {
-    axios.get('http://localhost:5000/projects/contributors')
+    axios.post('http://localhost:5000/projects/contributors', {
+      private_token : '8fH8Vs4WNpYhVUBPzq5g',
+      index : 0
+    })
       .then(function (response) {
         this.setState({contributors: response.data});
       }.bind(this))
