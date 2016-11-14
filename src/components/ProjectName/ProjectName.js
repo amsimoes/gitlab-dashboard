@@ -4,6 +4,8 @@ import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './ProjectName.css';
 import cx from 'classnames';
 
+var Loading = require('react-loading');
+
 class ProjectName extends Component {
 
   constructor(props) {
@@ -18,8 +20,6 @@ class ProjectName extends Component {
     axios.get('http://localhost:5000/projects')
       .then(function (response) {
         this.setState({projectName: response.data});
-        console.log(response);
-
       }.bind(this))
       .catch(function (error) {
         console.log(error);
@@ -28,11 +28,17 @@ class ProjectName extends Component {
   }
 
   render() {
-    return(
-      <div>
-        <div className={s.main_title}>{this.state.projectName}</div>
-      </div>
-    );
+    if(this.state.projectName){
+      return(
+        <div>
+          <div className={s.main_title}>{this.state.projectName}</div>
+        </div>
+      );
+    } else {
+      return(
+        <div className={s.loading_style}><Loading type='bubbles' color='#e3e3e3' /></div>
+      )
+    }
   }
 }
 

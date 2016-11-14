@@ -1,5 +1,14 @@
 @import '../variables.css';
 
+.loading_style {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1em;
+  color: #57576d;
+  font-weight: 500;
+}
 
 .main_title {
   text-align: center;
