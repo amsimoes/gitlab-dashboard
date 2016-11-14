@@ -13,26 +13,10 @@ class UserName extends Component {
     };
   }
 
-  //componentWillMount = () => {
-
-    //// MAKE A REQUEST TO THE API TO GET THE CURRENT USER
-    ////
-    //axios.get('http://localhost:5000/list_projects')
-      //.then(function (response) {
-        //this.setState({projectName: response.data});
-        //console.log(response);
-
-      //}.bind(this))
-      //.catch(function (error) {
-        //console.log(error);
-
-      //});
-  //}
-
   render() {
     return(
       <div>
-        <div className={s.line_text}><p className={s.line_text_p}>O Username atual é Pedro Caseiro</p></div>
+        <div className={s.line_text}><p className={s.line_text_p}>Current username is Pedro Caseiro</p></div>
       </div>
     );
   }

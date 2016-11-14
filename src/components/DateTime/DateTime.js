@@ -5,18 +5,16 @@ import s from './DateTime.css';
 import cx from 'classnames';
 
 class DateTime extends Component {
-
   render() {
     let now = new Date()
     return (
-      <div  className={s.line_text}>
-      <p className={s.line_text_p}>Today is <Time value={now} titleFormat="YYYY/MM/DD HH:mm" /></p>
+      <div className={s.line_text}>
+      <p className={s.line_text_p}>Today is <Time value={now} format="YYYY/MM/DD HH:mm"/></p>
       </div>
 
     )
-
   }
-
 }
+
 
 export default withStyles(s)(DateTime);
