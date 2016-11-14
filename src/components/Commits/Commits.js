@@ -8,6 +8,7 @@ import Email from '../ProjectName';
 import Additionsn from '../Navigation';
 import Deletions from '../Link';
 
+var Loading = require('react-loading');
 var BarChart = require("react-chartjs").Bar;
 
 class Commits extends Component {
@@ -91,9 +92,7 @@ class Commits extends Component {
       );
     } else {
       return(
-        <div className={s.loading_style}>
-        Loading Members Contributions
-        </div>
+        <Loading type='bubbles' color='#e3e3e3' />
       );
     }
   }
