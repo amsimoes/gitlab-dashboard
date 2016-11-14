@@ -60,8 +60,8 @@ class Commits extends Component {
 
   componentWillMount = () => {
     axios.post('http://localhost:5000/projects/contributors', {
-      private_token : '8fH8Vs4WNpYhVUBPzq5g',
-      index : 0
+      private_token: "8fH8Vs4WNpYhVUBPzq5g",
+      index: 0
     })
       .then(function (response) {
         this.setState({contributors: response.data});
@@ -95,7 +95,7 @@ class Commits extends Component {
       );
     } else {
       return(
-        <Loading type='bubbles' color='#e3e3e3' />
+        <div><Loading type='bubbles' color='#e3e3e3' /></div>
       );
     }
   }

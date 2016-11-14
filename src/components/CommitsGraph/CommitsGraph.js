@@ -40,7 +40,10 @@ class CommitsGraph extends Component {
   };
 
   componentWillMount = () => {
-    axios.get('http://localhost:5000/projects/weekly_contributions')
+    axios.post('http://localhost:5000/projects/weekly_contributions', {
+      private_token: "8fH8Vs4WNpYhVUBPzq5g",
+      index: 0
+    }) 
       .then(function (response) {
         this.chartData.datasets[0].data = response.data;
         this.setState({check: true});
@@ -55,7 +58,7 @@ class CommitsGraph extends Component {
       return(<div className={s.graphic}><LineChart data={this.chartData} options={this.chartOptions} width="600" height="250" /></div>);
     } else {
       return (
-        <Loading type='bubbles' color='#e3e3e3' />
+        <div><Loading type='bubbles' color='#e3e3e3' /></div>
       );
     }
   }
