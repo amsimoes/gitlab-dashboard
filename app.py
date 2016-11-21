@@ -3,8 +3,10 @@ from flask import *
 from flask_security import *
 from flask_login import *
 from unidecode import unidecode
+import time
 import requests
 import json
+import thread
 global current_path
 current_path= []
 
@@ -190,12 +192,18 @@ def list_commits():
 
 @app.route('/projects/contributors', methods=["GET", "POST"])
 def list_project_contributors():    # and their stats (additions, deletions)
-    index = request.json['index']
-    private_token = request.json['private_token']
-    project_id = get_project_id(index)
+    #index = request.json['index']
+    #private_token = request.json['private_token']
+    private_token = '8fH8Vs4WNpYhVUBPzq5g'
+    project_id = get_project_id(0)
     path = '/projects/{id}/repository/contributors'.format(id=project_id)
     response = make_get_request(path, private_token)
-
+    print response.content
+    if "<!DOCTYPE html>" in response.content:
+        print "Error getting gitlab info"
+    else:
+        with open('data.txt', 'w') as outfile:
+            json.dump(response.content, outfile)
 
     return response.content
 
@@ -222,7 +230,7 @@ def check_week(day, month):
     month = int(month)
 
     if(day >= 12 and day <= 18 and month == 9):
-        return 1
+        return 1 
     elif(day >= 19 and day <= 25 and month == 9):
         return 2
     elif((day >= 26 and day <= 30 and month == 9) or (day >= 1 and day <= 2 and month == 10)): 
@@ -248,5 +256,21 @@ def check_week(day, month):
     elif(day >= 5 and day <= 11  and month == 12): 
         return 13
 
+
+#Function for the thread
+def commits_daily_update(private_token, index):
+    list_project_contributors()
+    time.sleep(120)
+    commits_daily_update(private_token, index)
+
+
+
+
 if __name__ == '__main__':
+    try:
+       thread.start_new_thread(commits_daily_update, ('8fH8Vs4WNpYhVUBPzq5g', 0)) 
+    except:
+        print "Error: unable to start thread"
     app.run(threaded=True, debug=True)
+while 1:
+    pass
