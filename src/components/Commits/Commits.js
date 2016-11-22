@@ -59,7 +59,7 @@ class Commits extends Component {
    }
 
   componentWillMount = () => {
-    axios.post('http://localhost:5000/projects/contributors', {
+    /*axios.post('http://localhost:5000/projects/contributors', {
       private_token: "8fH8Vs4WNpYhVUBPzq5g",
       index: 0
     })
@@ -68,7 +68,43 @@ class Commits extends Component {
       }.bind(this))
       .catch(function (error) {
         console.log(error);
-      });
+      });*/
+      this.setState({contributors: [{
+            "name": "Antonio Simoes",
+              "email": "",
+                "commits": 28,
+                  "additions": 542,
+                    "deletions": 399
+
+      }, {
+            "name": "Carlos Pinho",
+              "email": "",
+                "commits": 26,
+                  "additions": 2225513,
+                    "deletions": 264
+
+      }, {
+            "name": "Dinis Marques",
+              "email": "",
+                "commits": 4,
+                  "additions": 79,
+                    "deletions": 0
+
+      }, {
+            "name": "Maria Silva",
+              "email": "",
+                "commits": 9,
+                  "additions": 3410301,
+                    "deletions": 360
+
+      }, {
+            "name": "Pedro Caseiro",
+              "email": "",
+                "commits": 34,
+                  "additions": 19285,
+                    "deletions": 6803511
+
+      }]});
   }
 
   render() {
