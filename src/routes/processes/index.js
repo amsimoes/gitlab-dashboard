@@ -4,11 +4,12 @@ import fetch from '../../core/fetch';
 
 export default {
 
-  path: '/processes',
+    path: '/processes',
 
-  action() {
-    return {
-      component: <Processes />,
-    };
-  },
+    action() {
+      return {
+        component: <Processes />,
+      };
+    },
 };
+

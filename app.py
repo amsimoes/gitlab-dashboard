@@ -69,7 +69,6 @@ def get_last_commit_id(file_path, branch):
 
     return response.json()["last_commit_id"]
 
-
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     error = None
@@ -260,7 +259,7 @@ def check_week(day, month):
 #Function for the thread
 def commits_daily_update(private_token, index):
     list_project_contributors()
-    time.sleep(120)
+    time.sleep(86400)
     commits_daily_update(private_token, index)
 
 
@@ -272,5 +271,6 @@ if __name__ == '__main__':
     except:
         print "Error: unable to start thread"
     app.run(threaded=True, debug=True)
+
 while 1:
     pass
