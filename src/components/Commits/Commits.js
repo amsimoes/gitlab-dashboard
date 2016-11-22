@@ -64,7 +64,31 @@ class Commits extends Component {
       index: 0
     })
       .then(function (response) {
+        var error =
+          `
+        "<!DOCTYPE html>
+        <html>
+        <head>
+          <title>GitLab is not responding (502)</title>
+          <link href="/static.css" media="screen" rel="stylesheet" type="text/css" />
+          </head>
+          <body>
+            <h1>502</h1>
+            <h3>GitLab is not responding.</h3>
+            <hr/>
+            <p>Please contact your GitLab administrator if this problem persists.</p>
+          </body>
+          </html>
+          "
+        `;
+        console.log(error);
+        console.log(response.data);
+        if(response.data == error){
+          console.log("deu erro!!");
+          this.setState({contributors: ''});
+        }
         this.setState({contributors: response.data});
+        console.log(response);
       }.bind(this))
       .catch(function (error) {
         console.log(error);

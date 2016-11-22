@@ -37,6 +37,7 @@ function Html({ title, description, style, script, children }) {
         }
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script src="https://use.fontawesome.com/d74233e247.js"></script>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
       </body>
     </html>
   );
