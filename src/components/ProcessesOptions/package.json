@@ -1,0 +1,7 @@
+{
+  "name": "ProcessesOptions",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./ProcessesOptions.js"
+
+}
