@@ -65,4 +65,5 @@ font-weight: 100;
 
 .graphic {
   display: flex;
+  justify-content: center;
 }
