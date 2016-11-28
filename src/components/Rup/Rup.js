@@ -18,7 +18,7 @@ class Rup extends Component {
 
   render() {
     return(
-      <ReactRedirect location='http://localhost:8000/Project/FrontEnd/effortTimeline.html'></ReactRedirect>
+      <ReactRedirect location='http://localhost:8000/effortTimeline.html'></ReactRedirect>
     );
   }
 }

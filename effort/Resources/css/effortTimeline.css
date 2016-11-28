@@ -1,0 +1,205 @@
+/*****************************************************************************************************
+DESCRIPTION: css of effort_timeline.html
+NOTES:  TBD: size of div_effort_timeline && size of each specific chart, colors
+- Height adjustment to global chart wrapper(div_effort_timeline) to include hAxis description;
+
+LAST MODIFIED BY: Pedro Costa and João Alves
+*****************************************************************************************************/
+
+body {
+    background-color: #C0C0C0;
+    color: #212121;
+    font-family: "Helvetica";
+}
+
+#area_chart_header {
+    position: absolute;
+    width: 40%;
+    height: 3%;
+    left: 4%;
+    top: 4%;
+    margin: 0;
+    display: block;
+
+    /*	background: #FFFFFF;
+        opacity: 0.75;*/
+}
+
+#area_chart_header p {
+    position: absolute;
+    margin: 0;
+    top: 2%;
+    left: 1%;
+    font-size: 1.5vw;
+    font-weight: bold;
+}
+
+.chart_container {
+    position: relative;
+    width: 100%;
+    height: 8.5%;
+    display: inline-block;
+    margin: 0px;
+    padding: 0px;
+}
+
+.chart_container p{
+    position: relative;
+    margin: auto;
+    width: 100%;
+    text-align: center;
+    font-size: 1.2vw;
+}
+
+.chart {
+    position: static;
+    width: 83%;
+    height: 100%;
+    margin-left: 12.5%;
+    margin-top: 1.1%;
+}
+
+.rup_category {
+    position: absolute;
+    width: 4%;
+    margin-top: 3%;
+    margin-left: 2%;
+
+    display: block;
+    text-align: center;
+    font-size: 1.2vw;
+}
+
+#div_effort_timeline {
+    position: absolute;
+    width: 40%;
+    height: 70%;
+    top: 8%;
+    left: 4%;
+
+    background: #FFFFFF;
+    opacity: 0.75;
+
+    border-radius: 2% 2% 2% 2%;
+    -moz-border-radius: 2% 2% 2% 2%;
+    -webkit-border-radius: 2% 2% 2% 2%;
+    border: 0px none #000000;
+}
+
+#week_chart_header {
+    position: absolute;
+    width: 30%;
+    height: 3%;
+    left: 50%;
+    top: 4%;
+    margin: 0;
+    display: block;
+
+    /*	background: #FFFFFF;
+        opacity: 0.75; */
+}
+
+#week_chart_header p {
+    position: absolute;
+    margin: 0;
+    top: 2%;
+    left: 1%;
+
+    font-size: 1.5vw;
+    font-weight: bold;
+}
+
+.div_nav_container {
+    float: left;
+    position: relative;
+    width: 83%;
+    height: 50%;
+    left: 12.4%;
+    margin-top: 2%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.div_nav_container p {
+    position: relative;
+    display: inline-block;
+
+    height: 100%;
+
+    font-weight: bold;
+    font-size: 1.2vw;
+    margin: auto;
+
+}
+
+.div_nav_container p:hover {
+    cursor: pointer;
+}
+
+#div_donut_chart_container {
+    position: absolute;
+    width: 30%;
+    height: 70%;
+    left: 50%;
+    top: 8%;
+
+    background: #FFFFFF;
+    opacity: 0.75;
+
+    border-radius: 2% 2% 2% 2%;
+    -moz-border-radius: 2% 2% 2% 2%;
+    -webkit-border-radius: 2% 2% 2% 2%;
+    border: 0px none #000000;
+}
+
+#div_donut_chart {
+    position: static;
+    width: 100%;
+    height: 40%;
+}
+
+#div_donut_chart_info {
+    overflow: auto;
+    position: relative;
+    height: 60%;
+}
+
+#div_donut_chart_info p {
+    overflow: auto;
+    position: relative;
+    margin: 0;
+    top: 2%;
+    display: inline-block;
+    font-size: 1.2vw;
+}
+
+.donut_chart_info_container {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 2%;
+}
+
+.donut_chart_info_title {
+    padding-left: 5%;
+    font-weight: bold;
+    padding-top: 2%;
+    margin-bottom: 2%;
+}
+
+.donut_chart_info_hours {
+    float: right;
+    text-align: right;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: grey;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: aliceblue;
+    -webkit-border-radius: 20px;
+}
+

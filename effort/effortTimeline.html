@@ -1,0 +1,98 @@
+<!-- 
+DESCRIPTION: contains the area charts placeholders
+NOTES:     TO DO: placeholders of an specific week
+- chart container for the hAxis of the Effort per RUP Category;
+
+LAST MODIFIED BY: Pedro Costa and João Alves
+-->
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Effort Timeline</title>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Effort Timeline">
+    <link rel="stylesheet" type="text/css" href="resources/css/effortTimeline.css">
+    <script type="text/javascript" src="resources/js/trelloOptions.js"></script>
+    <script type="text/javascript" src="resources/js/effortTimeline.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="resources/js/moment.js"></script>
+    <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="https://api.trello.com/1/client.js?key=cb2c133e6a8ef8d75465134a1134c7d8"></script>
+
+    <noscript>Your browser does not support JavaScript!</noscript>
+  </head>
+  <body>
+    <div id="navigation">
+      <a href="//localhost:3001/project">Project</a>
+      <a href="//localhost:3001/work">Work</a>
+      <a href="//localhost:3001/artifacts">Artifacts</a>
+      <a href="//localhost:8000/effortTimeline.html">Processes</a>
+      <a href="//localhost:3001/people">People</a>
+    </div>
+    <div id="area_chart_header">
+      <p>Effort per RUP category</p>
+    </div>
+    <div id='div_effort_timeline'>
+      <!-- List of charts RUP-->
+      <div class="chart_container">
+        <label class="rup_category">BM</label>
+        <div id="div_chart_BM" , class='chart'></div>
+      </div>
+
+      <div class="chart_container">
+        <label class="rup_category">REQ</label>
+        <div id="div_chart_REQ" , class='chart'></div>
+      </div>
+
+      <div class="chart_container">
+        <label class="rup_category">AD</label>
+        <div id="div_chart_AD" , class='chart'></div>
+      </div>
+
+      <div class="chart_container">
+        <label class="rup_category">IMP</label>
+        <div id="div_chart_IMP" , class='chart'></div>
+      </div>
+
+      <div class="chart_container">
+        <label class="rup_category">TEST</label>
+        <div id="div_chart_TEST" , class='chart'></div>
+      </div>
+
+      <div class="chart_container">
+        <label class="rup_category">DEP</label>
+        <div id="div_chart_DEP" , class='chart'></div>
+      </div>
+
+      <div class="chart_container">
+        <label class="rup_category">PM</label>
+        <div id="div_chart_PM" , class='chart'></div>
+      </div>
+
+      <div class="chart_container">
+        <label class="rup_category"> ENV</label>
+        <div id="div_chart_ENV" , class='chart'></div>
+      </div>
+
+      <div class="chart_container">
+        <label class="rup_category"> SCM</label>
+        <div id="div_chart_SCM" , class='chart'></div>
+      </div>
+
+      <div id="div_nav" class="chart_container"></div>
+      <div class="chart_container">
+        <p>Week</p>
+      </div>
+    </div>
+    <div id="week_chart_header">
+      <p>Week Details</p>
+    </div>
+    <div id="div_donut_chart_container">
+      <div id="div_donut_chart"></div><!-- this isn't doing anything - this should be the placeholder of the graphic -->
+      <div id="div_donut_chart_info"></div>
+    </div>
+
+  </body>
+</html>
