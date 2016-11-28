@@ -3,6 +3,7 @@ import * as axios from 'axios';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './ProjectName.css';
 import cx from 'classnames';
+import Link from '../Link';
 
 var Loading = require('react-loading');
 
@@ -31,7 +32,7 @@ class ProjectName extends Component {
     if(this.state.projectName){
       return(
         <div>
-          <div className={s.main_title}>{this.state.projectName}</div>
+          <Link className={s.main_title} to='/'>{this.state.projectName}</Link>
         </div>
       );
     } else {
