@@ -34,7 +34,6 @@ class AllCommits extends Component {
   }
 
   render() {
-    sessionStorage.teste = 'yo';
     if(this.state.commits){
      return(
        <div className={s.grid}>
