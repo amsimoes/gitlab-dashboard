@@ -21,6 +21,8 @@ import artifacts from './artifacts';
 import work from './work';
 import processes from './processes';
 import people from './people';
+import rup from './rup';
+import risk from './risk';
 export default {
 
   path: '/',
@@ -33,6 +35,8 @@ export default {
     require('./work').default,
     require('./processes').default,
     require('./people').default,
+    require('./rup').default,
+    require('./risk').default,
     require('./notFound').default,
   ],
 

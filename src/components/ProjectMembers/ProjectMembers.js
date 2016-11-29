@@ -21,6 +21,7 @@ class ProjectMembers extends Component {
       .catch(function (error) {
       });
   }
+
   render = () =>{
     if(this.state.contributors) {
       return (
