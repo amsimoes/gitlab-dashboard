@@ -1,0 +1,334 @@
+body{
+	padding: 0;
+	margin: auto;
+}
+
+.form-style-8{
+	font-family: 'Open Sans Condensed', arial, sans-serif;
+	width: 100%;
+	background: #FFFFFF;
+	margin: auto;
+}
+
+.form-style-8 h1{
+	background-color: rgba(0, 0, 0, 0.3);
+	text-transform: uppercase;
+	font-family: 'Open Sans Condensed', sans-serif;
+	color: #797979;
+	font-size: 100%;
+	font-weight: 100;
+	padding: 0;
+	margin: auto;
+}
+
+.form-style-8 h1 img{
+	width: 10%;
+	padding: 10px;
+}
+
+.form-style-8 h2{
+	text-transform: uppercase;
+	margin-top: 5%;
+	margin-left: 10%;
+}
+
+.form-style-8 input[type="text"],
+.form-style-8 input[type="date"],
+.form-style-8 input[type="datetime"],
+.form-style-8 input[type="number"],
+.form-style-8 input[type="search"],
+.form-style-8 input[type="time"],
+.form-style-8 textarea,
+.form-style-8 select 
+{
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	outline: none;
+	display: block;
+	margin-left: 15%;
+	width: 50%;
+	padding: 7px;
+	border: none;
+	border-bottom: 1px solid #ddd;
+	background: transparent;
+	margin-bottom: 10px;
+	font: 100% Arial, Helvetica, sans-serif;
+	height: 45px;
+}
+
+.form-style-8 p{
+	margin-left: 15%;
+	width: 50%;
+}
+
+.form-style-8 textarea{
+	/*resize:none;*/
+	overflow: hidden;
+}
+.form-style-8 input[type="button"], 
+.form-style-8 input[type="submit"]{
+	margin-left: 70%;
+	margin-top: 2%;
+	-moz-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+	-webkit-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+	box-shadow: inset 0px 1px 0px 0px #45D6D6;
+	background-color: #2CBBBB;
+	border: 1px solid #27A0A0;
+	display: inline-block;
+	cursor: pointer;
+	color: #FFFFFF;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 100%;
+	padding: 8px 18px;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+.form-style-8 input[type="button"]:hover, 
+.form-style-8 input[type="submit"]:hover {
+	background:linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);
+	background-color:#34CACA;
+}
+
+.form-check-inline{
+	margin-left: 15%;
+}
+
+.table-toda{
+	position: absolute;
+	  width: 100%;
+	  height: 100%;
+	  display: table;
+}
+#grid {
+	width: 30vw;
+	margin-left: 15%;
+}
+
+.all-element {
+	float:left;
+    position: relative;
+    width: 100%;
+    padding-bottom : 10%; /* = width for a 1:1 aspect ratio */
+    text-align: right;
+    overflow:hidden;
+}
+
+.all-element div{
+    text-align: right;
+}
+
+
+.title-element {
+    float:left;
+    position: relative;
+    width: 25%;
+    padding-bottom : 10%; /* = width for a 1:1 aspect ratio */
+    outline: 1px solid black;
+    overflow:hidden;
+   
+    vertical-align: middle;	
+}
+
+.blank-element {
+    float:left;
+
+    position: relative;
+    width: 25%;
+    padding-bottom : 10%; /* = width for a 1:1 aspect ratio */
+    overflow:hidden;	
+}
+
+.grid-element, .title2-element,.green,.yellow,.red {
+    float:left;
+    position: relative;
+    width: 25%;
+    padding-bottom : 25%; /* = width for a 1:1 aspect ratio */
+    outline: 1px solid black;
+    overflow:hidden;	
+    display: table;
+    vertical-align: middle;	
+}
+
+.green {
+    background-color: rgba(0,255,0,0.6);
+}
+.red {
+    background-color: rgba(255,0,0,0.6);
+}
+.yellow {
+    background-color: rgba(255,255,0,0.6);
+}
+
+.content {
+    position:absolute;
+    height:90%; /* = 100% - 2*5% padding */
+    width:90%; /* = 100% - 2*5% padding */
+    padding: 5%;
+    text-align:center;
+    overflow-y: scroll;
+}
+
+/* Let's get this party started */
+::-webkit-scrollbar {
+    width: 5px;
+}
+  
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(0,0,0,0.8); 
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0); 
+}
+::-webkit-scrollbar-thumb:window-inactive {
+	background: rgba(0,0,0,0.4); 
+}
+
+.grid-element:hover, .green:hover, .yellow:hover, .red:hover{
+	cursor: pointer;
+	background-color: rgba(0, 0, 0, 0.2);
+}
+
+.title2-element div, .title-element div, .blank-element div, .all-element div{
+	position:absolute;
+    text-align:center;
+   	display: table-cell;
+    vertical-align: middle;	
+}
+
+.title-element div{
+	height:80%; /* = 100% - 2*5% padding */
+    width:80%; /* = 100% - 2*5% padding */
+    padding: 10%;
+}
+
+.all-element div{
+	height:90%; /* = 100% - 2*5% padding */
+    width:90%; /* = 100% - 2*5% padding */
+    padding: 5%;
+    left: 12.5%;
+}
+
+.blank-element div{
+    top: 20%;
+    height:80%; /* = 100% - 2*5% padding */
+    width:80%; /* = 100% - 2*5% padding */
+    padding: 10%;
+}
+
+.title2-element div{
+	height:50%; /* = 100% - 2*5% padding */
+    width:80%; /* = 100% - 2*5% padding */
+    left: 10%;
+    top: 40%;
+}
+
+
+span {
+	position:absolute;
+    height:90%; /* = 100% - 2*5% padding */
+    width:90%; /* = 100% - 2*5% padding */
+    padding: 5%;
+    text-align:center;
+   	display: table-cell;
+    vertical-align: middle;	
+}
+
+li{
+	list-style-type: none;
+}
+
+a{
+	
+    margin: 0;
+    color: black;
+}
+
+#blank {
+	vertical-align: bottom;
+	text-align: left;
+}
+
+#inserido,#editado{
+	display: none;
+}
+
+#removerForm
+{
+	display: none;
+}
+
+#removido {
+	display:none;
+	background-color: rgba(0, 0, 0, 0.7);
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9000;
+	vertical-align: middle;
+}
+
+#remover{
+	position: absolute;
+	margin-left: 1%;
+}
+#confirma {
+	background-color: #2CBBBB;
+	position: relative;
+	width: 300px;
+	height: 100px;
+	padding: 10px;
+	margin: 0 auto;
+	top: 20%;
+	border: 1px solid black;
+	z-index: 9001;
+}
+#Sim {
+	position: absolute;
+	bottom: 5px;
+	right: 50px;
+}
+
+#Sim:hover, #Não:hover{
+	cursor:pointer;
+	font-weight: bold;
+}
+
+#Não {
+	position: absolute;
+	bottom: 5px;
+	right: 10px;
+	
+}
+
+/*a span {
+	display: none;
+	position: absolute;
+	color: #fff;
+	background: #000;
+	padding: 5%;
+}
+
+a:hover span {
+	display: inline-block;
+	text-align: center;
+	margin-left: 10%;
+	width: 200%;
+}*/
+
+a:hover{
+	font-weight: bold;
+}
+.risks{
+	position: absolute;
+	margin-left: 50%;
+	margin-top: 5%;
+	width: 25%;
+}
+
+#box{
+	display: none;
+}
