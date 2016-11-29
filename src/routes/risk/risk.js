@@ -8,7 +8,7 @@ import ReactRedirect from 'react-redirect';
 function Risk() {
   return (
     <div >
-      <ReactRedirect location='http://localhost:8000/effortTimeline.html'></ReactRedirect>
+      <ReactRedirect location='http://localhost:9000/visualizarRiscos.html'></ReactRedirect>
     </div>
   );
 }
