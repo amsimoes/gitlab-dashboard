@@ -1,6 +1,9 @@
 .root {
   margin: 0;
   margin-bottom: 3%;
+  display: flex;
+  justify-content: center;
+  font-family: 'Raleway', sans-serif;
 }
 
 .link {
@@ -27,16 +30,20 @@
   margin-right: 8px;
   margin-left: 8px;
   border-radius: 3px;
-  background: rgba(0, 0, 0, 0.15);
+  background: #818192;
   color: #fff;
 
 }
 
 .highlight:hover {
-  background: rgba(0, 0, 0, 0.3);
+  background: #71718e;
 
 }
 
 .spacer {
   color: rgba(255, 255, 255, 0.3);
+}
+
+.list_text {
+  /*letter-spacing: 3px;*/
 }
