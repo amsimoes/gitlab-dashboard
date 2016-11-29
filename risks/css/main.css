@@ -3,6 +3,55 @@ body{
 	margin: auto;
 }
 
+#navigation {
+  display: flex;
+  justify-content: center;
+  margin-top: 5%;
+}
+
+.root {
+  margin: 0;
+  margin-bottom: 3%;
+}
+
+.link {
+  display: inline-block;
+  padding: 0.7rem 1.5rem;
+  text-decoration: none;
+  font-size: 1.300em; /* ~18px */
+}
+
+.link,
+.link:active,
+.link:visited {
+  color: white;
+		font-family: 'Raleway', sans-serif;
+}
+
+.link:hover {
+  color: rgba(255, 255, 255, 1);
+		font-family: 'Raleway', sans-serif;
+
+}
+
+.highlight {
+  margin-right: 8px;
+  margin-left: 8px;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.15);
+  color: #fff;
+
+}
+
+.highlight:hover {
+  background: rgba(0, 0, 0, 0.3);
+
+}
+
+.spacer {
+  color: rgba(255, 255, 255, 0.3);
+}
+
 .form-style-8{
 	font-family: 'Open Sans Condensed', arial, sans-serif;
 	width: 100%;
@@ -39,7 +88,7 @@ body{
 .form-style-8 input[type="search"],
 .form-style-8 input[type="time"],
 .form-style-8 textarea,
-.form-style-8 select 
+.form-style-8 select
 {
 	box-sizing: border-box;
 	-webkit-box-sizing: border-box;
@@ -66,7 +115,7 @@ body{
 	/*resize:none;*/
 	overflow: hidden;
 }
-.form-style-8 input[type="button"], 
+.form-style-8 input[type="button"],
 .form-style-8 input[type="submit"]{
 	margin-left: 70%;
 	margin-top: 2%;
@@ -84,7 +133,7 @@ body{
 	text-decoration: none;
 	text-transform: uppercase;
 }
-.form-style-8 input[type="button"]:hover, 
+.form-style-8 input[type="button"]:hover,
 .form-style-8 input[type="submit"]:hover {
 	background:linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);
 	background-color:#34CACA;
@@ -126,8 +175,8 @@ body{
     padding-bottom : 10%; /* = width for a 1:1 aspect ratio */
     outline: 1px solid black;
     overflow:hidden;
-   
-    vertical-align: middle;	
+
+    vertical-align: middle;
 }
 
 .blank-element {
@@ -136,7 +185,7 @@ body{
     position: relative;
     width: 25%;
     padding-bottom : 10%; /* = width for a 1:1 aspect ratio */
-    overflow:hidden;	
+    overflow:hidden;
 }
 
 .grid-element, .title2-element,.green,.yellow,.red {
@@ -145,9 +194,9 @@ body{
     width: 25%;
     padding-bottom : 25%; /* = width for a 1:1 aspect ratio */
     outline: 1px solid black;
-    overflow:hidden;	
+    overflow:hidden;
     display: table;
-    vertical-align: middle;	
+    vertical-align: middle;
 }
 
 .green {
@@ -173,16 +222,16 @@ body{
 ::-webkit-scrollbar {
     width: 5px;
 }
-  
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
     -webkit-border-radius: 10px;
     border-radius: 10px;
-    background: rgba(0,0,0,0.8); 
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0); 
+    background: rgba(0,0,0,0.8);
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0);
 }
 ::-webkit-scrollbar-thumb:window-inactive {
-	background: rgba(0,0,0,0.4); 
+	background: rgba(0,0,0,0.4);
 }
 
 .grid-element:hover, .green:hover, .yellow:hover, .red:hover{
@@ -194,7 +243,7 @@ body{
 	position:absolute;
     text-align:center;
    	display: table-cell;
-    vertical-align: middle;	
+    vertical-align: middle;
 }
 
 .title-element div{
@@ -232,7 +281,7 @@ span {
     padding: 5%;
     text-align:center;
    	display: table-cell;
-    vertical-align: middle;	
+    vertical-align: middle;
 }
 
 li{
@@ -240,7 +289,7 @@ li{
 }
 
 a{
-	
+
     margin: 0;
     color: black;
 }
@@ -301,7 +350,7 @@ a{
 	position: absolute;
 	bottom: 5px;
 	right: 10px;
-	
+
 }
 
 /*a span {
@@ -320,7 +369,7 @@ a:hover span {
 }*/
 
 a:hover{
-	font-weight: bold;
+	/*font-weight: bold;*/
 }
 .risks{
 	position: absolute;
