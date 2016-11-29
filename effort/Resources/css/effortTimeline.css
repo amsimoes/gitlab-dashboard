@@ -7,9 +7,58 @@ LAST MODIFIED BY: Pedro Costa and João Alves
 *****************************************************************************************************/
 
 body {
-    background-color: #C0C0C0;
+    /*background-color: #C0C0C0;*/
+    background-color: #dedede;
     color: #212121;
     font-family: "Helvetica";
+}
+
+#navigation {
+  display: flex;
+  justify-content: center;
+  margin-top: 5%;
+}
+
+.root {
+  margin: 0;
+  margin-bottom: 3%;
+}
+
+.link {
+  display: inline-block;
+  padding: 0.7rem 1.5rem;
+  text-decoration: none;
+  font-size: 1.300em; /* ~18px */
+}
+
+.link,
+.link:active,
+.link:visited {
+  color: white;
+
+}
+
+.link:hover {
+  color: rgba(255, 255, 255, 1);
+
+}
+
+.highlight {
+  margin-right: 8px;
+  margin-left: 8px;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.15);
+  color: #fff;
+
+}
+
+.highlight:hover {
+  background: rgba(0, 0, 0, 0.3);
+
+}
+
+.spacer {
+  color: rgba(255, 255, 255, 0.3);
 }
 
 #area_chart_header {
@@ -17,8 +66,9 @@ body {
     width: 40%;
     height: 3%;
     left: 4%;
-    top: 4%;
-    margin: 0;
+    /*top: 4%;*/
+    margin-top: 4%;
+    /*margin: 0;*/
     display: block;
 
     /*	background: #FFFFFF;
@@ -28,7 +78,7 @@ body {
 #area_chart_header p {
     position: absolute;
     margin: 0;
-    top: 2%;
+    /*top: 2%;*/
     left: 1%;
     font-size: 1.5vw;
     font-weight: bold;
@@ -74,8 +124,9 @@ body {
     position: absolute;
     width: 40%;
     height: 70%;
-    top: 8%;
+    /*top: 8%;*/
     left: 4%;
+    margin-top: 7%;
 
     background: #FFFFFF;
     opacity: 0.75;
@@ -91,9 +142,10 @@ body {
     width: 30%;
     height: 3%;
     left: 50%;
-    top: 4%;
-    margin: 0;
+    /*top: 4%;
+    margin: 0;*/
     display: block;
+    margin-top: 4%;
 
     /*	background: #FFFFFF;
         opacity: 0.75; */
@@ -102,7 +154,7 @@ body {
 #week_chart_header p {
     position: absolute;
     margin: 0;
-    top: 2%;
+    /*top: 2%;*/
     left: 1%;
 
     font-size: 1.5vw;
@@ -141,7 +193,8 @@ body {
     width: 30%;
     height: 70%;
     left: 50%;
-    top: 8%;
+    /*top: 8%;*/
+    margin-top: 7%;
 
     background: #FFFFFF;
     opacity: 0.75;
@@ -202,4 +255,3 @@ body {
     background-color: aliceblue;
     -webkit-border-radius: 20px;
 }
-
