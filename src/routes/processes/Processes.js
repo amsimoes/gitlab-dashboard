@@ -8,7 +8,6 @@ function Processes() {
   return (
     <div>
       <Header />
-      <ProcessesOptions />
     </div>
   );
 }

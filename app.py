@@ -1,8 +1,11 @@
 # coding=utf-8
+from gevent.wsgi import WSGIServer
 from flask import *
 from flask_security import *
 from flask_login import *
+from flask_socketio import *
 from unidecode import unidecode
+from functools import wraps
 import time
 import requests
 import json
@@ -17,6 +20,62 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = 'login'
 
+socketio = SocketIO(app)
+
+private_token = '8fH8Vs4WNpYhVUBPzq5g'
+
+@socketio.on('disconnect')
+def disconnect_user():
+    session.pop('logged_in', None)
+
+def login_required(f):
+    @wraps(f)
+    def wrap(*args, **kwargs):
+        if 'logged_in' in session and private_token:
+            return f(*args, **kwargs)
+        else:
+            if not private_token:
+                flash("Server refreshed. You must login again.")
+            else:
+                flash("You must login first!")
+                return redirect(url_for('login_page'))
+    return wrap
+
+def valid_login(username, password):
+    request_url = 'https://git.dei.uc.pt/api/v3'
+    path = '/session?login={user}&password={p}'.format(user=username, p=password)
+    response = requests.post(request_url+path)
+    global private_token
+
+    if "private_token" in response.json():
+        print(response.content)
+        print("token = "+response.json()['private_token'])
+        private_token = response.json()['private_token']
+        return True
+    return False
+
+@app.route('/login', methods=['GET', 'POST'])
+def login_page():
+    response = {'logged': 'false'}
+    if 'logged_in' in session:
+        return "you're already logged in"
+    if request.method == 'POST':
+        if valid_login(request.json['username'], request.json['password']) == True:
+            session['logged_in'] = True
+            response['logged'] = 'true'
+    print json.dumps(response)
+    return json.dumps(response)
+
+@app.route('/logged')
+@login_required
+def logged():
+    return "acabaste de logar!" 
+
+@app.route('/logout')
+@login_required
+def logout():
+    session.pop('logged_in', None)
+    return redirect(url_for('login_page'))
 
 def make_get_request(path, private_token):
     request_url = 'https://git.dei.uc.pt/api/v3'
@@ -257,20 +316,22 @@ def check_week(day, month):
 
 
 #Function for the thread
-def commits_daily_update(private_token, index):
-    list_project_contributors()
-    time.sleep(86400)
-    commits_daily_update(private_token, index)
+# def commits_daily_update(private_token, index):
+    # list_project_contributors()
+    # time.sleep(86400)
+    # commits_daily_update(private_token, index)
 
 
 
 
 if __name__ == '__main__':
-    try:
-       thread.start_new_thread(commits_daily_update, ('8fH8Vs4WNpYhVUBPzq5g', 0)) 
-    except:
-        print "Error: unable to start thread"
-    app.run(threaded=True, debug=True)
+    # try:
+       # thread.start_new_thread(commits_daily_update, ('8fH8Vs4WNpYhVUBPzq5g', 0)) 
+    # except:
+        # print "Error: unable to start thread"
+    #app.run(threaded=True, debug=True)
+    http_server = WSGIServer(('', 5000), app)
+    http_server.serve_forever()
 
-while 1:
-    pass
+# while 1:
+    # pass
