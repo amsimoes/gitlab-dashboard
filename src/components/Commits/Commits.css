@@ -1,50 +1,11 @@
-.flex { display: flex; }
-
-.wrap { flex-wrap: wrap; }
-
-.justify_center     { justify-content: center; }
-.justify-around     { justify-content: space-around; }
-.justify-between    { justify-content: space-between; }
-.justify-start      { justify-content: flex-start; }
-
-.al-center  { align-items: center; }
-
-.self-center { align-self: center; }
-.self-start  { align-self: flex-start; }
-
-.dir-row    { flex-direction: row; }
-.dir_column { flex-direction: column; }
-
-.wd-5   { float: left; width: 5%; }
-.wd-10  { float: left; width: 10%; }
-.wd-15  { float: left; width: 15%; }
-.wd-20  { float: left; width: 20%; }
-.wd_30  { float: left; width: 30%; }
-.wd-40  { float: left; width: 40%; }
-.wd-50  { float: left; width: 50%; }
-.wd-60  { float: left; width: 60%; }
-.wd-65  { float: left; width: 65%; }
-.wd-70  { float: left; width: 70%; }
-.wd-80  { float: left; width: 80%; }
-.wd-90  { float: left; width: 90%; }
-.wd-100 { float: left; width:100%; }
-
-.fs     { height: 100vh; }
-.fs-55  { height: 55vh; }
-.fs-75  { height: 75vh; }
-
-
 .table {
   display: flex;
-  text-align: center;
-  float: left;
-  width: 60%;
+  width: 100%;
   margin-top: 3%;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .lines {
-width: 27%;
 text-align: left;
 margin: 3% 3%;
 font-family: 'Raleway', sans-serif;
@@ -66,4 +27,25 @@ font-weight: 100;
 .graphic {
   display: flex;
   justify-content: center;
+  margin-top: 2%;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.style {
+  text-decoration: underline;
+}
+
+
+@media (min-width : 768px) {
+}
+
+@media (min-width : 1224px) {
+
+}
+
+@media (min-width : 1824px) {
 }

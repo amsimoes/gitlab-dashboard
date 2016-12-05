@@ -136,13 +136,13 @@ class Commits extends Component {
       return(
         <div>
             <div className={s.graphic}><BarChart data={this.chartData} options={this.chartOptions} width="600" height="250"/></div>
-          <div>
+          <div className={cx(s.center, s.table)}>
           {Object.keys(this.state.contributors).map(function(key) {
             this.chartData.datasets[0].data.push(this.state.contributors[key].commits);
             this.chartData.labels.push(this.state.contributors[key].name);
             return(
-              <div className={cx(s.table, s.lines)}>
-                <div>Name: {this.state.contributors[key].name}</div>
+              <div className={s.lines}>
+                <div className={s.style}>Name: {this.state.contributors[key].name}</div>
                 <div>Email: {this.state.contributors[key].email}</div>
                 <div>Commits: {this.state.contributors[key].commits}</div>
                 <div>Additions: {this.state.contributors[key].additions}</div>
