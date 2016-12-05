@@ -1,10 +1,10 @@
 git log --numstat | awk '
 function printStats(author) {
-    printf "      name: %s,\n", author
-    printf "      email: %s,\n", email[author]
-    printf "      commits: %d,\n", commits[author]
-    printf "      additions: %d,\n", more[author]
-    printf "      deletions: %d\n", less[author]
+    printf "      \"name\": \"%s\",\n", author
+    printf "      \"email\": \"%s\",\n", email[author]
+    printf "      \"commits\": %d,\n", commits[author]
+    printf "      \"additions\": %d,\n", more[author]
+    printf "      \"deletions\": %d\n", less[author]
 
 }
 /^Author:/ {
@@ -21,7 +21,7 @@ function printStats(author) {
 }
 END {
 printf "{\n"
-printf "  contributors: [\n"
+printf "  \"contributors\": [\n"
 i = 0
 for (author in commits) {
     i++
