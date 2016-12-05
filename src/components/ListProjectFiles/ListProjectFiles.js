@@ -10,6 +10,7 @@ class ListProjectFiles extends Component {
     super(props);
     this.state = {
       files: '',
+      depth: 0,
     };
   }
 
@@ -17,6 +18,7 @@ class ListProjectFiles extends Component {
     axios.get('http://localhost:5000/projects/folders')
       .then(function(response){
         this.setState({files: response.data});
+        this.setState({depth: 0});
       }.bind(this))
       .catch(function(error){
         console.log(error);
@@ -30,6 +32,9 @@ class ListProjectFiles extends Component {
     })
     .then(function(response){
       this.setState({files: response.data});
+      let nextDepth = this.state.depth + 1;
+      this.setState({depth: nextDepth});
+      console.log(this.state.depth);
     }.bind(this))
     .catch(function(error){
       console.log(error);
@@ -42,6 +47,8 @@ class ListProjectFiles extends Component {
     })
     .then(function(response){
       this.setState({files: response.data});
+      let nextDepth = this.state.depth - 1;
+      this.setState({depth: nextDepth});
     }.bind(this))
     .catch(function(error){
       console.log(error);
@@ -50,10 +57,14 @@ class ListProjectFiles extends Component {
 
   render = () =>{
     if(this.state.files) {
+      let back;
+      if(this.state.depth>0){
+         back = <p onClick={this.backHandleClick} className={s.file_list}> .. </p>
+      }
       return (
         <div className={s.grid}>
           <h2 className={s.grid_v}>
-            <p onClick={this.backHandleClick} className={s.points}> .. </p>
+            {back}
               {Object.keys(this.state.files).map(function(key) {
                 if(this.state.files[key] == "tree"){
                   let boundItemClick = this.handleClick.bind(this, key, this.state.files[key]);
