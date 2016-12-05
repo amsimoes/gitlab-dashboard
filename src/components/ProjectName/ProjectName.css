@@ -14,6 +14,11 @@
   text-align: center;
   font-size: 4em;
   font-weight: 800;
-  color: #57576d;
+  color: #565669;
   margin-bottom: 4%;
+  text-decoration: none;
+}
+
+.main_title:hover {
+  color: #707080;
 }
