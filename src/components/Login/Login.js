@@ -4,6 +4,8 @@ import s from './Login.css';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 import ReactRedirect from 'react-redirect';
+import cookie from 'react-cookie';
+
 
 class Login extends Component {
   constructor(props) {
@@ -37,6 +39,7 @@ class Login extends Component {
     .then(function(response){
       if(response.data.logged == "true"){
         this.setState({logged: 'true'});
+        cookie.save('user', this.state.user, { path: '/' });
       } else {
         this.setState({logged: 'false'});
       }
@@ -55,7 +58,6 @@ class Login extends Component {
       <div className="form-group">
       <input type="text" value={this.state.user} onChange={this.handleUserChange.bind(this)}placeholder="Username" />
       <input type="password" value={this.state.password} onChange={this.handlePasswordChange.bind(this)}placeholder="Password" />
-      <p>{this.state.user}</p>
       </div>
       <button type="submit" onClick={this.login.bind(this)}>Submit</button>
       </form>
