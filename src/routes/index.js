@@ -50,7 +50,7 @@ export default {
     } while (!route);
 
     // Provide default values for title, description etc.
-    route.title = `${route.title} - Team Zig Git Dashboard`;
+    route.title = `Team Zig Git Dashboard`;
     route.description = route.description || '';
 
     return route;
