@@ -90,3 +90,13 @@
 
 .dir-row    { flex-direction: row; }
 .dir-column { flex-direction: column; }
+
+@media (min-width : 768px) {
+}
+
+@media (min-width : 1224px) {
+
+}
+
+@media (min-width : 1824px) {
+}
