@@ -10,6 +10,7 @@ import time
 import requests
 import json
 import thread
+import subprocess
 global current_path
 current_path= []
 
@@ -252,18 +253,19 @@ def list_commits():
 def list_project_contributors():    # and their stats (additions, deletions)
     #index = request.json['index']
     #private_token = request.json['private_token']
-    private_token = '8fH8Vs4WNpYhVUBPzq5g'
-    project_id = get_project_id(0)
-    path = '/projects/{id}/repository/contributors'.format(id=project_id)
-    response = make_get_request(path, private_token)
-    print response.content
-    if "<!DOCTYPE html>" in response.content:
-        print "Error getting gitlab info"
-    else:
-        with open('data.txt', 'w') as outfile:
-            json.dump(response.content, outfile)
-
-    return response.content
+    #private_token = '8fH8Vs4WNpYhVUBPzq5g'
+    #project_id = get_project_id(0)
+    #path = '/projects/{id}/repository/contributors'.format(id=project_id)
+    #response = make_get_request(path, private_token)
+    #print response.content
+    #if "<!DOCTYPE html>" in response.content:
+    #    print "Error getting gitlab info"
+    #else:
+    #    with open('data.txt', 'w') as outfile:
+    #        json.dump(response.content, outfile)
+    response = subprocess.Popen(["sh", "contributors.sh"], stdout=subprocess.PIPE).communicate()[0] 
+    print response
+    return json.dumps(response)
 
 @app.route('/projects/weekly_contributions', methods=["GET", "POST"])
 def get_weekly_contributions():
