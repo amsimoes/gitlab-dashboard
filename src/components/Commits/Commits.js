@@ -59,7 +59,7 @@ class Commits extends Component {
    }
 
   componentWillMount = () => {
-    /*axios.post('http://localhost:5000/projects/contributors', {
+    axios.post('http://localhost:5000/projects/contributors', {
       private_token: "8fH8Vs4WNpYhVUBPzq5g",
       index: 0
     })
@@ -81,18 +81,18 @@ class Commits extends Component {
           </html>
           "
         `;
-        console.log(error);
-        console.log(response.data);
-        if(response.data == error){
+        if(response == error){
           console.log("deu erro!!");
           this.setState({contributors: ''});
         }
-        this.setState({contributors: response.data});
-        console.log(response);
+        //console.log(response);
+        this.setState({contributors: JSON.parse(response.data).contributors});
+
       }.bind(this))
       .catch(function (error) {
         console.log(error);
-      });*/
+      });
+      /*
       this.setState({contributors: [{
             "name": "Antonio Simoes",
               "email": "",
@@ -129,6 +129,7 @@ class Commits extends Component {
                     "deletions": 6803511
 
       }]});
+      */
   }
 
   render() {
@@ -138,6 +139,7 @@ class Commits extends Component {
             <div className={s.graphic}><BarChart data={this.chartData} options={this.chartOptions} width="600" height="250"/></div>
           <div className={cx(s.center, s.table)}>
           {Object.keys(this.state.contributors).map(function(key) {
+            console.log(key);
             this.chartData.datasets[0].data.push(this.state.contributors[key].commits);
             this.chartData.labels.push(this.state.contributors[key].name);
             return(
