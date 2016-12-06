@@ -7,11 +7,13 @@ import ProjectName from '../ProjectName';
 import DateTime from '../DateTime';
 import Navigation from '../Navigation';
 import Link from '../Link';
+import Logout from '../Logout';
 
 function Header() {
   return (
     <div className={cx(s.flex, s.justify_center)}>
       <div className={s.container}>
+        <Logout />
         <ProjectName />
         <UserName />
         <DateTime />

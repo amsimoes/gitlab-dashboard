@@ -24,9 +24,7 @@ class ProcessesOptions extends Component {
   }
 
   _onSelect = (option) => {
-    console.log('You selected ', option.label)
     this.setState({selected: option})
-    console.log(this.state.selected)
   }
 
   render() {

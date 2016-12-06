@@ -1,0 +1,12 @@
+@import '../variables.css';
+
+
+.line_text {
+  font-size: 1em;
+  font-weight: 200;
+  color: #57576d;
+}
+
+.line_text_p {
+  margin-bottom: 0;
+}
