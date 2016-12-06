@@ -242,8 +242,11 @@ def list_commits():
     index = request.json['index']
     project_id = get_project_id(index)
     private_token = request.json['private_token']
+    page = request.json['page']
     path = '/projects/{project_id}/repository/commits'.format(project_id = project_id)
-    response = make_get_request(path, private_token)
+
+    request_url = 'https://git.dei.uc.pt/api/v3'
+    response = requests.get(request_url + path + '?private_token={private_token}&page={page}'.format(private_token=private_token, page=page))
 
     return response.content
 

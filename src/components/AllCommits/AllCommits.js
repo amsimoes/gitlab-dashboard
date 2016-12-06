@@ -10,6 +10,8 @@ import Deletions from '../Link';
 
 var Loading = require('react-loading');
 
+var page = 0;
+
 class AllCommits extends Component {
 
   constructor(props) {
@@ -22,6 +24,7 @@ class AllCommits extends Component {
   componentWillMount = () => {
     axios.post('http://localhost:5000/projects/commits',{
       private_token : '8fH8Vs4WNpYhVUBPzq5g',
+      page: page,
       index : 0
     })
       .then(function (response) {
@@ -33,10 +36,49 @@ class AllCommits extends Component {
       });
   }
 
+  handleBackClick = () => {
+    if(page > 0){
+      page--;
+    }
+    axios.post('http://localhost:5000/projects/commits',{
+      private_token : '8fH8Vs4WNpYhVUBPzq5g',
+      page: page,
+      index : 0
+    })
+      .then(function (response) {
+        console.log(response.data);
+        this.setState({commits: response.data});
+      }.bind(this))
+      .catch(function (error) {
+        console.log(error);
+      });
+
+  }
+
+  handleClick = () => {
+    page++;
+    axios.post('http://localhost:5000/projects/commits',{
+      private_token : '8fH8Vs4WNpYhVUBPzq5g',
+      page: page,
+      index : 0
+    })
+      .then(function (response) {
+        console.log(response.data);
+        this.setState({commits: response.data});
+      }.bind(this))
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
+
   render() {
+    let backButton;
+    if(page > 0){
+      backButton = (<button type="submit" onClick={this.handleBackClick.bind(this)}>Previous Page</button>)
+    }
     if(this.state.commits){
-     return(
-       <div className={s.grid}>
+      let commits = (<div className={s.grid}>
           {Object.keys(this.state.commits).map(function(key) {
             return(
               <div className={s.table}>
@@ -48,7 +90,13 @@ class AllCommits extends Component {
                 </div>
             );
           }.bind(this))}
-        </div>
+          {backButton}
+          <button type="submit" onClick={this.handleClick.bind(this)}>Next Page</button>
+        </div>)
+     return(
+       <div>
+      {commits}
+      </div>
       );
     } else {
       return(
