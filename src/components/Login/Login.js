@@ -43,7 +43,7 @@ class Login extends Component {
       } else {
         this.setState({logged: 'false'});
       }
-      console.log(response.data.logged); 
+      console.log(response.data.logged);
     }.bind(this))
     .catch(function(error){
       console.log(error);
@@ -53,7 +53,7 @@ class Login extends Component {
   render() {
     if(this.state.logged == "false"){
     return (
-      <div>
+      <div className={cx(s.grid, s.link)}>
       <form role="form" onSubmit={this.handleSubmit}>
       <div className="form-group">
       <input type="text" value={this.state.user} onChange={this.handleUserChange.bind(this)}placeholder="Username" />
