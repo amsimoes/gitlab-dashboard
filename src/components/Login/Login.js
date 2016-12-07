@@ -31,7 +31,6 @@ class Login extends Component {
   }
 
   login = () =>{
-    console.log("##############");
     axios.post('http://localhost:5000/login',{
       username: this.state.user,
       password: this.state.password
@@ -41,7 +40,7 @@ class Login extends Component {
         this.setState({logged: 'true'});
         cookie.save('user', this.state.user, { path: '/' });
       } else {
-        this.setState({logged: 'false'});
+        this.setState({logged: 'wrong'});
       }
       console.log(response.data.logged);
     }.bind(this))
@@ -51,9 +50,7 @@ class Login extends Component {
   }
 
   render() {
-    if(this.state.logged == "false"){
-    return (
-      <div className={cx(s.grid, s.link)}>
+      let form = (<div>
       <form role="form" onSubmit={this.handleSubmit}>
       <div className="form-group">
       <input type="text" value={this.state.user} onChange={this.handleUserChange.bind(this)}placeholder="Username" />
@@ -61,8 +58,20 @@ class Login extends Component {
       </div>
       <button type="submit" onClick={this.login.bind(this)}>Submit</button>
       </form>
+      </div>)
+    if(this.state.logged == "false"){
+    return (
+      <div>
+      {form}
       </div>
     )
+    }else if(this.state.logged == "wrong"){
+      return(
+        <div>
+          <div>Wrong username or password!</div>
+          {form}
+        </div>
+      )
     }else{
       return(<div><ReactRedirect location='http://localhost:3001/project'></ReactRedirect></div>)
     }
