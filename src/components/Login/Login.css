@@ -1,22 +1,10 @@
 .flex { display: flex; }
-
-.wrap { flex-wrap: wrap; }
-
 .justify_center     { justify-content: center; }
-.justify-around     { justify-content: space-around; }
-.justify-between    { justify-content: space-between; }
-.justify-start      { justify-content: flex-start; }
-
-.al-center  { align-items: center; }
-.al_content { align-content: center; }
-
-.self_center { align-self: center; }
-.self-start  { align-self: flex-start; }
-
-.dir-row    { flex-direction: row; }
-.dir_column { flex-direction: column; }
-
 .mtp_70  { margin-top: 70%; }
+
+body {
+  background-color: #22313F;
+}
 
 .form {
   display: flex;
@@ -82,4 +70,8 @@
   border-radius: 4px;
   height: 3vh;
   font-weight: 500;
+  margin-right: auto;
+  margin-left: auto;
+  width: 40%;
+  background-color: white;
 }
