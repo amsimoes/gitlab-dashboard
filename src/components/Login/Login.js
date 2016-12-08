@@ -50,13 +50,13 @@ class Login extends Component {
   }
 
   render() {
-      let form = (<div>
-      <form role="form" onSubmit={this.handleSubmit}>
+      let form = (<div className={cx(s.flex, s.justify_center, s.mtp_70)}>
+      <form role="form" onSubmit={this.handleSubmit} className={s.form}>
       <div className="form-group">
-      <input type="text" value={this.state.user} onChange={this.handleUserChange.bind(this)}placeholder="Username" />
-      <input type="password" value={this.state.password} onChange={this.handlePasswordChange.bind(this)}placeholder="Password" />
+      <input type="text" className={s.form_division} value={this.state.user} onChange={this.handleUserChange.bind(this)}placeholder="Username" />
+      <input type="password" className={s.form_division} value={this.state.password} onChange={this.handlePasswordChange.bind(this)}placeholder="Password" />
       </div>
-      <button type="submit" onClick={this.login.bind(this)}>Submit</button>
+      <button type="submit" className={s.button} onClick={this.login.bind(this)}>Submit</button>
       </form>
       </div>)
     if(this.state.logged == "false"){
@@ -68,7 +68,7 @@ class Login extends Component {
     }else if(this.state.logged == "wrong"){
       return(
         <div>
-          <div>Wrong username or password!</div>
+          <div className={s.error_message}>Wrong username or password!</div>
           {form}
         </div>
       )
