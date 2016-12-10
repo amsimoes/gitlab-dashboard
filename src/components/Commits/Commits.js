@@ -135,7 +135,7 @@ class Commits extends Component {
   render() {
     if(this.state.contributors){
       return(
-        <div>
+        <div className={s.center_all}>
             <div className={s.graphic}><BarChart data={this.chartData} options={this.chartOptions} width="600" height="250"/></div>
           <div className={cx(s.center, s.table)}>
           {Object.keys(this.state.contributors).map(function(key) {
@@ -144,11 +144,11 @@ class Commits extends Component {
             this.chartData.labels.push(this.state.contributors[key].name);
             return(
               <div className={s.lines}>
-                <div className={s.style}>Name: {this.state.contributors[key].name}</div>
-                <div>Email: {this.state.contributors[key].email}</div>
-                <div>Commits: {this.state.contributors[key].commits}</div>
-                <div>Additions: {this.state.contributors[key].additions}</div>
-                <div>Deletions: {this.state.contributors[key].deletions}</div>
+                <div className={cx(s.style, s.style_width)}>Name: {this.state.contributors[key].name}</div>
+                <div className={s.style_width}>Email: {this.state.contributors[key].email}</div>
+                <div className={s.style_width}>Commits: {this.state.contributors[key].commits}</div>
+                <div className={s.style_width}>Additions: {this.state.contributors[key].additions}</div>
+                <div className={s.style_width}>Deletions: {this.state.contributors[key].deletions}</div>
               </div>
           );
         }.bind(this))}

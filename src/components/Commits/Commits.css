@@ -1,8 +1,7 @@
 .table {
   display: flex;
-  width: 100%;
   margin-top: 3%;
-  flex-direction: row;
+  flex-direction: column;
 }
 
 .lines {
@@ -27,7 +26,7 @@ font-weight: 100;
 .graphic {
   display: flex;
   justify-content: center;
-  margin-top: 2%;
+  margin-top: 3%;
 }
 
 .center {
@@ -39,12 +38,28 @@ font-weight: 100;
   text-decoration: underline;
 }
 
+.style_width {
+  width: 30%;
+}
+
 
 @media (min-width : 768px) {
+  .center_all {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .style_width {
+    width: 80%;
+  }
 }
 
 @media (min-width : 1224px) {
-
+  .style_width {
+    width: 100%;
+  }
 }
 
 @media (min-width : 1824px) {
