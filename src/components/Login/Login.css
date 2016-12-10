@@ -1,12 +1,12 @@
 .flex { display: flex; }
-.justify_center     { justify-content: center; }
-.mtp_70  { margin-top: 70%; }
+.justify_center { justify-content: center; }
 
 body {
   background-color: #22313F;
 }
 
 .form {
+  margin-top: 70%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,7 +19,6 @@ body {
     background-color: white !important;
     border: solid 0.3px #eaeaea;
     font-family: 'Raleway', sans-serif;
-
     font-size: 0.9em;
 }
 
@@ -49,7 +48,6 @@ body {
 
 .button:hover {
   background-color: #6b89a2 !important;
-
   border: solid 2px #6b89a2 !important;
 }
 
@@ -74,4 +72,22 @@ body {
   margin-left: auto;
   width: 40%;
   background-color: white;
+}
+
+
+
+@media (min-width : 768px) {
+  .form {
+    margin-top: 40%;
+  }
+}
+
+@media (min-width : 1224px) {
+  .form {
+    margin-top: 20%;
+  }
+}
+
+@media (min-width : 1824px) {
+
 }
