@@ -75,7 +75,7 @@ class AllCommits extends Component {
   render() {
     let backButton;
     if(page > 0){
-      backButton = (<button type="submit" onClick={this.handleBackClick.bind(this)}>Previous Page</button>)
+      backButton = (<button type="submit" className={s.button} onClick={this.handleBackClick.bind(this)}>Previous Page</button>)
     }
     if(this.state.commits){
       let commits = (<div className={s.grid}>
@@ -86,12 +86,12 @@ class AllCommits extends Component {
                 <div className={s.file_list}>Email: {this.state.commits[key].author_email}</div>
                 <div className={s.file_list}>Data: {this.state.commits[key].created_at}</div>
                 <div className={s.file_list}>Commits: {this.state.commits[key].message}</div>
-                <div className={s.file_list}>Title: {this.state.commits[key].title}</div>
+                <div className={cx(s.file_list, s.table_down)}>Title: {this.state.commits[key].title}</div>
                 </div>
             );
           }.bind(this))}
           {backButton}
-          <button type="submit" onClick={this.handleClick.bind(this)}>Next Page</button>
+          <button type="submit" className={s.button} onClick={this.handleClick.bind(this)}>Next Page</button>
         </div>)
      return(
        <div>

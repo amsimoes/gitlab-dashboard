@@ -1,12 +1,12 @@
 .file_list {
     list-style-type: none;
-    padding: 1% 1% 1% 1%;
+    padding: 2% 2% 2% 2%;
     font-family: 'Raleway', sans-serif;
-    font-size: 1.300em;
+    font-size: 1.097em;
     color: #57576d;
     font-weight: 100;
     text-align: left;
-    width: 60%;
+    width: 70%;
     border: 1px #e6e6e6 solid;
     border-radius: 10px;
 }
@@ -14,20 +14,10 @@
 .table {
   display: flex;
   text-align: center;
-  width: 72%;
-  margin-top: 3%;
+  width: 100%;
+  margin-top: 2%;
   flex-direction: column;
-  margin-left: auto;
-}
-
-.lines {
-  width: 27%;
-  text-align: left;
-  margin: 3% 3%;
-  font-family: 'Raleway', sans-serif;
-  font-size: 1em;
-  color: #57576d;
-  font-weight: 100;
+  align-items: center;
 }
 
 .loading_style {
@@ -40,11 +30,59 @@
   font-weight: 500;
 }
 
-
 .grid {
   flex-direction: column;
   margin-bottom: 5%;
   align-items: center;
   justify-content: center;
   display: flex;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.2rem 1rem;
+  text-decoration: none;
+  font-size: 1.300em; /* ~18px */
+  margin: 2% 0% 1% 0%;
+  background-color: #3f5f7d;
+  border-radius: 4px;
+  border: solid 1px #668aab;
+}
+
+.button,
+.button:active,
+.button:visited {
+  color: #ffffff;
+}
+
+.table_down {
+  margin-bottom: 3%;
+}
+
+.button:hover {
+  background-color: #5783ad;
+  border: solid 1px #5783ad;
+}
+
+@media (min-width : 768px) {
+  .table {
+    width: 70%;
+  }
+
+  .file_list {
+    width: 60%;
+    font-size: 1.300em;
+    padding: 1% 1% 1% 1%;
+  }
+
+  .button {
+    margin: 1% 0% 0.5% 0%;
+  }
+}
+
+@media (min-width : 1224px) {
+
+}
+
+@media (min-width : 1824px) {
 }
