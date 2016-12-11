@@ -13,10 +13,10 @@ function Header() {
   return (
     <div className={cx(s.flex, s.justify_center)}>
       <div className={s.container}>
-        <Logout />
-        <ProjectName />
         <UserName />
         <DateTime />
+        <Logout />
+        <ProjectName />
         <Navigation />
       </div>
     </div>
