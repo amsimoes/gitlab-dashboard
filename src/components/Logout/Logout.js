@@ -27,7 +27,7 @@ class Logout extends Component {
     }
     return(
       <div>
-        <button type="submit" onClick={this.logout.bind(this)}>Logout</button>
+        <button type="submit" className={s.logout} onClick={this.logout.bind(this)}>Logout</button>
         {logout_button}
       </div>
     );

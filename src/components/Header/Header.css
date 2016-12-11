@@ -75,21 +75,7 @@
 }
 
 .flex { display: flex; }
-
-.wrap { flex-wrap: wrap; }
-
 .justify_center     { justify-content: center; }
-.justify-around     { justify-content: space-around; }
-.justify-between    { justify-content: space-between; }
-.justify-start      { justify-content: flex-start; }
-
-.al-center  { align-items: center; }
-
-.self-center { align-self: center; }
-.self-start  { align-self: flex-start; }
-
-.dir-row    { flex-direction: row; }
-.dir-column { flex-direction: column; }
 
 @media (min-width : 768px) {
 }
