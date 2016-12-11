@@ -51,6 +51,7 @@ class Login extends Component {
 
   render() {
       let form = (<div className={cx(s.flex, s.justify_center, s.mtp_70)}>
+      // <Image source={require('./src/zig_fundobranco.png')} />
       <form role="form" onSubmit={this.handleSubmit} className={s.form}>
       <div className="form-group">
       <input type="text" className={s.form_division} value={this.state.user} onChange={this.handleUserChange.bind(this)}placeholder="Username" />

@@ -6,12 +6,7 @@ body{
 #navigation {
   display: flex;
   justify-content: center;
-  margin-top: 5%;
-}
-
-.root {
-  margin: 0;
-  margin-bottom: 3%;
+  margin-top: 1%;
 }
 
 .link {
@@ -19,33 +14,29 @@ body{
   padding: 0.7rem 1.5rem;
   text-decoration: none;
   font-size: 1.300em; /* ~18px */
+  margin: 1% 0% 1% 0%;
 }
 
 .link,
 .link:active,
 .link:visited {
-  color: white;
-		font-family: 'Raleway', sans-serif;
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .link:hover {
   color: rgba(255, 255, 255, 1);
-		font-family: 'Raleway', sans-serif;
-
 }
 
 .highlight {
   margin-right: 8px;
   margin-left: 8px;
   border-radius: 3px;
-  background: rgba(0, 0, 0, 0.15);
-  color: #fff;
-
+  background-color: #22313f;;
+  color: #ffffff;
 }
 
 .highlight:hover {
-  background: rgba(0, 0, 0, 0.3);
-
+  background: #a5adb5;
 }
 
 .spacer {
@@ -60,7 +51,9 @@ body{
 }
 
 .form-style-8 h1{
-	background-color: rgba(0, 0, 0, 0.3);
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	text-transform: uppercase;
 	font-family: 'Open Sans Condensed', sans-serif;
 	color: #797979;
@@ -380,4 +373,19 @@ a:hover{
 
 #box{
 	display: none;
+}
+
+@media (min-width : 768px) {
+  .root {
+    line-height: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
+
+@media (min-width : 1224px) {
+
+}
+
+@media (min-width : 1824px) {
 }
