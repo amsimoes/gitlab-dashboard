@@ -18,7 +18,7 @@ class UserName extends Component {
     return(
       <div>
         <div className={s.imagem}><img src={cookie.load('avatar')}></img></div>
-        <div className={s.line_text}><p className={s.line_text_p}>Current username is {cookie.load('user')}</p></div>
+        <div className={s.line_text}><p className={s.line_text_p}>Current user is {cookie.load('user')}</p></div>
       </div>
     );
   }

@@ -17,6 +17,7 @@ function Header() {
         <div className={s.log}><Logout /></div>
         <UserName /><br/>
         <DateTime />
+        <img src="http://i.imgur.com/qA0mNgf.png"/>
         <div className={s.container}><ProjectName /></div>
         <Navigation />
         <Toast />

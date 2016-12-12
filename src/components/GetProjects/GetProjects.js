@@ -51,6 +51,7 @@ class GetProjects extends Component {
       if(this.state.checker == 0){
         return(
         <div>
+        <img src="http://i.imgur.com/qA0mNgf.png"/>
         {Object.keys(this.state.projectList).map(function(key) {
           let boundProjectClick = this.handleClick.bind(this, key, this.state.projectList[key].name);
           return(
@@ -68,6 +69,7 @@ class GetProjects extends Component {
     else {
       return(
         <div className={s.loading_style}>
+        <img src="http://i.imgur.com/qA0mNgf.png"/>
         <Loading type='bubbles' color='#e3e3e3' />
         </div>
       );
