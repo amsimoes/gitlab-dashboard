@@ -5,7 +5,7 @@ import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 import ReactRedirect from 'react-redirect';
 import cookie from 'react-cookie';
-
+import Toast from '../Toast';
 
 class Login extends Component {
   constructor(props) {
@@ -67,6 +67,7 @@ class Login extends Component {
     if(this.state.logged == "false"){
     return (
       <div>
+      <Toast />
       {form}
       </div>
     )

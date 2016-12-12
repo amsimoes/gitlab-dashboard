@@ -33,6 +33,7 @@ class ProjectName extends Component {
       return(
         <div>
           <Link className={s.main_title} to='/'>{this.state.projectName}</Link>
+          <div><p>Team Zig</p></div>
         </div>
       );
     } else {
