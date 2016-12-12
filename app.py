@@ -23,6 +23,7 @@ login_manager.login_view = 'login'
 socketio = SocketIO(app)
 
 private_token = '8fH8Vs4WNpYhVUBPzq5g'
+risks = []
 
 @socketio.on('disconnect')
 def disconnect_user():
@@ -301,6 +302,14 @@ def get_weekly_contributions():
         commits_per_week[week-1] += 1
 
     return json.dumps(commits_per_week)
+
+@app.route('/create_risk', methods=["POST"])
+def create_risk():
+    print "recebi o request"
+    print request.get_json()
+    risks.append(request.get_json())
+    print risks[0]['descricao']
+    return json.dumps(request.get_json()) 
 
 def check_week(day, month):
     day = int(day)
