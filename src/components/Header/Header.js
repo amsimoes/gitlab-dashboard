@@ -8,6 +8,7 @@ import DateTime from '../DateTime';
 import Navigation from '../Navigation';
 import Link from '../Link';
 import Logout from '../Logout';
+import Toast from '../Toast';
 
 function Header() {
   return (
@@ -18,6 +19,7 @@ function Header() {
         <DateTime />
         <div className={s.container}><ProjectName /></div>
         <Navigation />
+        <Toast />
       </div>
     </div>
   );

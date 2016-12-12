@@ -67,7 +67,6 @@ class Login extends Component {
     if(this.state.logged == "false"){
     return (
       <div>
-      <Toast />
       {form}
       </div>
     )
