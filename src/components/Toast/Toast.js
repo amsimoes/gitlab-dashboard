@@ -12,10 +12,11 @@ class Toast extends Component {
 
   componentDidMount= () => {
     setInterval(function() {
-      axios.get('http://localhost:5000/projects/folders')
+      axios.get('http://localhost:5000/create_risk')
         .then(function(response){
-          this.addAlert();
-          console.log("piçada");
+          if(response.data != 'False'){
+            this.addAlert(response.data['descricao'], response.data['deadline'], response.data['impacto'], response.data['probabilidade']);
+          }
         }.bind(this))
         .catch(function(error){
           console.log(error);
@@ -24,11 +25,11 @@ class Toast extends Component {
     }.bind(this), 3000);
   };
 
-  addAlert = () => {
+  addAlert = (descricao, deadline, impacto, probabilidade) => {
     console.log("LUL");
     this.refs.container.error(
-      "Welcome welcome welcome!!",
-      "You are now home my friend. Welcome home my friend.", {
+      "A new " + impacto + " risk was created! It has a " + probabilidade + " probability ",
+      "Deadline: " + deadline + ". Description: " + descricao, {
         timeOut: 2000,
         extendedTimeOut: 1000,
         preventDuplicates:true
@@ -42,7 +43,6 @@ class Toast extends Component {
       <ToastContainer ref="container"
       toastMessageFactory={ToastMessageFactory}
       className="toast-bottom-left" />
-      <button onClick={this.addAlert.bind(this)}>NÃO MEXAS NESTE BOTAO GUIGAS</button>
       </div>
 
     );
