@@ -14,7 +14,6 @@ import subprocess
 global current_path
 current_path= []
 
-
 app = Flask(__name__)
 app.secret_key = 'xxxxyyyyyzzzzz'
 login_manager = LoginManager()
@@ -47,11 +46,13 @@ def valid_login(username, password):
     path = '/session?login={user}&password={p}'.format(user=username, p=password)
     response = requests.post(request_url+path)
     global private_token
+    global image_url
 
     if "private_token" in response.json():
         print(response.content)
         print("token = "+response.json()['private_token'])
         private_token = response.json()['private_token']
+        image_url = response.json()['avatar_url']
         return True
     return False
 
@@ -64,6 +65,8 @@ def login_page():
         if valid_login(request.json['username'], request.json['password']) == True:
             session['logged_in'] = True
             response['logged'] = 'true'
+            response['image_url'] = image_url
+            print response['image_url']
     print json.dumps(response)
     return json.dumps(response)
 
@@ -179,6 +182,17 @@ def list_project_files():
     response = make_get_request(path, '8fH8Vs4WNpYhVUBPzq5g')
 
     return response.content
+
+
+@app.route('/projects/branches')
+def get_project_branches():
+    project_id = get_project_id(0)
+    path = '/projects/{project_id}/repository/branches'.format(project_id=project_id)
+    response = make_get_request(path, '8fH8Vs4WNpYhVUBPzq5g')
+    print response.content
+    return response.content
+
+
 
 
 # Precisa do id do ficheiro para mostrar o conteúdo
@@ -319,24 +333,7 @@ def check_week(day, month):
     elif(day >= 5 and day <= 11  and month == 12): 
         return 13
 
-
-#Function for the thread
-# def commits_daily_update(private_token, index):
-    # list_project_contributors()
-    # time.sleep(86400)
-    # commits_daily_update(private_token, index)
-
-
-
-
 if __name__ == '__main__':
-    # try:
-       # thread.start_new_thread(commits_daily_update, ('8fH8Vs4WNpYhVUBPzq5g', 0)) 
-    # except:
-        # print "Error: unable to start thread"
-    #app.run(threaded=True, debug=True)
     http_server = WSGIServer(('', 5000), app)
     http_server.serve_forever()
 
-# while 1:
-    # pass
