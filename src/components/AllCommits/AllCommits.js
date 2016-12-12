@@ -7,6 +7,7 @@ import Name from '../UserName';
 import Email from '../ProjectName';
 import Additionsn from '../Navigation';
 import Deletions from '../Link';
+import cookie from 'react-cookie';
 
 var Loading = require('react-loading');
 
@@ -23,7 +24,8 @@ class AllCommits extends Component {
 
   componentWillMount = () => {
     axios.post('http://localhost:5000/projects/commits',{
-      private_token : '8fH8Vs4WNpYhVUBPzq5g',
+      projectID: cookie.load('projectID'),
+      token: cookie.load('token'),
       page: page,
       index : 0
     })
@@ -41,7 +43,8 @@ class AllCommits extends Component {
       page--;
     }
     axios.post('http://localhost:5000/projects/commits',{
-      private_token : '8fH8Vs4WNpYhVUBPzq5g',
+      token : cookie.load('token'),
+      projectID: cookie.load('projectID'),
       page: page,
       index : 0
     })
@@ -58,8 +61,9 @@ class AllCommits extends Component {
   handleClick = () => {
     page++;
     axios.post('http://localhost:5000/projects/commits',{
-      private_token : '8fH8Vs4WNpYhVUBPzq5g',
+      token : cookie.load('token'),
       page: page,
+      projectID: cookie.load('projectID'),
       index : 0
     })
       .then(function (response) {

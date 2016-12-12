@@ -13,6 +13,7 @@ class Login extends Component {
     this.state = {
       user: '',
       password: '',
+      token: '',
       logged: 'false'
     };
   }
@@ -38,6 +39,9 @@ class Login extends Component {
     .then(function(response){
       if(response.data.logged == "true"){
         this.setState({logged: 'true'});
+        this.setState({token: response.data.token});
+        cookie.save('token', this.state.token, { path: '/' });
+        console.log(cookie.load('user'))
         cookie.save('user', this.state.user, { path: '/' });
       } else {
         this.setState({logged: 'wrong'});
@@ -62,7 +66,7 @@ class Login extends Component {
     if(this.state.logged == "false"){
     return (
       <div>
-      {form}
+        {form}
       </div>
     )
     }else if(this.state.logged == "wrong"){
@@ -73,7 +77,7 @@ class Login extends Component {
         </div>
       )
     }else{
-      return(<div><ReactRedirect location='http://localhost:3001/project'></ReactRedirect></div>)
+      return(<div><ReactRedirect location='http://localhost:3001/initialPage'></ReactRedirect></div>)
     }
   }
 }

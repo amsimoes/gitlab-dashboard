@@ -3,6 +3,7 @@ import * as axios from 'axios';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './ListProjectFiles.css';
 import cx from 'classnames';
+import cookie from 'react-cookie';
 
 class ListProjectFiles extends Component {
 
@@ -15,7 +16,11 @@ class ListProjectFiles extends Component {
   }
 
   componentWillMount = () => {
-    axios.get('http://localhost:5000/projects/folders')
+    axios.post('http://localhost:5000/projects/folders',{
+      projectID: cookie.load('projectID'),
+      check: 0,
+      token: cookie.load('token')
+    })
       .then(function(response){
         this.setState({files: response.data});
         this.setState({depth: 0});
@@ -28,13 +33,15 @@ class ListProjectFiles extends Component {
 
   handleClick = (key, value, e) => {
     axios.post('http://localhost:5000/projects/folders', {
-      folder: key
+      folder: key,
+      projectID: cookie.load('projectID'),
+      check: 1,
+      token: cookie.load('token')
     })
     .then(function(response){
       this.setState({files: response.data});
       let nextDepth = this.state.depth + 1;
       this.setState({depth: nextDepth});
-      console.log(this.state.depth);
     }.bind(this))
     .catch(function(error){
       console.log(error);
@@ -43,7 +50,10 @@ class ListProjectFiles extends Component {
 
   backHandleClick = () =>{
     axios.post('http://localhost:5000/projects/folders',{
-      folder: ''
+      folder: '',
+      projectID: cookie.load('projectID'),
+      check: 1,
+      token: cookie.load('token')
     })
     .then(function(response){
       this.setState({files: response.data});

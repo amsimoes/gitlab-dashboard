@@ -52,18 +52,21 @@ def valid_login(username, password):
         print(response.content)
         print("token = "+response.json()['private_token'])
         private_token = response.json()['private_token']
-        return True
+        return private_token
     return False
 
 @app.route('/login', methods=['GET', 'POST'])
 def login_page():
-    response = {'logged': 'false'}
+    response = {'logged': 'false',
+                'token': ''}
     if 'logged_in' in session:
         return "you're already logged in"
     if request.method == 'POST':
-        if valid_login(request.json['username'], request.json['password']) == True:
+        if valid_login(request.json['username'], request.json['password']) :
+            token = valid_login(request.json['username'], request.json['password'])
             session['logged_in'] = True
             response['logged'] = 'true'
+            response['token'] = str(token)
     print json.dumps(response)
     return json.dumps(response)
 
@@ -89,10 +92,14 @@ def make_get_request(path, private_token):
 
 
 # id = 737
-def get_project_id(index):
+@app.route('/get_project', methods=['GET', 'POST'])
+def get_project_id():
     path = '/projects'
-    return (make_get_request(path, '8fH8Vs4WNpYhVUBPzq5g')).json()[index]['id']
-
+    if request.method == 'POST':
+        index = request.json['index']
+        token = request.json['token']
+    project_id = (make_get_request(path,token)).json()[int(index)]['id']
+    return json.dumps(project_id)
 
 # TODO: Extrair stats de cada file de um commit com mais q 1 ficheiro
 def get_commit_stats(project_id, commit_id):
@@ -163,13 +170,23 @@ def repo_files():
     return response.content
 
 
-@app.route('/projects')
+@app.route('/projects', methods=['GET', 'POST'])
 def list_projects():
     path = '/projects'
-    response = make_get_request(path, '8fH8Vs4WNpYhVUBPzq5g')
+    if request.method == 'POST':
+        token = request.json['token'] 
+    response = make_get_request(path, str(token))
+    return response.content
 
+@app.route('/project_name', methods=['GET', 'POST'])
+def get_project_name():
+    path = '/projects'
+    if request.method == 'POST':
+        token = request.json['token'] 
+        index = request.json['index']
+    response = make_get_request(path, str(token))
+    return response.json()[int(index)]['name']
 
-    return response.json()[0]['name']
 
 
 @app.route('/projects/files')
@@ -200,36 +217,41 @@ def get_file_content():
 
 @app.route('/projects/folders', methods=["GET", "POST"])
 def list_folder_files():
-    project_id = get_project_id(0)
     files = {}
     s = ''
     if request.method == "POST":
-        path=request.json['folder']
-        if(path != ''):
-            current_path.append(str(path) + "/")
-            for file in current_path:
-                s += str(file)
-            path = '/projects/{project_id}/repository/tree?path={s}'.format(project_id=project_id, s=s)
-        else:
-            current_path.pop()
-            for file in current_path:
-                s += str(file)
-            path = '/projects/{project_id}/repository/tree?path={s}'.format(project_id=project_id,path=path, s=s)
-        response = make_get_request(path, '8fH8Vs4WNpYhVUBPzq5g')
-    elif request.method == "GET":
-        path = '/projects/{project_id}/repository/tree'.format(project_id=project_id)
-        response = make_get_request(path, '8fH8Vs4WNpYhVUBPzq5g')
+        checker = request.json['check']
+        project_id = request.json['projectID'] 
+        token = request.json['token']
+        print token
+        if(checker == 1):
+            path=request.json['folder']
+            if(path != ''):
+                current_path.append(str(path) + "/")
+                for file in current_path:
+                    s += str(file)
+                path = '/projects/{project_id}/repository/tree?path={s}'.format(project_id=int(project_id), s=s)
+            else:
+                current_path.pop()
+                for file in current_path:
+                    s += str(file)
+                path = '/projects/{project_id}/repository/tree?path={s}'.format(project_id=int(project_id),path=path, s=s)
+            response = make_get_request(path, str(token))
+        elif(checker == 0):
+            path = '/projects/{project_id}/repository/tree'.format(project_id=project_id)
+            response = make_get_request(path, str(token))
     for file in response.json():
         files.update({file['name']:file['type']})
 
     return json.dumps(files)
 
 
-@app.route('/projects/members')
+@app.route('/projects/members', methods=["GET", "POST"])
 def list_project_members():
-    project_id = get_project_id(0)
-    path = '/projects/{project_id}/members'.format(project_id=project_id)
-    response = make_get_request(path, '8fH8Vs4WNpYhVUBPzq5g')
+    project_id = request.json['projectID'] 
+    token = request.json['token']
+    path = '/projects/{project_id}/members'.format(project_id=int(project_id))
+    response = make_get_request(path, str(token))
 
     contributors = []
     for contributor in response.json():
@@ -241,13 +263,13 @@ def list_project_members():
 @app.route('/projects/commits', methods=["GET", "POST"])
 def list_commits():
     index = request.json['index']
-    project_id = get_project_id(index)
-    private_token = request.json['private_token']
+    project_id = request.json['projectID'] 
+    private_token = request.json['token']
     page = request.json['page']
-    path = '/projects/{project_id}/repository/commits'.format(project_id = project_id)
+    path = '/projects/{project_id}/repository/commits'.format(project_id = int(project_id))
 
     request_url = 'https://git.dei.uc.pt/api/v3'
-    response = requests.get(request_url + path + '?private_token={private_token}&page={page}'.format(private_token=private_token, page=page))
+    response = requests.get(request_url + path + '?private_token={private_token}&page={page}'.format(private_token=str(private_token), page=int(page)))
 
     return response.content
 
@@ -273,12 +295,12 @@ def list_project_contributors():    # and their stats (additions, deletions)
 @app.route('/projects/weekly_contributions', methods=["GET", "POST"])
 def get_weekly_contributions():
     index = request.json['index']
-    project_id = get_project_id(index)
-    path = '/projects/{project_id}/repository/commits?per_page=100'.format(project_id = project_id)
-    private_token = request.json['private_token']
-    response = make_get_request(path, private_token)
+    project_id = request.json['projectID'] 
+    path = '/projects/{project_id}/repository/commits?per_page=100'.format(project_id = int(project_id))
+    private_token = request.json['token']
+    response = make_get_request(path, str(private_token))
     commits_per_week = [] 
-    for i in range(13):
+    for i in range(14):
         commits_per_week.append(0);
     for commit in response.json():
         day = commit['created_at'][8] + commit['created_at'][9]
@@ -318,7 +340,8 @@ def check_week(day, month):
         return 12
     elif(day >= 5 and day <= 11  and month == 12): 
         return 13
-
+    else:
+        return 14
 
 #Function for the thread
 # def commits_daily_update(private_token, index):

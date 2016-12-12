@@ -3,6 +3,7 @@ import * as axios from 'axios';
 import s from './CommitsGraph.css';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
+import cookie from 'react-cookie';
 
 
 var Loading = require('react-loading');
@@ -16,7 +17,7 @@ class CommitsGraph extends Component {
       check: false,
     };
     this.chartData = {
-      labels: ["W1", "W2", "W3", "W4", "W5", "W6", "W7", "W8", "W9", "W10", "W11", "W12", "W13"],
+      labels: ["W1", "W2", "W3", "W4", "W5", "W6", "W7", "W8", "W9", "W10", "W11", "W12", "W13", "W14"],
       datasets: [{
         label: "My First dataset",
         fillColor: "rgba(150,220,220,0.2)",
@@ -41,7 +42,8 @@ class CommitsGraph extends Component {
 
   componentWillMount = () => {
     axios.post('http://localhost:5000/projects/weekly_contributions', {
-      private_token: "8fH8Vs4WNpYhVUBPzq5g",
+      token: cookie.load('token'),
+      projectID: cookie.load('projectID'),
       index: 0
     }) 
       .then(function (response) {
