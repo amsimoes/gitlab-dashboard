@@ -14,7 +14,6 @@ import subprocess
 global current_path
 current_path= []
 
-
 app = Flask(__name__)
 app.secret_key = 'xxxxyyyyyzzzzz'
 login_manager = LoginManager()
@@ -24,6 +23,7 @@ login_manager.login_view = 'login'
 socketio = SocketIO(app)
 
 private_token = '8fH8Vs4WNpYhVUBPzq5g'
+risks = []
 
 @socketio.on('disconnect')
 def disconnect_user():
@@ -47,18 +47,20 @@ def valid_login(username, password):
     path = '/session?login={user}&password={p}'.format(user=username, p=password)
     response = requests.post(request_url+path)
     global private_token
+    global image_url
 
     if "private_token" in response.json():
         print(response.content)
         print("token = "+response.json()['private_token'])
         private_token = response.json()['private_token']
+        image_url = response.json()['avatar_url']
         return private_token
     return False
 
 @app.route('/login', methods=['GET', 'POST'])
 def login_page():
     response = {'logged': 'false',
-                'token': ''}
+                'token': '', 'image_url': ''}
     if 'logged_in' in session:
         return "you're already logged in"
     if request.method == 'POST':
@@ -67,7 +69,7 @@ def login_page():
             session['logged_in'] = True
             response['logged'] = 'true'
             response['token'] = str(token)
-    print json.dumps(response)
+            response['image_url'] = image_url
     return json.dumps(response)
 
 @app.route('/logged')
@@ -198,6 +200,17 @@ def list_project_files():
     return response.content
 
 
+@app.route('/projects/branches')
+def get_project_branches():
+    project_id = get_project_id(0)
+    path = '/projects/{project_id}/repository/branches'.format(project_id=project_id)
+    response = make_get_request(path, '8fH8Vs4WNpYhVUBPzq5g')
+    print response.content
+    return response.content
+
+
+
+
 # Precisa do id do ficheiro para mostrar o conteúdo
 @app.route('/projects/files/content')
 def get_file_content():
@@ -310,6 +323,18 @@ def get_weekly_contributions():
 
     return json.dumps(commits_per_week)
 
+@app.route('/create_risk', methods=["GET", "POST"])
+def create_risk():
+    if request.method == 'POST':
+        risks.append(request.get_json())
+        return "Success"
+    else:
+        if risks:
+            print risks[0]
+            return json.dumps(risks.pop(0)) 
+        else:
+            return "False"
+
 def check_week(day, month):
     day = int(day)
     month = int(month)
@@ -343,23 +368,7 @@ def check_week(day, month):
     else:
         return 14
 
-#Function for the thread
-# def commits_daily_update(private_token, index):
-    # list_project_contributors()
-    # time.sleep(86400)
-    # commits_daily_update(private_token, index)
-
-
-
-
 if __name__ == '__main__':
-    # try:
-       # thread.start_new_thread(commits_daily_update, ('8fH8Vs4WNpYhVUBPzq5g', 0)) 
-    # except:
-        # print "Error: unable to start thread"
-    #app.run(threaded=True, debug=True)
     http_server = WSGIServer(('', 5000), app)
     http_server.serve_forever()
 
-# while 1:
-    # pass

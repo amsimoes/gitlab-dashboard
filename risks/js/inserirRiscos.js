@@ -178,7 +178,22 @@ function guardar(ev) {
 		arrayRiscos.push(deadlineValor);
 		arrayRiscos.push(impactoValor);
 		arrayRiscos.push(probabilidadeValor);
-		
+
+    // POST HTTP PARA localhost:5000 
+
+    $.ajax({
+      type: "POST",
+      contentType: "application/json; charset=utf-8",
+      url: "http://localhost:5000/create_risk",
+      data: JSON.stringify({descricao: descricaoValor, deadline: deadlineValor, impacto: impactoValor, probabilidade: probabilidadeValor}),
+      success: function (data) {
+        console.log(data.title);
+        console.log(data.article);
+
+      },
+      dataType: "json"
+    });
+
 		localStorage.setItem("riscos", JSON.stringify(arrayRiscos));
 
 		document.getElementById("inserir").style.display = "none";

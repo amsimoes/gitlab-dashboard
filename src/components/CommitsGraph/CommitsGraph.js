@@ -45,7 +45,7 @@ class CommitsGraph extends Component {
       token: cookie.load('token'),
       projectID: cookie.load('projectID'),
       index: 0
-    }) 
+    })
       .then(function (response) {
         this.chartData.datasets[0].data = response.data;
         this.setState({check: true});

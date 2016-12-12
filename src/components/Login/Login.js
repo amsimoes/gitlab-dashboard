@@ -5,7 +5,7 @@ import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 import ReactRedirect from 'react-redirect';
 import cookie from 'react-cookie';
-
+import Toast from '../Toast';
 
 class Login extends Component {
   constructor(props) {
@@ -14,6 +14,7 @@ class Login extends Component {
       user: '',
       password: '',
       token: '',
+      avatar: '',
       logged: 'false'
     };
   }
@@ -41,8 +42,9 @@ class Login extends Component {
         this.setState({logged: 'true'});
         this.setState({token: response.data.token});
         cookie.save('token', this.state.token, { path: '/' });
-        console.log(cookie.load('user'))
+        this.setState({avatar: response.data.image_url});
         cookie.save('user', this.state.user, { path: '/' });
+        cookie.save('avatar', this.state.avatar, { path: '/' })
       } else {
         this.setState({logged: 'wrong'});
       }

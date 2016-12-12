@@ -1,12 +1,17 @@
 @import '../variables.css';
-
-
 .line_text {
   font-size: 1em;
   font-weight: 200;
   color: #57576d;
+  float: left;
 }
 
 .line_text_p {
   margin-bottom: 0;
+}
+
+.imagem img {
+  width: 10%;
+  float: right;
+  border-radius: 10px;
 }

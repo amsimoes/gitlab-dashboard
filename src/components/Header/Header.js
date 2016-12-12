@@ -8,16 +8,18 @@ import DateTime from '../DateTime';
 import Navigation from '../Navigation';
 import Link from '../Link';
 import Logout from '../Logout';
+import Toast from '../Toast';
 
 function Header() {
   return (
     <div className={cx(s.flex, s.justify_center)}>
-      <div className={s.container}>
-        <Logout />
-        <ProjectName />
+      <div className={s.style}>
+        <div className={s.log}><Logout /></div>
         <UserName />
         <DateTime />
+        <div className={s.container}><ProjectName /></div>
         <Navigation />
+        <Toast />
       </div>
     </div>
   );
