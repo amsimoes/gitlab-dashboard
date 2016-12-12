@@ -28,6 +28,10 @@
 
 }
 
+p {
+  margin: 0;
+}
+
 .brand {
   color: color(var(--brand-color) lightness(+10%));
   text-decoration: none;
@@ -76,6 +80,18 @@
 
 .flex { display: flex; }
 .justify_center     { justify-content: center; }
+
+.log {
+  float: right;
+}
+
+.lines {
+  float: left;
+}
+
+.style {
+  font-family: 'Raleway', sans-serif;
+}
 
 @media (min-width : 768px) {
 }

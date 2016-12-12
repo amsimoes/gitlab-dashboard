@@ -74,7 +74,7 @@ def login_page():
 @app.route('/logged')
 @login_required
 def logged():
-    return "acabaste de logar!" 
+    return "acabaste de logar!"
 
 @app.route('/logout')
 @login_required
@@ -281,7 +281,7 @@ def list_project_contributors():    # and their stats (additions, deletions)
     #else:
     #    with open('data.txt', 'w') as outfile:
     #        json.dump(response.content, outfile)
-    response = subprocess.Popen(["sh", "contributors.sh"], stdout=subprocess.PIPE).communicate()[0] 
+    response = subprocess.Popen(["sh", "contributors.sh"], stdout=subprocess.PIPE).communicate()[0]
     print response
     return json.dumps(response)
 
@@ -292,12 +292,12 @@ def get_weekly_contributions():
     path = '/projects/{project_id}/repository/commits?per_page=100'.format(project_id = project_id)
     private_token = request.json['private_token']
     response = make_get_request(path, private_token)
-    commits_per_week = [] 
-    for i in range(13):
+    commits_per_week = []
+    for i in range(14):
         commits_per_week.append(0);
     for commit in response.json():
         day = commit['created_at'][8] + commit['created_at'][9]
-        month = commit['created_at'][5] + commit['created_at'][6] 
+        month = commit['created_at'][5] + commit['created_at'][6]
         week = check_week(day, month)
         commits_per_week[week-1] += 1
 
@@ -316,33 +316,34 @@ def check_week(day, month):
     month = int(month)
 
     if(day >= 12 and day <= 18 and month == 9):
-        return 1 
+        return 1
     elif(day >= 19 and day <= 25 and month == 9):
         return 2
-    elif((day >= 26 and day <= 30 and month == 9) or (day >= 1 and day <= 2 and month == 10)): 
+    elif((day >= 26 and day <= 30 and month == 9) or (day >= 1 and day <= 2 and month == 10)):
         return 3
-    elif(day >= 3 and day <= 9 and month == 10): 
+    elif(day >= 3 and day <= 9 and month == 10):
         return 4
-    elif(day >= 10 and day <= 16 and month == 10): 
+    elif(day >= 10 and day <= 16 and month == 10):
         return 5
-    elif(day >= 17 and day <= 23 and month == 10): 
+    elif(day >= 17 and day <= 23 and month == 10):
         return 6
-    elif(day >= 24 and day <= 30 and month == 10): 
+    elif(day >= 24 and day <= 30 and month == 10):
         return 7
-    elif((day >= 31 and month == 10) or (day >= 1 and day <= 6 and month == 11)): 
+    elif((day >= 31 and month == 10) or (day >= 1 and day <= 6 and month == 11)):
         return 8
-    elif(day >= 7 and day <= 13 and month == 11): 
+    elif(day >= 7 and day <= 13 and month == 11):
         return 9
-    elif(day >= 14 and day <= 20 and month == 11): 
+    elif(day >= 14 and day <= 20 and month == 11):
         return 10
-    elif(day >= 21 and day <= 27 and month == 11): 
+    elif(day >= 21 and day <= 27 and month == 11):
         return 11
-    elif((day >= 28 and day <= 30 and month == 11) or (day >= 1 and day <= 4 and month == 12)): 
+    elif((day >= 28 and day <= 30 and month == 11) or (day >= 1 and day <= 4 and month == 12)):
         return 12
-    elif(day >= 5 and day <= 11  and month == 12): 
+    elif(day >= 5 and day <= 11  and month == 12):
         return 13
+    else:
+        return 14
 
 if __name__ == '__main__':
     http_server = WSGIServer(('', 5000), app)
     http_server.serve_forever()
-

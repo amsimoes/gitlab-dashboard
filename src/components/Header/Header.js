@@ -12,11 +12,11 @@ import Logout from '../Logout';
 function Header() {
   return (
     <div className={cx(s.flex, s.justify_center)}>
-      <div className={s.container}>
+      <div className={s.style}>
+        <div className={s.log}><Logout /></div>
         <UserName />
         <DateTime />
-        <Logout />
-        <ProjectName />
+        <div className={s.container}><ProjectName /></div>
         <Navigation />
       </div>
     </div>
