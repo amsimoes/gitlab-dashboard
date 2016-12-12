@@ -3,6 +3,7 @@ import * as axios from 'axios';
 import s from './CommitsGraph.css';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
+import cookie from 'react-cookie';
 
 
 var Loading = require('react-loading');
@@ -41,7 +42,8 @@ class CommitsGraph extends Component {
 
   componentWillMount = () => {
     axios.post('http://localhost:5000/projects/weekly_contributions', {
-      private_token: "8fH8Vs4WNpYhVUBPzq5g",
+      token: cookie.load('token'),
+      projectID: cookie.load('projectID'),
       index: 0
     })
       .then(function (response) {

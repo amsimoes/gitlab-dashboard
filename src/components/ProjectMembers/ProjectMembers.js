@@ -3,6 +3,7 @@ import * as axios from 'axios';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './ProjectMembers.css';
 import cx from 'classnames';
+import cookie from 'react-cookie';
 
 class ProjectMembers extends Component {
 
@@ -14,7 +15,10 @@ class ProjectMembers extends Component {
   }
 
   componentWillMount = () => {
-    axios.get('http://localhost:5000/projects/members')
+    axios.post('http://localhost:5000/projects/members',{
+      projectID: cookie.load('projectID'),
+      token: cookie.load('token')
+    })
       .then(function (response) {
         this.setState({contributors: response.data});
       }.bind(this))

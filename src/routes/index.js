@@ -15,6 +15,7 @@ import App from '../components/App';
 
 // Child routes
 import home from './home';
+import initialPage from './initialPage';
 import notFound from './notFound';
 import project from './project';
 import artifacts from './artifacts';
@@ -23,13 +24,14 @@ import processes from './processes';
 import people from './people';
 import rup from './rup';
 import risk from './risk';
-export default {
 
+export default {
   path: '/',
 
   // Keep in mind, routes are evaluated in order
   children: [
     require('./home').default,
+    require('./initialPage').default,
     require('./project').default,
     require('./artifacts').default,
     require('./work').default,

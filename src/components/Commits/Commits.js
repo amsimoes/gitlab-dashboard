@@ -7,6 +7,7 @@ import Name from '../UserName';
 import Email from '../ProjectName';
 import Additionsn from '../Navigation';
 import Deletions from '../Link';
+import cookie from 'react-cookie';
 
 var Loading = require('react-loading');
 var BarChart = require("react-chartjs").Bar;
@@ -60,7 +61,8 @@ class Commits extends Component {
 
   componentWillMount = () => {
     axios.post('http://localhost:5000/projects/contributors', {
-      private_token: "8fH8Vs4WNpYhVUBPzq5g",
+      token: cookie.load('token'),
+      projectID: cookie.load('projectID'),
       index: 0
     })
       .then(function (response) {
