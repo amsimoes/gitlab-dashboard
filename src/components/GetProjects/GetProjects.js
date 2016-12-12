@@ -20,6 +20,8 @@ class GetProjects extends Component {
   }
 
   componentWillMount = () => {
+    cookie.remove('projectID', { path: '/'  });
+    cookie.remove('index', { path: '/'  });
     axios.post('http://localhost:5000/projects', {
       token: cookie.load('token')
     }).then(function (response) {

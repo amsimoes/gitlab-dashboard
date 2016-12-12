@@ -94,6 +94,7 @@ class AllCommits extends Component {
                 </div>
             );
           }.bind(this))}
+          {"Actual page is: "+ (page + 1)}
           {backButton}
           <button type="submit" className={s.button} onClick={this.handleClick.bind(this)}>Next Page</button>
         </div>)
