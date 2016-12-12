@@ -14,7 +14,7 @@ function Header() {
     <div className={cx(s.flex, s.justify_center)}>
       <div className={s.style}>
         <div className={s.log}><Logout /></div>
-        <UserName />
+        <UserName /><br/>
         <DateTime />
         <div className={s.container}><ProjectName /></div>
         <Navigation />
