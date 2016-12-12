@@ -134,25 +134,45 @@ class Commits extends Component {
 
   render() {
     if(this.state.contributors){
+      this.chartData.datasets[0].data = [];
+      this.chartData.labels = [];
       return(
-        <div className={s.center_all}>
+        <div>
             <div className={s.graphic}><BarChart data={this.chartData} options={this.chartOptions} width="600" height="250"/></div>
-          <div className={cx(s.center, s.table)}>
-          {Object.keys(this.state.contributors).map(function(key) {
-            console.log(key);
-            this.chartData.datasets[0].data.push(this.state.contributors[key].commits);
-            this.chartData.labels.push(this.state.contributors[key].name);
-            return(
-              <div className={s.lines}>
-                <div className={cx(s.style, s.style_width)}>Name: {this.state.contributors[key].name}</div>
-                <div className={s.style_width}>Email: {this.state.contributors[key].email}</div>
-                <div className={s.style_width}>Commits: {this.state.contributors[key].commits}</div>
-                <div className={s.style_width}>Additions: {this.state.contributors[key].additions}</div>
-                <div className={s.style_width}>Deletions: {this.state.contributors[key].deletions}</div>
-              </div>
-          );
+<div className={cx(s.center,s.table)}>
+            <div className={s.column}>
+            {Object.keys(this.state.contributors).map(function(key, index) {
+              this.chartData.datasets[0].data.push(this.state.contributors[key].commits);
+              this.chartData.labels.push(this.state.contributors[key].name);
+              if(index % 2 == 0){
+                return(
+                  <div >
+                      <div className={cx(s.style, s.style_width)}>Name: {this.state.contributors[key].name}</div>
+                      <div className={s.style_width}>Email: {this.state.contributors[key].email}</div>
+                      <div className={s.style_width}>Commits: {this.state.contributors[key].commits}</div>
+                      <div className={s.style_width}>Additions: {this.state.contributors[key].additions}</div>
+                      <div className={s.style_width}>Deletions: {this.state.contributors[key].deletions}</div>
+                    </div>
+                  );
+            }
+          }.bind(this))}
+          </div>
+          <div className={s.column}>
+          {Object.keys(this.state.contributors).map(function(key, index) {
+            if(index % 2 == 1){
+              return(
+                <div >
+                    <div className={cx(s.style, s.style_width)}>Name: {this.state.contributors[key].name}</div>
+                    <div className={s.style_width}>Email: {this.state.contributors[key].email}</div>
+                    <div className={s.style_width}>Commits: {this.state.contributors[key].commits}</div>
+                    <div className={s.style_width}>Additions: {this.state.contributors[key].additions}</div>
+                    <div className={s.style_width}>Deletions: {this.state.contributors[key].deletions}</div>
+                  </div>
+                );
+          }
         }.bind(this))}
-            </div>
+        </div>
+        </div>
           </div>
       );
     } else {
