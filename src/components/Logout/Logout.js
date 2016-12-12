@@ -17,6 +17,10 @@ class Logout extends Component {
 
   logout = () => {
     cookie.remove('user', { path: '/'  });
+    cookie.remove('projectID', { path: '/'  });
+    cookie.remove('index', { path: '/'  });
+    cookie.remove('token', { path: '/'  });
+    cookie.remove('avatar', { path: '/'  });
     this.setState({logged: 'false'});
   }
 
