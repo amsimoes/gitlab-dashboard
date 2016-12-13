@@ -82,7 +82,7 @@ class AllCommits extends Component {
       backButton = (<button type="submit" className={s.button} onClick={this.handleBackClick.bind(this)}>Previous Page</button>)
     }
     if(this.state.commits){
-      let commits = (<div className={s.grid}>
+      let commits = (<div className={cx(s.grid, s.lines)}>
           {Object.keys(this.state.commits).map(function(key) {
             return(
               <div className={s.table}>
