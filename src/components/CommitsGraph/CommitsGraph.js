@@ -19,7 +19,7 @@ class CommitsGraph extends Component {
     this.chartData = {
       labels: ["W1", "W2", "W3", "W4", "W5", "W6", "W7", "W8", "W9", "W10", "W11", "W12", "W13", "W14"],
       datasets: [{
-        label: "My First dataset",
+        label: "Commits per week",
         fillColor: "rgba(150,220,220,0.2)",
         strokeColor: "rgba(220,220,220,1)",
         pointColor: "rgba(220,220,220,1)",
@@ -58,7 +58,14 @@ class CommitsGraph extends Component {
 
   render() {
     if(this.state.check){
-      return(<div className={s.graphic}><LineChart data={this.chartData} options={this.chartOptions} width="600" height="250" /></div>);
+      return(
+        <div>
+        <div className={s.graphic}>
+          <LineChart data={this.chartData} options={this.chartOptions} width="600" height="250" />
+          </div>
+          <p className={s.graphic_name}>Commits per week</p>
+        </div>
+      );
     } else {
       return (
         <div className={s.loading_style}><Loading type='bubbles' color='#e3e3e3' /></div>

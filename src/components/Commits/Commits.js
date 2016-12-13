@@ -25,14 +25,9 @@ class Commits extends Component {
         {
           label: "My First dataset",
           backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(255, 206, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(153, 102, 255, 0.2)',
-            'rgba(255, 159, 64, 0.2)'
-
+            'rgba(150, 220, 220, 0.2)'
           ],
+          fillColor: ['rgba(150, 220, 220, 0.2)'],
           borderColor: [
             'rgba(255,99,132,1)',
             'rgba(54, 162, 235, 1)',
@@ -49,11 +44,10 @@ class Commits extends Component {
     };
     this.chartOptions = {
       scales: {
-        xAxes: [{
-          stacked: true
-        }],
         yAxes: [{
-          stacked: true
+          ticks: {
+            beginAtZero:true
+          }
         }]
       }
     };
@@ -102,7 +96,8 @@ class Commits extends Component {
       this.chartData.labels = [];
       return(
         <div>
-            <div className={s.graphic}><BarChart data={this.chartData} options={this.chartOptions} width="600" height="250"/></div>
+            <div className={s.graphic}><BarChart data={this.chartData} options={this.chartOptions} width="600" height="500"/></div>
+            <p className={s.graphic_name}>Commits per Team Member</p>
 <div className={cx(s.center,s.table)}>
             <div className={s.column}>
             {Object.keys(this.state.contributors).map(function(key, index) {

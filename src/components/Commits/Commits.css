@@ -41,6 +41,12 @@
   margin-top: 3%;
 }
 
+.graphic_name {
+  display: flex;
+  justify-content: center;
+  margin-top: 3%;
+}
+
 .center {
   display: flex;
   justify-content: center;
