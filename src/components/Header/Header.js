@@ -17,7 +17,9 @@ function Header() {
         <div className={s.log}><UserName /><Logout /></div>
         <br/>
         <div className={s.margin}><DateTime /></div>
+        <a href="http://localhost:3001/initialPage">
         <img src="http://i.imgur.com/qA0mNgf.png"/>
+        </a>
         <div className={s.container}><ProjectName /></div>
         <Navigation />
         <Toast />

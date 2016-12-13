@@ -35,7 +35,7 @@ class ProjectName extends Component {
     if(this.state.projectName){
       return(
         <div>
-          <Link className={s.main_title} to='/initialPage'>{this.state.projectName}</Link>
+          <Link className={s.main_title} to='/project'>{this.state.projectName}</Link>
         </div>
       );
     } else {
