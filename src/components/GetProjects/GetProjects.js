@@ -62,17 +62,16 @@ class GetProjects extends Component {
         }.bind(this))}
         </div>);
       } else {
-
-
       return(<div><ReactRedirect location='http://localhost:3001/project'></ReactRedirect></div>)
-
       }
     }
     else {
       return(
-        <div className={s.loading_style}>
+        <div>
         <img src="http://i.imgur.com/qA0mNgf.png"/>
+        <div className={s.loading_style}>
         <Loading type='bubbles' color='#e3e3e3' />
+        </div>
         </div>
       );
     }
