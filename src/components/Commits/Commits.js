@@ -148,7 +148,7 @@ class Commits extends Component {
               this.chartData.labels.push(this.state.contributors[key].name);
               if(index % 2 == 0){
                 return(
-                  <div >
+                  <div className={s.lines}>
                       <div className={cx(s.style, s.style_width)}>Name: {this.state.contributors[key].name}</div>
                       <div className={s.style_width}>Email: {this.state.contributors[key].email}</div>
                       <div className={s.style_width}>Commits: {this.state.contributors[key].commits}</div>
@@ -163,7 +163,7 @@ class Commits extends Component {
           {Object.keys(this.state.contributors).map(function(key, index) {
             if(index % 2 == 1){
               return(
-                <div >
+                <div className={s.lines}>
                     <div className={cx(s.style, s.style_width)}>Name: {this.state.contributors[key].name}</div>
                     <div className={s.style_width}>Email: {this.state.contributors[key].email}</div>
                     <div className={s.style_width}>Commits: {this.state.contributors[key].commits}</div>

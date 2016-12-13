@@ -19,7 +19,7 @@
 }
 
 .container {
-  margin-top: 10%;
+  margin-top: 3%;
   /*margin: 0 auto;*/
   /*padding: 20px 0;*/
   max-width: var(--max-content-width);
@@ -30,6 +30,13 @@
 
 p {
   margin: 0;
+}
+
+img {
+  display: flex;
+  margin-left: auto;
+  MARGIN-RIGHT: auto;
+  width: 14%;
 }
 
 .brand {
@@ -82,11 +89,16 @@ p {
 .justify_center     { justify-content: center; }
 
 .log {
-  float: right;
+  display: flex;
+  flex-direction: column;
 }
 
 .lines {
   float: left;
+}
+
+.margin {
+  margin-top: -9%;
 }
 
 .style {

@@ -44,7 +44,7 @@ class GetProjects extends Component {
     .catch(function(error){
       console.log(error);
     });
- 
+
   }
 
 
@@ -52,12 +52,12 @@ class GetProjects extends Component {
     if(this.state.projectList){
       if(this.state.checker == 0){
         return(
-        <div>
+        <div className={s.center}>
         <img src="http://i.imgur.com/qA0mNgf.png"/>
         {Object.keys(this.state.projectList).map(function(key) {
           let boundProjectClick = this.handleClick.bind(this, key, this.state.projectList[key].name);
           return(
-            <p onClick={boundProjectClick} className={s.file_list}>Name: {this.state.projectList[key].name}</p>
+            <p onClick={boundProjectClick} className={cx(s.link, s.highlight, s.list_text)}>Name: {this.state.projectList[key].name}</p>
           );
         }.bind(this))}
         </div>);

@@ -68,7 +68,7 @@ class Login extends Component {
     if(this.state.logged == "false"){
     return (
       <div>
-        <img src="http://i.imgur.com/qA0mNgf.png"/>
+        <img  className={s.logo} src="http://i.imgur.com/4Q5Btzy.png"/>
         {form}
       </div>
     )
@@ -76,7 +76,7 @@ class Login extends Component {
       return(
         <div>
           <div className={s.error_message}>Wrong username or password!</div>
-          <img src="http://i.imgur.com/qA0mNgf.png"/>
+          <img className={s.logo} src="http://i.imgur.com/4Q5Btzy.png"/>
           {form}
         </div>
       )

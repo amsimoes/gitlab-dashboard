@@ -42,16 +42,8 @@
   color: rgba(255, 255, 255, 0.3);
 }
 
-.exeption {
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-    width: 29%;
-    color: white;
-    border-radius: 3px;
-    background: rgba(0, 0, 0, 0.15);
-    height: 4vh;
-    font-size: 1.300em;
+.exception {
+  cursor: pointer;
 }
 
 @media (min-width : 768px) {

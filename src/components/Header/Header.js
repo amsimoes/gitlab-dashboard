@@ -14,9 +14,9 @@ function Header() {
   return (
     <div className={cx(s.flex, s.justify_center)}>
       <div className={s.style}>
-        <div className={s.log}><Logout /></div>
-        <UserName /><br/>
-        <DateTime />
+        <div className={s.log}><UserName /><Logout /></div>
+        <br/>
+        <div className={s.margin}><DateTime /></div>
         <img src="http://i.imgur.com/qA0mNgf.png"/>
         <div className={s.container}><ProjectName /></div>
         <Navigation />
