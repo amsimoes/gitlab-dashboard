@@ -78,9 +78,9 @@ class ListProjectFiles extends Component {
               {Object.keys(this.state.files).map(function(key) {
                 if(this.state.files[key] == "tree"){
                   let boundItemClick = this.handleClick.bind(this, key, this.state.files[key]);
-                  return <p onClick={boundItemClick} className={s.file_list}><i class="fa fa-file" aria-hidden="true">{key}</i></p>
+                  return(<p onClick={boundItemClick} className={s.file_list}><i className="fa fa-folder" aria-hidden="true"> {key}</i></p>)
                 }
-                return(<p className={s.file_list}><i class="fa fa-file-text-o" aria-hidden="true"></i> {key} </p>);
+                return(<p className={s.file_list}><i className="fa fa-file-text-o" aria-hidden="true"> {key}</i></p>);
               }.bind(this))}
           </h2>
         </div>

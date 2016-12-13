@@ -27,6 +27,12 @@ class Toast extends Component {
 
   addAlert = (descricao, deadline, impacto, probabilidade) => {
     console.log("LUL");
+    if(impacto == "Baixo") impacto = "Low";
+    if(impacto == "Médio") impacto = "Medium";
+    if(impacto == "Alto") impacto = "High";
+    if(probabilidade == "Média") probabilidade = "Medium";
+    if(probabilidade == "Baixa") probabilidade = "Low";
+    if(probabilidade == "Alta") probabilidade = "High";
     this.refs.container.error(
       "A new " + impacto + " risk was created! It has a " + probabilidade + " probability ",
       "Deadline: " + deadline + ". Description: " + descricao, {
