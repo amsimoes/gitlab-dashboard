@@ -289,29 +289,18 @@ def list_commits():
 
 @app.route('/projects/contributors', methods=["GET", "POST"])
 def list_project_contributors():    # and their stats (additions, deletions)
-    #index = request.json['index']
-    #private_token = request.json['private_token']
-    #private_token = '8fH8Vs4WNpYhVUBPzq5g'
-    #project_id = get_project_id(0)
-    #path = '/projects/{id}/repository/contributors'.format(id=project_id)
-    #response = make_get_request(path, private_token)
-    #print response.content
-    #if "<!DOCTYPE html>" in response.content:
-    #    print "Error getting gitlab info"
-    #else:
-    #    with open('data.txt', 'w') as outfile:
-    #        json.dump(response.content, outfile)
     response = subprocess.Popen(["sh", "contributors.sh"], stdout=subprocess.PIPE).communicate()[0] 
-    print response
     return json.dumps(response)
 
 @app.route('/projects/weekly_contributions', methods=["GET", "POST"])
 def get_weekly_contributions():
     index = request.json['index']
     project_id = request.json['projectID'] 
-    path = '/projects/{project_id}/repository/commits?per_page=100'.format(project_id = int(project_id))
+    path = '/projects/{project_id}/repository/commits?page=1&per_page=100'.format(project_id = int(project_id))
+    path2 = '/projects/{project_id}/repository/commits?per_page=100'.format(project_id = int(project_id))
     private_token = request.json['token']
     response = make_get_request(path, str(private_token))
+    response2 = make_get_request(path2, str(private_token))
     commits_per_week = [] 
     for i in range(14):
         commits_per_week.append(0);
@@ -320,6 +309,12 @@ def get_weekly_contributions():
         month = commit['created_at'][5] + commit['created_at'][6] 
         week = check_week(day, month)
         commits_per_week[week-1] += 1
+    if(response2):
+        for commit in response2.json():
+            day = commit['created_at'][8] + commit['created_at'][9]
+            month = commit['created_at'][5] + commit['created_at'][6] 
+            week = check_week(day, month)
+            commits_per_week[week-1] += 1
 
     return json.dumps(commits_per_week)
 

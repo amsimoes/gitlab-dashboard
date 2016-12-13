@@ -47,6 +47,7 @@ class CommitsGraph extends Component {
       index: 0
     })
       .then(function (response) {
+        console.log(response.data);
         this.chartData.datasets[0].data = response.data;
         this.setState({check: true});
       }.bind(this))
