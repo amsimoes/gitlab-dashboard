@@ -11,7 +11,7 @@ function Navigation({ className  }) {
     <Link className={cx(s.link, s.highlight, s.list_text)} to="/project">Project</Link>
     <Link className={cx(s.link, s.highlight, s.list_text)} to="/work">Work</Link>
     <Link className={cx(s.link, s.highlight, s.list_text)} to="/artifacts">Artifacts</Link>
-    <ProcessesOptions className={cx(s.link, s.highlight, s.list_text)}></ProcessesOptions>
+    <ProcessesOptions className={cx(s.link, s.highlight, s.list_text, s.exception)}></ProcessesOptions>
     <Link className={cx(s.link, s.highlight, s.list_text)} to="/people">People</Link>
     </div>
 

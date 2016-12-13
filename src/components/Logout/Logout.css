@@ -12,8 +12,9 @@
 
 .logout {
   background-color: transparent;
-  text-decoration: underline;
   color: #22313f;
-  border-color: transparent;
-  margin-bottom: 1%;
+  border-radius: 4px;
+  border-color: #bed7ef;
+  margin: 1% 0;
+  float: right;
 }
