@@ -57,7 +57,7 @@ class GetProjects extends Component {
         {Object.keys(this.state.projectList).map(function(key) {
           let boundProjectClick = this.handleClick.bind(this, key, this.state.projectList[key].name);
           return(
-            <p onClick={boundProjectClick} className={cx(s.link, s.highlight, s.list_text)}>Name: {this.state.projectList[key].name}</p>
+            <p onClick={boundProjectClick} className={cx(s.link, s.highlight, s.list_text)}>{this.state.projectList[key].name}</p>
           );
         }.bind(this))}
         </div>);
