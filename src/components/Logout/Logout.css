@@ -14,7 +14,8 @@
   background-color: transparent;
   color: #22313f;
   border-radius: 4px;
-  border-color: #bed7ef;
+  border-color: transparent;
   margin: 1% 0;
   float: right;
+  text-decoration: underline;
 }
