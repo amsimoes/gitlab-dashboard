@@ -60,7 +60,7 @@ class CommitsGraph extends Component {
     if(this.state.check){
       return(
         <div>
-          <p className={s.graphic_name}>Commits per week</p>
+          <p className={cx(s.graphic_name, s.lines)}>Commits per week</p>
         <div className={s.graphic}>
           <LineChart data={this.chartData} options={this.chartOptions} width="600" height="250" />
           </div>

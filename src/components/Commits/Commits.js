@@ -96,7 +96,7 @@ class Commits extends Component {
       this.chartData.labels = [];
       return(
         <div>
-            <p className={s.graphic_name}>Commits per Team Member</p>
+            <p className={cx(s.graphic_name, s.lines)}>Commits per Team Member</p>
             <div className={s.graphic}><BarChart data={this.chartData} options={this.chartOptions} width="600" height="500"/></div>
 <div className={cx(s.center,s.table)}>
             <div className={s.column}>

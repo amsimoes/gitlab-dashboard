@@ -40,14 +40,13 @@ class ProcessesOptions extends Component {
         </div>)
     }
     return(
-      <div className={cx(s.link, s.highlight, s.list_text)}>
+      <div className={cx(s.link, s.highlight, s.list_text, s.exception)}>
         <Dropdown options={options} onChange={this._onSelect} value={defaultOption} value='Processes'/>
         <b></b>
         {label}
        </div>
-     ) 
+     )
   }
 }
 
 export default withStyles(s)(ProcessesOptions);
-
