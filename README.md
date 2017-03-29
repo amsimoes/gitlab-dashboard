@@ -10,6 +10,7 @@ Backend: Flask (Python 2)
 
 This project was made for our SE subject.
 The main goal was to provide a git dashboard for any repository hosted in GitDEI, our department's gitlab setup.
+
 Wether it was a team project or a lone wolf dev, the dashboard will provide and report information regarding the team performance following the SCRUM Development Process.
 
 All teams attending the subject had some different designated use cases to implement, therefore some functionalities of this dashboard were ported from other teams code (not the majority of it).
