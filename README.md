@@ -1,4 +1,4 @@
-# Gitlab Dashboard
+# GitLab Dashboard
 
 This project was made for a very *special* client, our Software Engineer teacher.
 
@@ -24,7 +24,7 @@ First install the backend dependencies (python2 pip version):
 
 $ pip -r requirements.txt
 
-[BROKEN] Then the frontend:
+**[BROKEN]** Then the frontend:
 
 $ npm install
 
