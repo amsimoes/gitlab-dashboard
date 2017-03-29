@@ -22,20 +22,20 @@ Login is made using the GitDEI user credentials.
 
 First install the backend dependencies (python2 pip version):
 
-$ pip -r requirements.txt
+`$ pip -r requirements.txt`
 
 **[BROKEN]** Then the frontend:
 
-$ npm install
+`$ npm install`
 
 # Running
 
 Backend (will wait for React to start):
 
-$ python app.py
+`$ python app.py`
 
 Frontend:
 
-$ npm start
+`$ npm start`
 
 And all will be running at port 3001 of your host.
