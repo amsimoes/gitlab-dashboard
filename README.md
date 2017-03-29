@@ -2,7 +2,7 @@
 
 This project was made for a very *special* client, our Software Engineer teacher.
 
-Frontend: React / Redux
+Frontend: React
 
 Backend: Flask (Python 2)
 
