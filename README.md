@@ -22,7 +22,7 @@ Login is made using the GitDEI user credentials.
 
 First install the backend dependencies (python2 pip version):
 
-`$ pip -r requirements.txt`
+`$ pip install -r requirements.txt`
 
 **[BROKEN]** Then the frontend:
 
